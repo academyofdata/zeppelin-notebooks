@@ -1,1 +1,733 @@
-../zeppelin/znotebooks/2CCMZ99SN/note.json
+{
+  "paragraphs": [
+    {
+      "text": "%md\n### Always import com.datastax.spark.connector._ to have available some Datastax specific extensions",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:49:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eAlways import com.datastax.spark.connector._ to have available some Datastax specific extensions\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489344486957_642453096",
+      "id": "20170312-184806_726464828",
+      "dateCreated": "Mar 12, 2017 6:48:06 PM",
+      "dateStarted": "Mar 12, 2017 6:49:20 PM",
+      "dateFinished": "Mar 12, 2017 6:49:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import com.datastax.spark.connector._\n\nval movDF \u003d spark.read.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"movies\", \"keyspace\" -\u003e \"test\"))\n.load()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 4:42:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport com.datastax.spark.connector._\n\nmovDF: org.apache.spark.sql.DataFrame \u003d [movieid: int, year: int ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488834751495_-399317683",
+      "id": "20170306-211231_176554072",
+      "dateCreated": "Mar 6, 2017 9:12:31 PM",
+      "dateStarted": "Mar 8, 2017 4:42:53 PM",
+      "dateFinished": "Mar 8, 2017 4:42:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDF.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 4:42:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- movieid: integer (nullable \u003d true)\n |-- year: integer (nullable \u003d true)\n |-- genres: array (nullable \u003d true)\n |    |-- element: string (containsNull \u003d true)\n |-- title: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488834820940_1033346014",
+      "id": "20170306-211340_2075979845",
+      "dateCreated": "Mar 6, 2017 9:13:40 PM",
+      "dateStarted": "Mar 8, 2017 4:42:55 PM",
+      "dateFinished": "Mar 8, 2017 4:42:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val casDF \u003d sc.cassandraTable(\"test\", \"movies\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 4:42:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ncasDF: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datastax.spark.connector.CassandraRow] \u003d CassandraTableScanRDD[726] at RDD at CassandraRDD.scala:18\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835369732_916551438",
+      "id": "20170306-212249_261978657",
+      "dateCreated": "Mar 6, 2017 9:22:49 PM",
+      "dateStarted": "Mar 8, 2017 4:42:56 PM",
+      "dateFinished": "Mar 8, 2017 4:42:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Note that the type of casDF and movDF are different, furthermore they don\u0027t implement the same functions. casDF is actually a RDD not a DataFrame",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:49:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eNote that the type of casDF and movDF are different, furthermore they don\u0026rsquo;t implement the same functions. casDF is actually a RDD not a DataFrame\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489074557884_-1882319539",
+      "id": "20170309-154917_1838180899",
+      "dateCreated": "Mar 9, 2017 3:49:17 PM",
+      "dateStarted": "Mar 12, 2017 6:49:54 PM",
+      "dateFinished": "Mar 12, 2017 6:49:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "casDF.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 4:42:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\n\u003cconsole\u003e:48: error: value printSchema is not a member of com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datastax.spark.connector.CassandraRow]\n       casDF.printSchema()\n             ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488991359690_-317023177",
+      "id": "20170308-164239_2095667443",
+      "dateCreated": "Mar 8, 2017 4:42:39 PM",
+      "dateStarted": "Mar 8, 2017 4:42:58 PM",
+      "dateFinished": "Mar 8, 2017 4:42:58 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### ...but both types implement the functions found at DataFrame level that enable querying ",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 3:54:10 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003e\u0026hellip;but both types implement the functions found at DataFrame level that enable querying\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489074770336_-921126486",
+      "id": "20170309-155250_18361038",
+      "dateCreated": "Mar 9, 2017 3:52:50 PM",
+      "dateStarted": "Mar 9, 2017 3:54:10 PM",
+      "dateFinished": "Mar 9, 2017 3:54:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### one advantage of the CassandraTableScanRDD (besides the \u0027locality\u0027 of the queries) is the availability of some Cassandra functions - TTL and Writetime - accessed as properties of respective columns",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 3:55:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eone advantage of the CassandraTableScanRDD (besides the \u0026lsquo;locality\u0026rsquo; of the queries) is the availability of some Cassandra functions - TTL and Writetime - accessed as properties of respective columns\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489074855705_-136868665",
+      "id": "20170309-155415_1650104897",
+      "dateCreated": "Mar 9, 2017 3:54:15 PM",
+      "dateStarted": "Mar 9, 2017 3:55:51 PM",
+      "dateFinished": "Mar 9, 2017 3:55:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "casDF.select(\"movieid\",\"year\",\"title\".ttl,\"title\".writeTime).take(3).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:23:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "CassandraRow{movieid: 1982, year: 1978, ttl(title): null, writetime(title): 1488798963290342}\nCassandraRow{movieid: 3756, year: 2000, ttl(title): null, writetime(title): 1488798963290342}\nCassandraRow{movieid: 2919, year: 1982, ttl(title): null, writetime(title): 1488798963290342}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488834835006_-1842636690",
+      "id": "20170306-211355_95985187",
+      "dateCreated": "Mar 6, 2017 9:13:55 PM",
+      "dateStarted": "Mar 6, 2017 9:23:45 PM",
+      "dateFinished": "Mar 6, 2017 9:23:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDF.select(\"movieid\",\"year\").take(3).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:22:28 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[1982,1978]\n[3756,2000]\n[2919,1982]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488834895970_492327764",
+      "id": "20170306-211455_1039717156",
+      "dateCreated": "Mar 6, 2017 9:14:55 PM",
+      "dateStarted": "Mar 6, 2017 9:22:28 PM",
+      "dateFinished": "Mar 6, 2017 9:22:28 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### count() method requires all the rows to be fetched from Cassandra, which adds significant memory and network overhead. \n### Instead, cassandraCount() method can be used on any Cassandra based RDD to push down selection of count(*) and fetching the number of rows directly",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 3:52:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ecount() method requires all the rows to be fetched from Cassandra, which adds significant memory and network overhead.\u003c/h3\u003e\n\u003ch3\u003eInstead, cassandraCount() method can be used on any Cassandra based RDD to push down selection of count(*) and fetching the number of rows directly\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835793574_345245294",
+      "id": "20170306-212953_1695322216",
+      "dateCreated": "Mar 6, 2017 9:29:53 PM",
+      "dateStarted": "Mar 9, 2017 3:52:15 PM",
+      "dateFinished": "Mar 9, 2017 3:52:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "casDF.cassandraCount()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:30:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres136: Long \u003d 3883\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835845745_-2024979786",
+      "id": "20170306-213045_621601559",
+      "dateCreated": "Mar 6, 2017 9:30:45 PM",
+      "dateStarted": "Mar 6, 2017 9:30:58 PM",
+      "dateFinished": "Mar 6, 2017 9:30:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDF.count()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:31:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres137: Long \u003d 3883\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835865674_29625313",
+      "id": "20170306-213105_1539262943",
+      "dateCreated": "Mar 6, 2017 9:31:05 PM",
+      "dateStarted": "Mar 6, 2017 9:31:13 PM",
+      "dateFinished": "Mar 6, 2017 9:31:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Physically, Cassandra stores data already grouped by partition key and ordered by clustering column(s) within each partition. \n### As a single Cassandra partition never spans multiple Spark partitions, it is possible to very efficiently group data by partition key without shuffling data around.\n### Call spanBy or spanByKey methods instead of groupBy or groupByKey",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 3:52:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePhysically, Cassandra stores data already grouped by partition key and ordered by clustering column(s) within each partition.\u003c/h3\u003e\n\u003ch3\u003eAs a single Cassandra partition never spans multiple Spark partitions, it is possible to very efficiently group data by partition key without shuffling data around.\u003c/h3\u003e\n\u003ch3\u003eCall spanBy or spanByKey methods instead of groupBy or groupByKey\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835966145_591312735",
+      "id": "20170306-213246_1051863408",
+      "dateCreated": "Mar 6, 2017 9:32:46 PM",
+      "dateStarted": "Mar 9, 2017 3:52:32 PM",
+      "dateFinished": "Mar 9, 2017 3:52:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "casDF.spanBy(row \u003d\u003e (row.getInt(\"year\"), row.getInt(\"movieid\"))).take(4).foreach(println)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:27:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "((1978,1982),ArrayBuffer(CassandraRow{movieid: 1982, year: 1978, genres: {Horror}, title: Halloween (1978)}))\n((2000,3756),ArrayBuffer(CassandraRow{movieid: 3756, year: 2000, genres: {Drama}, title: Golden Bowl, The (2000)}))\n((1982,2919),ArrayBuffer(CassandraRow{movieid: 2919, year: 1982, genres: {Drama,Romance}, title: Year of Living Dangerously (1982)}))\n((1997,1630),ArrayBuffer(CassandraRow{movieid: 1630, year: 1997, genres: {Comedy,Drama}, title: Lay of the Land, The (1997)}))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835316630_1128102036",
+      "id": "20170306-212156_1363237172",
+      "dateCreated": "Mar 6, 2017 9:21:56 PM",
+      "dateStarted": "Mar 6, 2017 9:27:18 PM",
+      "dateFinished": "Mar 6, 2017 9:27:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "casDF.keyBy(row \u003d\u003e (row.getInt(\"year\"), row.getInt(\"movieid\"))).spanByKey.take(5).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 9:28:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "((1978,1982),ArrayBuffer(CassandraRow{movieid: 1982, year: 1978, genres: {Horror}, title: Halloween (1978)}))\n((2000,3756),ArrayBuffer(CassandraRow{movieid: 3756, year: 2000, genres: {Drama}, title: Golden Bowl, The (2000)}))\n((1982,2919),ArrayBuffer(CassandraRow{movieid: 2919, year: 1982, genres: {Drama,Romance}, title: Year of Living Dangerously (1982)}))\n((1997,1630),ArrayBuffer(CassandraRow{movieid: 1630, year: 1997, genres: {Comedy,Drama}, title: Lay of the Land, The (1997)}))\n((1995,42),ArrayBuffer(CassandraRow{movieid: 42, year: 1995, genres: {Action,Crime,Drama}, title: Dead Presidents (1995)}))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835622839_854574572",
+      "id": "20170306-212702_1831974639",
+      "dateCreated": "Mar 6, 2017 9:27:02 PM",
+      "dateStarted": "Mar 6, 2017 9:28:53 PM",
+      "dateFinished": "Mar 6, 2017 9:28:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "case class MovieId(movieid: Int) // Defines partition key\nval idsOfInterest \u003d sc.parallelize(List(1982,3756,2919,1630)).map(MovieId(_))\nval repartitioned \u003d  idsOfInterest.repartitionByCassandraReplica(\"test\", \"movies\", 10)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 4:12:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndefined class MovieId\n\nidsOfInterest: org.apache.spark.rdd.RDD[MovieId] \u003d MapPartitionsRDD[1083] at map at \u003cconsole\u003e:47\n\nrepartitioned: com.datastax.spark.connector.rdd.partitioner.CassandraPartitionedRDD[MovieId] \u003d CassandraPartitionedRDD[1087] at RDD at CassandraPartitionedRDD.scala:18\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488835710422_2016286388",
+      "id": "20170306-212830_1855264522",
+      "dateCreated": "Mar 6, 2017 9:28:30 PM",
+      "dateStarted": "Mar 9, 2017 4:12:59 PM",
+      "dateFinished": "Mar 9, 2017 4:13:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "repartitioned.partitions",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 4:13:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres211: Array[org.apache.spark.Partition] \u003d Array(ReplicaPartition(0,Set(cassandra/172.17.0.2)), ReplicaPartition(1,Set(cassandra/172.17.0.2)), ReplicaPartition(2,Set(cassandra/172.17.0.2)), ReplicaPartition(3,Set(cassandra/172.17.0.2)), ReplicaPartition(4,Set(cassandra/172.17.0.2)), ReplicaPartition(5,Set(cassandra/172.17.0.2)), ReplicaPartition(6,Set(cassandra/172.17.0.2)), ReplicaPartition(7,Set(cassandra/172.17.0.2)), ReplicaPartition(8,Set(cassandra/172.17.0.2)), ReplicaPartition(9,Set(cassandra/172.17.0.2)))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489075886593_-1309331548",
+      "id": "20170309-161126_1071655110",
+      "dateCreated": "Mar 9, 2017 4:11:26 PM",
+      "dateStarted": "Mar 9, 2017 4:13:36 PM",
+      "dateFinished": "Mar 9, 2017 4:13:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "repartitioned.partitioner",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 4:13:57 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres212: Option[org.apache.spark.Partitioner] \u003d Some(com.datastax.spark.connector.rdd.partitioner.ReplicaPartitioner@592c8887)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489076016887_855817435",
+      "id": "20170309-161336_1306426428",
+      "dateCreated": "Mar 9, 2017 4:13:36 PM",
+      "dateStarted": "Mar 9, 2017 4:13:57 PM",
+      "dateFinished": "Mar 9, 2017 4:13:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1489076037131_1579392198",
+      "id": "20170309-161357_1919850431",
+      "dateCreated": "Mar 9, 2017 4:13:57 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "2. cassandra internals",
+  "id": "2CCMZ99SN",
+  "angularObjects": {
+    "2C9Z4C6EP:shared_process": [],
+    "2C9RSW5GV:shared_process": [],
+    "2C9MWXPBF:shared_process": [],
+    "2CBQYXR5S:shared_process": [],
+    "2CBA5SK1K:shared_process": [],
+    "2CCUHC6Z9:shared_process": [],
+    "2CD7GX1QJ:shared_process": [],
+    "2CAVV8M44:shared_process": [],
+    "2CCJDXZW2:shared_process": [],
+    "2CADSBHE6:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

@@ -1,1 +1,1493 @@
-../zeppelin/znotebooks/2CAN9FR5G/note.json
+{
+  "paragraphs": [
+    {
+      "text": "%md\n## If no interpreter is specified, the default one is %spark (or the one defined in the Interpreter menu)\n### other supported interpreters (might need to be installed) are: %elasticsearch, %cassandra, %hive, %psql.sql, %lens, %md (for markdown), %sql (spark sql) and others. As a matter of fact all the explicative texts in this notebook are using %md",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:55:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eIf no interpreter is specified, the default one is %spark (or the one defined in the Interpreter menu)\u003c/h2\u003e\n\u003ch3\u003eother supported interpreters (might need to be installed) are: %elasticsearch, %cassandra, %hive, %psql.sql, %lens, %md (for markdown), %sql (spark sql) and others. As a matter of fact all the explicative texts in this notebook are using %md\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340094748_1717391215",
+      "id": "20170312-173454_915968899",
+      "dateCreated": "Mar 12, 2017 5:34:54 PM",
+      "dateStarted": "Mar 12, 2017 6:55:12 PM",
+      "dateFinished": "Mar 12, 2017 6:55:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val csvString \u003d scala.io.Source.fromURL(\"https://raw.githubusercontent.com/academyofdata/inputs/master/movies.csv\").mkString",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:16:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncsvString: String \u003d\n\"mid,title,genres,year\n1,Toy Story (1995),\"{Animation,Children\u0027s,Comedy}\",1995\n2,Jumanji (1995),\"{Adventure,Children\u0027s,Fantasy}\",1995\n3,Grumpier Old Men (1995),\"{Comedy,Romance}\",1995\n4,Waiting to Exhale (1995),\"{Comedy,Drama}\",1995\n5,Father of the Bride Part II (1995),{Comedy},1995\n6,Heat (1995),\"{Action,Crime,Thriller}\",1995\n7,Sabrina (1995),\"{Comedy,Romance}\",1995\n8,Tom and Huck (1995),\"{Adventure,Children\u0027s}\",1995\n9,Sudden Death (1995),{Action},1995\n10,GoldenEye (1995),\"{Action,Adventure,Thriller}\",1995\n11,\"American President, The (1995)\",\"{Comedy,Drama,Romance}\",1995\n12,Dracula: Dead and Loving It (1995),\"{Comedy,Horror}\",1995\n13,Balto (1995),\"{Animation,Children\u0027s}\",1995\n14,Nixon (1995),{Drama},1995\n15,Cutthroat Island (1995),\"{Action,Adventure,Romance}\",1995\n1..."
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488816993489_618435479",
+      "id": "20170306-161633_264428578",
+      "dateCreated": "Mar 6, 2017 4:16:33 PM",
+      "dateStarted": "Mar 6, 2017 4:16:40 PM",
+      "dateFinished": "Mar 6, 2017 4:16:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## here\u0027s how one can use %sh - shell interpreter - to manipulate files on the zeppelin host",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:40:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003ehere\u0026rsquo;s how one can use %sh - shell interpreter - to manipulate files on the zeppelin host\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340385469_-1718402784",
+      "id": "20170312-173945_1435693538",
+      "dateCreated": "Mar 12, 2017 5:39:45 PM",
+      "dateStarted": "Mar 12, 2017 5:40:48 PM",
+      "dateFinished": "Mar 12, 2017 5:40:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\nls -l",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:21:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "total 27984\ndrwxr-xr-x  2 root root     4096 Feb 14 19:51 bin\ndrwxr-xr-x  2 root root     4096 Mar  5 17:01 conf\ndrwxr-xr-x  2 root root     4096 Mar  6 16:21 data\ndrwxr-xr-x 13 root root     4096 Mar  5 17:01 interpreter\ndrwxr-xr-x  4 root root    12288 Feb 14 20:09 lib\n-rw-r--r--  1 root root    15569 Feb 14 19:51 LICENSE\ndrwxr-xr-x  2 root root     4096 Feb 14 19:51 licenses\ndrwxr-xr-x  7 root root     4096 Mar  5 17:01 local-repo\ndrwxr-xr-x  2 root root     4096 Mar  6 16:16 logs\ndrwxr-xr-x  6 root root     4096 Mar  6 16:16 notebook\n-rw-r--r--  1 root root      253 Feb 14 19:51 NOTICE\n-rw-r--r--  1 root root     1324 Feb 14 19:51 README.md\ndrwxr-xr-x  2 root root     4096 Mar  6 16:16 run\ndrwxr-xr-x  2 root root     4096 Mar  6 10:52 spark-warehouse\ndrwxr-xr-x  3 root root     4096 Mar  6 10:52 webapps\n-rw-r--r--  1 root root 28570720 Feb 14 20:06 zeppelin-web-0.7.0.war\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817000295_806593015",
+      "id": "20170306-161640_37303017",
+      "dateCreated": "Mar 6, 2017 4:16:40 PM",
+      "dateStarted": "Mar 6, 2017 4:21:25 PM",
+      "dateFinished": "Mar 6, 2017 4:21:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## use the same shell interpreter to download files using wget \n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:41:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003euse the same shell interpreter to download files using wget\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340474106_-816445737",
+      "id": "20170312-174114_617854853",
+      "dateCreated": "Mar 12, 2017 5:41:14 PM",
+      "dateStarted": "Mar 12, 2017 5:41:38 PM",
+      "dateFinished": "Mar 12, 2017 5:41:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\nwget -q -O data/movies.csv https://raw.githubusercontent.com/academyofdata/inputs/master/movies.csv\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:24:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817015537_-850505173",
+      "id": "20170306-161655_410220168",
+      "dateCreated": "Mar 6, 2017 4:16:55 PM",
+      "dateStarted": "Mar 6, 2017 4:24:47 PM",
+      "dateFinished": "Mar 6, 2017 4:24:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## check if the file was downloaded\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:42:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003echeck if the file was downloaded\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340508359_453271606",
+      "id": "20170312-174148_1756189233",
+      "dateCreated": "Mar 12, 2017 5:41:48 PM",
+      "dateStarted": "Mar 12, 2017 5:42:32 PM",
+      "dateFinished": "Mar 12, 2017 5:42:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\nls -l data",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:24:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "total 192\n-rw-r--r-- 1 root root 196572 Mar  6 16:24 movies.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817308237_-298930137",
+      "id": "20170306-162148_1452841637",
+      "dateCreated": "Mar 6, 2017 4:21:48 PM",
+      "dateStarted": "Mar 6, 2017 4:24:51 PM",
+      "dateFinished": "Mar 6, 2017 4:24:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### until spark 2.0 one could access the implicit SparkContext as \u0027sc\u0027 (in spark-shell, also available in Zeppelin), a new variable \u0027spark\u0027 was introduced, it gives access to the newly introduced SparkSession. \u0027spark\u0027 also gives access to catalog metadata (spark.catalog), which helps with things like spark.catalog.listDatabases.show(false), spark.catalog.listTables.show(false)\n## now read the downloaded file inside a Spark DataFrame",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:03:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003euntil spark 2.0 one could access the implicit SparkContext as \u0026lsquo;sc\u0026rsquo; (in spark-shell, also available in Zeppelin), a new variable \u0026lsquo;spark\u0026rsquo; was introduced, it gives access to the newly introduced SparkSession. \u0026lsquo;spark\u0026rsquo; also gives access to catalog metadata (spark.catalog), which helps with things like spark.catalog.listDatabases.show(false), spark.catalog.listTables.show(false)\u003c/h3\u003e\n\u003ch2\u003enow read the downloaded file inside a Spark DataFrame\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340558974_1258059036",
+      "id": "20170312-174238_363649382",
+      "dateCreated": "Mar 12, 2017 5:42:38 PM",
+      "dateStarted": "Mar 12, 2017 6:03:29 PM",
+      "dateFinished": "Mar 12, 2017 6:03:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val movies \u003d spark.read.format(\"csv\").option(\"header\",\"true\").csv(\"data/movies.csv\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:26:43 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nmovies: org.apache.spark.sql.DataFrame \u003d [mid: string, title: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817317777_633331772",
+      "id": "20170306-162157_968633028",
+      "dateCreated": "Mar 6, 2017 4:21:57 PM",
+      "dateStarted": "Mar 6, 2017 4:26:43 PM",
+      "dateFinished": "Mar 6, 2017 4:26:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## describe() on a DataFrame generates a summary (of the DataFrame it runs on)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:44:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003edescribe() on a DataFrame generates a summary (of the DataFrame it runs on)\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340611717_271825011",
+      "id": "20170312-174331_1733449529",
+      "dateCreated": "Mar 12, 2017 5:43:31 PM",
+      "dateStarted": "Mar 12, 2017 5:44:24 PM",
+      "dateFinished": "Mar 12, 2017 5:44:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.describe().show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:34:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+------------------+--------------------+\n|summary|           movieid|              year|               title|\n+-------+------------------+------------------+--------------------+\n|  count|              3883|              3883|                3883|\n|   mean|1986.0494463044038|1986.0669585372134|                null|\n| stddev|1146.7783494728874| 16.89569015752552|                null|\n|    min|                 1|              1919|$1,000,000 Duck (...|\n|    max|              3952|              2000|     eXistenZ (1999)|\n+-------+------------------+------------------+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340041039_1573232970",
+      "id": "20170312-173401_826062447",
+      "dateCreated": "Mar 12, 2017 5:34:01 PM",
+      "dateStarted": "Mar 12, 2017 5:34:18 PM",
+      "dateFinished": "Mar 12, 2017 5:34:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## All transformations in Spark are lazy, only actions are evaluated. \n### Examples of transformations - flatMap, filter, map, sortByKey, join (see the complete list here http://spark.apache.org/docs/latest/programming-guide.html#transformations)\n### Examples of actions - first, take, reduce, count (see list here http://spark.apache.org/docs/latest/programming-guide.html#actions)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:54:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eAll transformations in Spark are lazy, only actions are evaluated.\u003c/h2\u003e\n\u003ch3\u003eExamples of transformations - flatMap, filter, map, sortByKey, join (see the complete list here \u003ca href\u003d\"http://spark.apache.org/docs/latest/programming-guide.html#transformations\"\u003ehttp://spark.apache.org/docs/latest/programming-guide.html#transformations\u003c/a\u003e)\u003c/h3\u003e\n\u003ch3\u003eExamples of actions - first, take, reduce, count (see list here \u003ca href\u003d\"http://spark.apache.org/docs/latest/programming-guide.html#actions\"\u003ehttp://spark.apache.org/docs/latest/programming-guide.html#actions\u003c/a\u003e)\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489340683072_295602822",
+      "id": "20170312-174443_995988647",
+      "dateCreated": "Mar 12, 2017 5:44:43 PM",
+      "dateStarted": "Mar 12, 2017 5:54:45 PM",
+      "dateFinished": "Mar 12, 2017 5:54:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.take(2).foreach(println)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:26:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[1,Toy Story (1995),{Animation,Children\u0027s,Comedy},1995]\n[2,Jumanji (1995),{Adventure,Children\u0027s,Fantasy},1995]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817603582_1763934767",
+      "id": "20170306-162643_673794568",
+      "dateCreated": "Mar 6, 2017 4:26:43 PM",
+      "dateStarted": "Mar 6, 2017 4:26:55 PM",
+      "dateFinished": "Mar 6, 2017 4:26:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### createOrReplaceTempView creates or replaces a temporary view with this DataFrame. The lifetime of this temporary table is tied to the SparkSession (accessible through \u0027spark\u0027 variable) that was used to create it.\n### Until spark 2.0 sparkSql table management was done with registerTempTable",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:07:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ecreateOrReplaceTempView creates or replaces a temporary view with this DataFrame. The lifetime of this temporary table is tied to the SparkSession (accessible through \u0026lsquo;spark\u0026rsquo; variable) that was used to create it.\u003c/h3\u003e\n\u003ch3\u003eUntil spark 2.0 sparkSql table management was done with registerTempTable\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489341290620_-526977768",
+      "id": "20170312-175450_2114556560",
+      "dateCreated": "Mar 12, 2017 5:54:50 PM",
+      "dateStarted": "Mar 12, 2017 6:07:24 PM",
+      "dateFinished": "Mar 12, 2017 6:07:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.createOrReplaceTempView(\"movies\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:39:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488817615820_193389756",
+      "id": "20170306-162655_1809860101",
+      "dateCreated": "Mar 6, 2017 4:26:55 PM",
+      "dateStarted": "Mar 6, 2017 4:39:56 PM",
+      "dateFinished": "Mar 6, 2017 4:39:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### after the table is registered one can use spark\u0027s .sql method to issue any kind of SQL queries. Because the result is a DataFrame, we have to use .show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:13:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eafter the table is registered one can use spark\u0026rsquo;s .sql method to issue any kind of SQL queries. Because the result is a DataFrame, we have to use .show()\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342071965_-1412154171",
+      "id": "20170312-180751_1982165206",
+      "dateCreated": "Mar 12, 2017 6:07:51 PM",
+      "dateStarted": "Mar 12, 2017 6:13:41 PM",
+      "dateFinished": "Mar 12, 2017 6:13:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"SELECT * FROM movies LIMIT 10\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:01:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+--------------------+--------------------+----+\n|mid|               title|              genres|year|\n+---+--------------------+--------------------+----+\n|  1|    Toy Story (1995)|{Animation,Childr...|1995|\n|  2|      Jumanji (1995)|{Adventure,Childr...|1995|\n|  3|Grumpier Old Men ...|    {Comedy,Romance}|1995|\n|  4|Waiting to Exhale...|      {Comedy,Drama}|1995|\n|  5|Father of the Bri...|            {Comedy}|1995|\n|  6|         Heat (1995)|{Action,Crime,Thr...|1995|\n|  7|      Sabrina (1995)|    {Comedy,Romance}|1995|\n|  8| Tom and Huck (1995)|{Adventure,Childr...|1995|\n|  9| Sudden Death (1995)|            {Action}|1995|\n| 10|    GoldenEye (1995)|{Action,Adventure...|1995|\n+---+--------------------+--------------------+----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488818396568_2037409680",
+      "id": "20170306-163956_1789112609",
+      "dateCreated": "Mar 6, 2017 4:39:56 PM",
+      "dateStarted": "Mar 6, 2017 4:40:46 PM",
+      "dateFinished": "Mar 6, 2017 4:40:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### the beauty of spark\u0027s sql method is that it has a few predefined namespaces - csv, json, parquet - which means that you can simply refer to csv.\u003ca path to a file\u003e to read that CSV file and load it into a dataframe before running some queries on it",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:15:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ethe beauty of spark\u0026rsquo;s sql method is that it has a few predefined namespaces - csv, json, parquet - which means that you can simply refer to csv.\u003ca path to a file\u003e to read that CSV file and load it into a dataframe before running some queries on it\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342435556_1350480850",
+      "id": "20170312-181355_916690760",
+      "dateCreated": "Mar 12, 2017 6:13:55 PM",
+      "dateStarted": "Mar 12, 2017 6:15:27 PM",
+      "dateFinished": "Mar 12, 2017 6:15:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"SELECT * FROM csv.`data/movies.csv` limit 10\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:01:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+--------------------+--------------------+----+\n|_c0|                 _c1|                 _c2| _c3|\n+---+--------------------+--------------------+----+\n|mid|               title|              genres|year|\n|  1|    Toy Story (1995)|{Animation,Childr...|1995|\n|  2|      Jumanji (1995)|{Adventure,Childr...|1995|\n|  3|Grumpier Old Men ...|    {Comedy,Romance}|1995|\n|  4|Waiting to Exhale...|      {Comedy,Drama}|1995|\n|  5|Father of the Bri...|            {Comedy}|1995|\n|  6|         Heat (1995)|{Action,Crime,Thr...|1995|\n|  7|      Sabrina (1995)|    {Comedy,Romance}|1995|\n|  8| Tom and Huck (1995)|{Adventure,Childr...|1995|\n|  9| Sudden Death (1995)|            {Action}|1995|\n+---+--------------------+--------------------+----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488818416269_-1423559918",
+      "id": "20170306-164016_1183923835",
+      "dateCreated": "Mar 6, 2017 4:40:16 PM",
+      "dateStarted": "Mar 6, 2017 4:47:33 PM",
+      "dateFinished": "Mar 6, 2017 4:47:33 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### This approach is straightforward, but it has the drawback that you can\u0027t specify any schema (or column names)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:16:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eThis approach is straightforward, but it has the drawback that you can\u0026rsquo;t specify any schema (or column names)\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342536775_1430462648",
+      "id": "20170312-181536_837575783",
+      "dateCreated": "Mar 12, 2017 6:15:36 PM",
+      "dateStarted": "Mar 12, 2017 6:16:26 PM",
+      "dateFinished": "Mar 12, 2017 6:16:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"SELECT * FROM csv.`data/movies.csv` where _c3\u003d1993 limit 10\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:01:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+--------------------+--------------------+----+\n|_c0|                 _c1|                 _c2| _c3|\n+---+--------------------+--------------------+----+\n|121|Boys of St. Vince...|             {Drama}|1993|\n|178|Love \u0026 Human Rema...|            {Comedy}|1993|\n|269|My Crazy Life (Mi...|             {Drama}|1993|\n|285|Beyond Bedlam (1993)|      {Drama,Horror}|1993|\n|307|Three Colors: Blu...|             {Drama}|1993|\n|320|       Suture (1993)|{Film-Noir,Thriller}|1993|\n|321|Strawberry and Ch...|             {Drama}|1993|\n|337|What\u0027s Eating Gil...|             {Drama}|1993|\n|346|     Backbeat (1993)|     {Drama,Musical}|1993|\n|363|Wonderful, Horrib...|       {Documentary}|1993|\n+---+--------------------+--------------------+----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488818847806_1182728010",
+      "id": "20170306-164727_532433265",
+      "dateCreated": "Mar 6, 2017 4:47:27 PM",
+      "dateStarted": "Mar 6, 2017 4:54:05 PM",
+      "dateFinished": "Mar 6, 2017 4:54:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val movDF \u003d spark.sql(\"SELECT * FROM csv.`data/movies.csv`\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:54:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nmovDF: org.apache.spark.sql.DataFrame \u003d [_c0: string, _c1: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819238091_-1931661094",
+      "id": "20170306-165358_954744980",
+      "dateCreated": "Mar 6, 2017 4:53:58 PM",
+      "dateStarted": "Mar 6, 2017 4:54:40 PM",
+      "dateFinished": "Mar 6, 2017 4:54:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val movDFmov \u003d spark.sql(\"SELECT * FROM movies\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:55:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nmovDFmov: org.apache.spark.sql.DataFrame \u003d [mid: string, title: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819280225_-399713567",
+      "id": "20170306-165440_943527505",
+      "dateCreated": "Mar 6, 2017 4:54:40 PM",
+      "dateStarted": "Mar 6, 2017 4:55:20 PM",
+      "dateFinished": "Mar 6, 2017 4:55:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDFmov.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 8:10:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- mid: string (nullable \u003d true)\n |-- title: string (nullable \u003d true)\n |-- genres: string (nullable \u003d true)\n |-- year: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488830986867_1721992947",
+      "id": "20170306-200946_2008049088",
+      "dateCreated": "Mar 6, 2017 8:09:46 PM",
+      "dateStarted": "Mar 6, 2017 8:10:05 PM",
+      "dateFinished": "Mar 6, 2017 8:10:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDF.select(\"_c1\").limit(10).show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:01:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|                 _c1|\n+--------------------+\n|               title|\n|    Toy Story (1995)|\n|      Jumanji (1995)|\n|Grumpier Old Men ...|\n|Waiting to Exhale...|\n|Father of the Bri...|\n|         Heat (1995)|\n|      Sabrina (1995)|\n| Tom and Huck (1995)|\n| Sudden Death (1995)|\n+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819320601_-318085504",
+      "id": "20170306-165520_1441736231",
+      "dateCreated": "Mar 6, 2017 4:55:20 PM",
+      "dateStarted": "Mar 6, 2017 4:56:32 PM",
+      "dateFinished": "Mar 6, 2017 4:56:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDFmov.select(\"title\").limit(10).show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:01:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|               title|\n+--------------------+\n|    Toy Story (1995)|\n|      Jumanji (1995)|\n|Grumpier Old Men ...|\n|Waiting to Exhale...|\n|Father of the Bri...|\n|         Heat (1995)|\n|      Sabrina (1995)|\n| Tom and Huck (1995)|\n| Sudden Death (1995)|\n|    GoldenEye (1995)|\n+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819385159_-363242332",
+      "id": "20170306-165625_717523711",
+      "dateCreated": "Mar 6, 2017 4:56:25 PM",
+      "dateStarted": "Mar 6, 2017 4:57:18 PM",
+      "dateFinished": "Mar 6, 2017 4:57:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### On a dataframe one can use filter() to achieve the same result as a where in an SQL query",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:18:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eOn a dataframe one can use filter() to achieve the same result as a where in an SQL query\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342639297_-195365255",
+      "id": "20170312-181719_88191272",
+      "dateCreated": "Mar 12, 2017 6:17:19 PM",
+      "dateStarted": "Mar 12, 2017 6:18:01 PM",
+      "dateFinished": "Mar 12, 2017 6:18:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDFmov.filter($\"year\"\u003e1998).limit(4).show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:58:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+--------------------+-----------+----+\n| mid|               title|     genres|year|\n+----+--------------------+-----------+----+\n|2235|One Man\u0027s Hero (1...|{Drama,War}|1999|\n|2436|Tea with Mussolin...|   {Comedy}|1999|\n|2445|At First Sight (1...|    {Drama}|1999|\n|2446|    In Dreams (1999)| {Thriller}|1999|\n+----+--------------------+-----------+----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819424586_-1038599245",
+      "id": "20170306-165704_2104917889",
+      "dateCreated": "Mar 6, 2017 4:57:04 PM",
+      "dateStarted": "Mar 6, 2017 4:58:29 PM",
+      "dateFinished": "Mar 6, 2017 4:58:29 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movDFmov.filter($\"year\"\u003c1987).filter($\"year\"\u003e1985).count()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:59:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres90: Long \u003d 104\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819498434_-398068947",
+      "id": "20170306-165818_765734229",
+      "dateCreated": "Mar 6, 2017 4:58:18 PM",
+      "dateStarted": "Mar 6, 2017 4:59:36 PM",
+      "dateFinished": "Mar 6, 2017 4:59:36 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### here we run the query and get back a DF, on which we run count",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:19:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ehere we run the query and get back a DF, on which we run count\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342707321_-217772636",
+      "id": "20170312-181827_1696002103",
+      "dateCreated": "Mar 12, 2017 6:18:27 PM",
+      "dateStarted": "Mar 12, 2017 6:19:17 PM",
+      "dateFinished": "Mar 12, 2017 6:19:17 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select * from movies where year \u003e 1985 AND year \u003c 1987\").count()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:02:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres92: Long \u003d 104\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819576105_1724898863",
+      "id": "20170306-165936_1085093443",
+      "dateCreated": "Mar 6, 2017 4:59:36 PM",
+      "dateStarted": "Mar 6, 2017 5:02:01 PM",
+      "dateFinished": "Mar 6, 2017 5:02:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### The same result can be obtained by running count inside SQL and just running show() on the resulting DF",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:20:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eThe same result can be obtained by running count inside SQL and just running show() on the resulting DF\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342762804_1716268140",
+      "id": "20170312-181922_635471558",
+      "dateCreated": "Mar 12, 2017 6:19:22 PM",
+      "dateStarted": "Mar 12, 2017 6:20:06 PM",
+      "dateFinished": "Mar 12, 2017 6:20:06 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select count(mid) as cnt from movies where year \u003e 1985 AND year \u003c 1987\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:05:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+\n|cnt|\n+---+\n|104|\n+---+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819713561_260523768",
+      "id": "20170306-170153_156135900",
+      "dateCreated": "Mar 6, 2017 5:01:53 PM",
+      "dateStarted": "Mar 6, 2017 5:05:18 PM",
+      "dateFinished": "Mar 6, 2017 5:05:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### of course we can run more complex SQL queries",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:20:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eof course we can run more complex SQL queries\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342823674_-1468621959",
+      "id": "20170312-182023_582245430",
+      "dateCreated": "Mar 12, 2017 6:20:23 PM",
+      "dateStarted": "Mar 12, 2017 6:20:45 PM",
+      "dateFinished": "Mar 12, 2017 6:20:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val byYearDF \u003d spark.sql(\"select count(mid) as cntmov,year from movies group by year order by year desc\")\nbyYearDF.show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 8:26:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nbyYearDF: org.apache.spark.sql.DataFrame \u003d [cntmov: bigint, year: string]\n+------+----+\n|cntmov|year|\n+------+----+\n|   156|2000|\n|   283|1999|\n|   337|1998|\n|   315|1997|\n|   345|1996|\n|   342|1995|\n|   257|1994|\n|   165|1993|\n|   102|1992|\n|    60|1991|\n|    77|1990|\n|    60|1989|\n|    69|1988|\n|    71|1987|\n|   104|1986|\n|    65|1985|\n|    60|1984|\n|    35|1983|\n|    50|1982|\n|    43|1981|\n+------+----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819918574_-1220868411",
+      "id": "20170306-170518_889576828",
+      "dateCreated": "Mar 6, 2017 5:05:18 PM",
+      "dateStarted": "Mar 6, 2017 8:26:32 PM",
+      "dateFinished": "Mar 6, 2017 8:26:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### and let\u0027s try to save some of the results in a Cassandra table\n### it is important to import the datastax classes as it will introduce the createCassandraTable function (and others)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:23:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eand let\u0026rsquo;s try to save some of the results in a Cassandra table\u003c/h3\u003e\n\u003ch3\u003eit is important to import the datastax classes as it will introduce the createCassandraTable function (and others)\u003c/h3\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489342856817_-1824129419",
+      "id": "20170312-182056_186354911",
+      "dateCreated": "Mar 12, 2017 6:20:56 PM",
+      "dateStarted": "Mar 12, 2017 6:23:11 PM",
+      "dateFinished": "Mar 12, 2017 6:23:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import com.datastax.spark.connector._\n\nbyYearDF.createCassandraTable(\n    \"test\", \n    \"sparkmovies\", \n    partitionKeyColumns \u003d Some(Seq(\"year\")), \n    clusteringKeyColumns \u003d Some(Seq(\"cntmov\")))",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 8:26:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport com.datastax.spark.connector._\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488831475748_1591270790",
+      "id": "20170306-201755_589070769",
+      "dateCreated": "Mar 6, 2017 8:17:55 PM",
+      "dateStarted": "Mar 6, 2017 8:26:52 PM",
+      "dateFinished": "Mar 6, 2017 8:26:52 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\nspark.sql(\"select count(mid) as cntmov,year from movies group by year order by year desc\").write.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"sparkmovies\", \"keyspace\" -\u003e \"test\"))\n.save()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 6:47:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819965102_776439750",
+      "id": "20170306-170605_394549494",
+      "dateCreated": "Mar 6, 2017 5:06:05 PM",
+      "dateStarted": "Mar 6, 2017 8:27:01 PM",
+      "dateFinished": "Mar 6, 2017 8:27:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "byYearDF.count()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 8:28:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres110: Long \u003d 81\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488831283608_-1451383164",
+      "id": "20170306-201443_1311541539",
+      "dateCreated": "Mar 6, 2017 8:14:43 PM",
+      "dateStarted": "Mar 6, 2017 8:28:32 PM",
+      "dateFinished": "Mar 6, 2017 8:28:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488832271507_-98030814",
+      "id": "20170306-203111_967743361",
+      "dateCreated": "Mar 6, 2017 8:31:11 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "3. csv manipulation",
+  "id": "2CAN9FR5G",
+  "angularObjects": {
+    "2C9Z4C6EP:shared_process": [],
+    "2C9RSW5GV:shared_process": [],
+    "2C9MWXPBF:shared_process": [],
+    "2CBQYXR5S:shared_process": [],
+    "2CBA5SK1K:shared_process": [],
+    "2CCUHC6Z9:shared_process": [],
+    "2CD7GX1QJ:shared_process": [],
+    "2CAVV8M44:shared_process": [],
+    "2CCJDXZW2:shared_process": [],
+    "2CADSBHE6:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}

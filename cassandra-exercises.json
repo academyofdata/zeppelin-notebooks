@@ -1,1 +1,1013 @@
-../zeppelin/znotebooks/2CBDCM5YM/note.json
+{
+  "paragraphs": [
+    {
+      "text": "val ss \u003d spark.read.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"movies\", \"keyspace\" -\u003e \"test\"))\n.load()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 3:39:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nss: org.apache.spark.sql.DataFrame \u003d [movieid: int, year: int ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488799010929_955362183",
+      "id": "20170306-111650_748264800",
+      "dateCreated": "Mar 6, 2017 11:16:50 AM",
+      "dateStarted": "Mar 6, 2017 3:39:11 PM",
+      "dateFinished": "Mar 6, 2017 3:39:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "ss.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 12, 2017 5:23:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- mid: integer (nullable \u003d true)\n |-- uid: integer (nullable \u003d true)\n |-- rating: double (nullable \u003d true)\n |-- age: integer (nullable \u003d true)\n |-- gender: string (nullable \u003d true)\n |-- genres: array (nullable \u003d true)\n |    |-- element: string (containsNull \u003d true)\n |-- occupation: integer (nullable \u003d true)\n |-- rating_time: timestamp (nullable \u003d true)\n |-- title: string (nullable \u003d true)\n |-- year: string (nullable \u003d true)\n |-- zip: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489339426421_-970828569",
+      "id": "20170312-172346_1908500654",
+      "dateCreated": "Mar 12, 2017 5:23:46 PM",
+      "dateStarted": "Mar 12, 2017 5:23:53 PM",
+      "dateFinished": "Mar 12, 2017 5:23:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "ss.first\nss.select(\"title\").count()\nss.filter(ss(\"year\").equalTo(1998)).count()\nss.take(10).foreach(println)\n\n  ",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 4:15:35 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nres72: org.apache.spark.sql.Row \u003d [1982,1978,WrappedArray(Horror),Halloween (1978)]\n\nres73: Long \u003d 3883\n\nres74: Long \u003d 337\n[1982,1978,WrappedArray(Horror),Halloween (1978)]\n[3756,2000,WrappedArray(Drama),Golden Bowl, The (2000)]\n[2919,1982,WrappedArray(Drama, Romance),Year of Living Dangerously (1982)]\n[1630,1997,WrappedArray(Comedy, Drama),Lay of the Land, The (1997)]\n[42,1995,WrappedArray(Action, Crime, Drama),Dead Presidents (1995)]\n[2413,1985,WrappedArray(Comedy, Mystery),Clue (1985)]\n[2255,1982,WrappedArray(Comedy),Young Doctors in Love (1982)]\n[3687,1988,WrappedArray(Sci-Fi),Light Years (1988)]\n[3707,1986,WrappedArray(Drama),Nine 1/2 Weeks (1986)]\n[1678,1993,WrappedArray(Drama),Joy Luck Club, The (1993)]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488799034492_-1096473052",
+      "id": "20170306-111714_1349609823",
+      "dateCreated": "Mar 6, 2017 11:17:14 AM",
+      "dateStarted": "Mar 6, 2017 4:13:41 PM",
+      "dateFinished": "Mar 6, 2017 4:13:42 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.createOrReplaceTempView(\"movies\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 6, 2017 5:04:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488799068714_186710502",
+      "id": "20170306-111748_614428676",
+      "dateCreated": "Mar 6, 2017 11:17:48 AM",
+      "dateStarted": "Mar 6, 2017 5:04:39 PM",
+      "dateFinished": "Mar 6, 2017 5:04:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.printSchema()\nspark.sql(\"SELECT * FROM movies where year \u003d 1995\").show()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 10:23:41 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- mid: string (nullable \u003d true)\n |-- title: string (nullable \u003d true)\n |-- genres: string (nullable \u003d true)\n |-- year: string (nullable \u003d true)\n\n+---+--------------------+--------------------+----+\n|mid|               title|              genres|year|\n+---+--------------------+--------------------+----+\n|  1|    Toy Story (1995)|{Animation,Childr...|1995|\n|  2|      Jumanji (1995)|{Adventure,Childr...|1995|\n|  3|Grumpier Old Men ...|    {Comedy,Romance}|1995|\n|  4|Waiting to Exhale...|      {Comedy,Drama}|1995|\n|  5|Father of the Bri...|            {Comedy}|1995|\n|  6|         Heat (1995)|{Action,Crime,Thr...|1995|\n|  7|      Sabrina (1995)|    {Comedy,Romance}|1995|\n|  8| Tom and Huck (1995)|{Adventure,Childr...|1995|\n|  9| Sudden Death (1995)|            {Action}|1995|\n| 10|    GoldenEye (1995)|{Action,Adventure...|1995|\n| 11|American Presiden...|{Comedy,Drama,Rom...|1995|\n| 12|Dracula: Dead and...|     {Comedy,Horror}|1995|\n| 13|        Balto (1995)|{Animation,Childr...|1995|\n| 14|        Nixon (1995)|             {Drama}|1995|\n| 15|Cutthroat Island ...|{Action,Adventure...|1995|\n| 16|       Casino (1995)|    {Drama,Thriller}|1995|\n| 17|Sense and Sensibi...|     {Drama,Romance}|1995|\n| 18|   Four Rooms (1995)|          {Thriller}|1995|\n| 19|Ace Ventura: When...|            {Comedy}|1995|\n| 20|  Money Train (1995)|            {Action}|1995|\n+---+--------------------+--------------------+----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488816483274_-2035113099",
+      "id": "20170306-160803_593434990",
+      "dateCreated": "Mar 6, 2017 4:08:03 PM",
+      "dateStarted": "Mar 7, 2017 10:23:41 AM",
+      "dateFinished": "Mar 7, 2017 10:23:42 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select count(mid),year from movies group by year order by count(mid) DESC\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 11:05:54 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+----+\n|count(mid)|year|\n+----------+----+\n|       345|1996|\n|       342|1995|\n|       337|1998|\n|       315|1997|\n|       283|1999|\n|       257|1994|\n|       165|1993|\n|       156|2000|\n|       104|1986|\n|       102|1992|\n|        77|1990|\n|        71|1987|\n|        69|1988|\n|        65|1985|\n|        60|1989|\n|        60|1991|\n|        60|1984|\n|        50|1982|\n|        43|1981|\n|        41|1980|\n+----------+----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488819901431_-1895949489",
+      "id": "20170306-170501_513677401",
+      "dateCreated": "Mar 6, 2017 5:05:01 PM",
+      "dateStarted": "Mar 7, 2017 11:05:54 AM",
+      "dateFinished": "Mar 7, 2017 11:05:54 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select count(*) from movies where genres LIKE \u0027%Adventure%\u0027\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 9:39:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+\n|count(1)|\n+--------+\n|     283|\n+--------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488820041368_1974855953",
+      "id": "20170306-170721_655195052",
+      "dateCreated": "Mar 6, 2017 5:07:21 PM",
+      "dateStarted": "Mar 8, 2017 9:39:03 AM",
+      "dateFinished": "Mar 8, 2017 9:39:03 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val ss1  \u003d spark.read.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"ratings\", \"keyspace\" -\u003e \"test\"))\n.load()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 1:20:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nss1: org.apache.spark.sql.DataFrame \u003d [mid: int, uid: int ... 9 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488882923246_1781464585",
+      "id": "20170307-103523_1989735169",
+      "dateCreated": "Mar 7, 2017 10:35:23 AM",
+      "dateStarted": "Mar 7, 2017 1:20:20 PM",
+      "dateFinished": "Mar 7, 2017 1:20:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "ss1.createOrReplaceTempView(\"ratings\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 1:23:23 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488892633356_-29110215",
+      "id": "20170307-131713_197134574",
+      "dateCreated": "Mar 7, 2017 1:17:13 PM",
+      "dateStarted": "Mar 7, 2017 1:23:23 PM",
+      "dateFinished": "Mar 7, 2017 1:23:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"SELECT * FROM ratings LIMIT 10\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 1:23:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+---+------+---+------+--------------------+----------+--------------------+--------------------+----+-----+\n| mid|uid|rating|age|gender|              genres|occupation|         rating_time|               title|year|  zip|\n+----+---+------+---+------+--------------------+----------+--------------------+--------------------+----+-----+\n|5255| 39|   4.0|  1|     M|   [Comedy, Romance]|        10|2000-08-18 04:28:...|     Clueless (1995)|1995|55305|\n|5255| 49|   5.0|  1|     M|    [Drama, Romance]|        10|2000-08-18 04:29:...|When Night Is Fal...|1995|55305|\n|5255|293|   5.0|  1|     M|[Crime, Drama, Ro...|        10|2000-08-18 04:11:...|Professional, The...|1994|55305|\n|5255|318|   5.0|  1|     M|             [Drama]|        10|2000-08-18 04:26:...|Shawshank Redempt...|1994|55305|\n|5255|356|   4.0|  1|     M|[Comedy, Romance,...|        10|2000-06-17 19:54:...| Forrest Gump (1994)|1994|55305|\n|5255|364|   4.0|  1|     M|[Animation, Child...|        10|2000-06-17 19:55:...|Lion King, The (1...|1994|55305|\n|5255|454|   4.0|  1|     M|   [Drama, Thriller]|        10|2000-08-18 04:12:...|    Firm, The (1993)|1993|55305|\n|5255|527|   5.0|  1|     M|        [Drama, War]|        10|2000-08-18 04:23:...|Schindler\u0027s List ...|1993|55305|\n|5255|529|   5.0|  1|     M|             [Drama]|        10|2000-08-18 04:10:...|Searching for Bob...|1993|55305|\n|5255|588|   5.0|  1|     M|[Animation, Child...|        10|2000-06-18 03:25:...|      Aladdin (1992)|1992|55305|\n+----+---+------+---+------+--------------------+----------+--------------------+--------------------+----+-----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488892661356_-1943004486",
+      "id": "20170307-131741_1892851866",
+      "dateCreated": "Mar 7, 2017 1:17:41 PM",
+      "dateStarted": "Mar 7, 2017 1:23:51 PM",
+      "dateFinished": "Mar 7, 2017 1:23:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"DESCRIBE TABLE ratings\").show()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 9:28:17 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------------+-------+\n|   col_name|    data_type|comment|\n+-----------+-------------+-------+\n|        mid|          int|   null|\n|        uid|          int|   null|\n|     rating|       double|   null|\n|        age|          int|   null|\n|     gender|       string|   null|\n|     genres|array\u003cstring\u003e|   null|\n| occupation|          int|   null|\n|rating_time|    timestamp|   null|\n|      title|       string|   null|\n|       year|       string|   null|\n|        zip|       string|   null|\n+-----------+-------------+-------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488893055760_62253707",
+      "id": "20170307-132415_669884322",
+      "dateCreated": "Mar 7, 2017 1:24:15 PM",
+      "dateStarted": "Mar 7, 2017 9:28:17 PM",
+      "dateFinished": "Mar 7, 2017 9:28:17 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select mid,genres[1] as genre1 from ratings\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 9:30:25 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+--------------------+\n| mid|              genre1|\n+----+--------------------+\n|5255|             Romance|\n|5255|             Romance|\n|5255|               Drama|\n|5255|                null|\n|5255|             Romance|\n|5255|  Children\u0027s,Musical|\n|5255|            Thriller|\n|5255|                 War|\n|5255|                null|\n|5255|Children\u0027s,Comedy...|\n|5255|               Drama|\n|5255|  Children\u0027s,Musical|\n|5255|          Children\u0027s|\n|5255|           Adventure|\n|5255|                 War|\n|5255|             Romance|\n|5255|          Children\u0027s|\n|5255|             Romance|\n|5255|            Thriller|\n|5255|            Thriller|\n+----+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488921927250_531064752",
+      "id": "20170307-212527_1664363681",
+      "dateCreated": "Mar 7, 2017 9:25:27 PM",
+      "dateStarted": "Mar 7, 2017 9:30:25 PM",
+      "dateFinished": "Mar 7, 2017 9:30:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select distinct title,year,genres from ratings where genres[0]\u003d\u0027Drama\u0027\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 9:32:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+----+----------------+\n|               title|year|          genres|\n+--------------------+----+----------------+\n|Places in the Hea...|1984|         [Drama]|\n|Solaris (Solyaris...|1972| [Drama, Sci-Fi]|\n|Feeling Minnesota...|1996|[Drama, Romance]|\n|Beyond Silence (1...|1996|         [Drama]|\n|         Ripe (1996)|1996|         [Drama]|\n|Angels and Insect...|1995|[Drama, Romance]|\n| New Age, The (1994)|1994|         [Drama]|\n|    Fall Time (1995)|1995|         [Drama]|\n|Time to Kill, A (...|1996|         [Drama]|\n|       Otello (1986)|1986|         [Drama]|\n|Surf Nazis Must D...|1987|         [Drama]|\n|Secret Agent, The...|1996|         [Drama]|\n|Midnight Express ...|1978|         [Drama]|\n|      Stepmom (1998)|1998|         [Drama]|\n|Bringing Out the ...|1999| [Drama, Horror]|\n|Clara\u0027s Heart (1988)|1988|         [Drama]|\n|To Have, or Not (...|1995|         [Drama]|\n|Saragossa Manuscr...|1965|         [Drama]|\n|Institute Benjame...|1995|         [Drama]|\n|        Rosie (1998)|1998|         [Drama]|\n+--------------------+----+----------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922202749_329839433",
+      "id": "20170307-213002_863496978",
+      "dateCreated": "Mar 7, 2017 9:30:02 PM",
+      "dateStarted": "Mar 7, 2017 9:32:07 PM",
+      "dateFinished": "Mar 7, 2017 9:32:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select distinct title,year,genres from ratings where genres[1]\u003d\u0027Drama\u0027\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 9:35:04 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+----+--------------------+\n|               title|year|              genres|\n+--------------------+----+--------------------+\n|  Yankee Zulu (1994)|1994|     [Comedy, Drama]|\n|Women on the Verg...|1988|     [Comedy, Drama]|\n|Spanking the Monk...|1994|     [Comedy, Drama]|\n|Story of Us, The ...|1999|     [Comedy, Drama]|\n|Another Man\u0027s Poi...|1952|      [Crime, Drama]|\n|Man on the Moon (...|1999|     [Comedy, Drama]|\n|North Dallas Fort...|1979|     [Comedy, Drama]|\n|Lord of the Flies...|1963|[Adventure, Drama...|\n|      Starman (1984)|1984|[Adventure, Drama...|\n|     Sneakers (1992)|1992|[Crime, Drama, Sc...|\n|     Croupier (1998)|1998|      [Crime, Drama]|\n|King of Marvin Ga...|1972|      [Crime, Drama]|\n|Carriers Are Wait...|1999|     [Comedy, Drama]|\n|Bodyguard, The (1...|1992|[Action, Drama, R...|\n|Towering Inferno,...|1974|     [Action, Drama]|\n|They Made Me a Cr...|1939|      [Crime, Drama]|\n|Christmas Story, ...|1983|     [Comedy, Drama]|\n|   To Die For (1995)|1995|     [Comedy, Drama]|\n|Wings of Desire (...|1987|[Comedy, Drama, R...|\n|My Life in Pink (...|1997|     [Comedy, Drama]|\n+--------------------+----+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922283916_-51691914",
+      "id": "20170307-213123_1265261338",
+      "dateCreated": "Mar 7, 2017 9:31:23 PM",
+      "dateStarted": "Mar 7, 2017 9:35:04 PM",
+      "dateFinished": "Mar 7, 2017 9:35:07 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "spark.sql(\"select distinct title,year,genres from ratings where array_contains(genres,\u0027Drama\u0027)\").show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 7, 2017 9:35:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+----+----------------+\n|               title|year|          genres|\n+--------------------+----+----------------+\n|Places in the Hea...|1984|         [Drama]|\n|Solaris (Solyaris...|1972| [Drama, Sci-Fi]|\n|Feeling Minnesota...|1996|[Drama, Romance]|\n|Beyond Silence (1...|1996|         [Drama]|\n|  Yankee Zulu (1994)|1994| [Comedy, Drama]|\n|         Ripe (1996)|1996|         [Drama]|\n|Angels and Insect...|1995|[Drama, Romance]|\n| New Age, The (1994)|1994|         [Drama]|\n|    Fall Time (1995)|1995|         [Drama]|\n|Time to Kill, A (...|1996|         [Drama]|\n|Women on the Verg...|1988| [Comedy, Drama]|\n|Spanking the Monk...|1994| [Comedy, Drama]|\n|Story of Us, The ...|1999| [Comedy, Drama]|\n|       Otello (1986)|1986|         [Drama]|\n|Surf Nazis Must D...|1987|         [Drama]|\n|Secret Agent, The...|1996|         [Drama]|\n|Another Man\u0027s Poi...|1952|  [Crime, Drama]|\n|Man on the Moon (...|1999| [Comedy, Drama]|\n|Midnight Express ...|1978|         [Drama]|\n|      Stepmom (1998)|1998|         [Drama]|\n+--------------------+----+----------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922504870_1173266506",
+      "id": "20170307-213504_1843458662",
+      "dateCreated": "Mar 7, 2017 9:35:04 PM",
+      "dateStarted": "Mar 7, 2017 9:35:54 PM",
+      "dateFinished": "Mar 7, 2017 9:35:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect distinct title,year,genres, rating from ratings where array_contains(genres,\u0027Drama\u0027) and rating \u003d 5",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 9:37:16 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tyear\tgenres\trating\nBroadcast News (1987)\t1987\tWrappedArray(Comedy, Drama, Romance)\t5.0\nWings of the Dove, The (1997)\t1997\tWrappedArray(Drama, Romance, Thriller)\t5.0\nNothing to Lose (1994)\t1994\tWrappedArray(Drama)\t5.0\nHe Got Game (1998)\t1998\tWrappedArray(Drama)\t5.0\nRequiem for a Dream (2000)\t2000\tWrappedArray(Drama)\t5.0\nShane (1953)\t1953\tWrappedArray(Drama, Western)\t5.0\nChildren of a Lesser God (1986)\t1986\tWrappedArray(Drama)\t5.0\nJackie Brown (1997)\t1997\tWrappedArray(Crime, Drama)\t5.0\nQueen Margot (La Reine Margot) (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nLimbo (1999)\t1999\tWrappedArray(Drama)\t5.0\nSunshine (1999)\t1999\tWrappedArray(Drama)\t5.0\nNighthawks (1981)\t1981\tWrappedArray(Action, Drama)\t5.0\nBreakfast Club, The (1985)\t1985\tWrappedArray(Comedy, Drama)\t5.0\nPatriot, The (2000)\t2000\tWrappedArray(Action, Drama, War)\t5.0\nCivil Action, A (1998)\t1998\tWrappedArray(Drama)\t5.0\nBrassed Off (1996)\t1996\tWrappedArray(Comedy, Drama, Romance)\t5.0\nShattered Image (1998)\t1998\tWrappedArray(Drama, Thriller)\t5.0\nEd Wood (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nUnhook the Stars (1996)\t1996\tWrappedArray(Drama)\t5.0\nLast Supper, The (1995)\t1995\tWrappedArray(Drama, Thriller)\t5.0\nStars Fell on Henrietta, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nI Am Cuba (Soy Cuba/Ya Kuba) (1964)\t1964\tWrappedArray(Drama)\t5.0\nSmoke (1995)\t1995\tWrappedArray(Drama)\t5.0\nThis Is Spinal Tap (1984)\t1984\tWrappedArray(Comedy, Drama, Musical)\t5.0\nStar Is Born, A (1937)\t1937\tWrappedArray(Drama)\t5.0\nCement Garden, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nHurricane Streets (1998)\t1998\tWrappedArray(Drama)\t5.0\nPulp Fiction (1994)\t1994\tWrappedArray(Crime, Drama)\t5.0\nClose Encounters of the Third Kind (1977)\t1977\tWrappedArray(Drama, Sci-Fi)\t5.0\nPlayer, The (1992)\t1992\tWrappedArray(Comedy, Drama)\t5.0\nInterview with the Vampire (1994)\t1994\tWrappedArray(Drama, Horror)\t5.0\nThree Colors: Blue (1993)\t1993\tWrappedArray(Drama)\t5.0\nCrazy in Alabama (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nWith Honors (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nRain (1932)\t1932\tWrappedArray(Drama)\t5.0\nKika (1993)\t1993\tWrappedArray(Drama)\t5.0\nParadise Road (1997)\t1997\tWrappedArray(Drama, War)\t5.0\n2001: A Space Odyssey (1968)\t1968\tWrappedArray(Drama, Mystery, Sci-Fi, Thriller)\t5.0\nGreat Santini, The (1979)\t1979\tWrappedArray(Drama)\t5.0\nColor Purple, The (1985)\t1985\tWrappedArray(Drama)\t5.0\nInstinct (1999)\t1999\tWrappedArray(Drama, Thriller)\t5.0\nFaces (1968)\t1968\tWrappedArray(Drama)\t5.0\nPortrait of a Lady, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nMusic From Another Room (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nMyth of Fingerprints, The (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nPromise, The (La Promesse) (1996)\t1996\tWrappedArray(Drama)\t5.0\nKing in New York, A (1957)\t1957\tWrappedArray(Comedy, Drama)\t5.0\nCaligula (1980)\t1980\tWrappedArray(Drama)\t5.0\nSense and Sensibility (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nInteriors (1978)\t1978\tWrappedArray(Drama)\t5.0\nFitzcarraldo (1982)\t1982\tWrappedArray(Adventure, Drama)\t5.0\nDeath Wish II (1982)\t1982\tWrappedArray(Action, Drama)\t5.0\nBeyond Silence (1996)\t1996\tWrappedArray(Drama)\t5.0\nLonely Are the Brave (1962)\t1962\tWrappedArray(Drama, Western)\t5.0\nGiant (1956)\t1956\tWrappedArray(Drama)\t5.0\nMansfield Park (1999)\t1999\tWrappedArray(Drama)\t5.0\nFar and Away (1992)\t1992\tWrappedArray(Drama, Romance)\t5.0\nCabaret Balkan (Bure Baruta) (1998)\t1998\tWrappedArray(Drama)\t5.0\nMrs. Parker and the Vicious Circle (1994)\t1994\tWrappedArray(Drama)\t5.0\nCrime and Punishment in Suburbia (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nGrand Illusion (Grande illusion, La) (1937)\t1937\tWrappedArray(Drama, War)\t5.0\nCyrano de Bergerac (1990)\t1990\tWrappedArray(Action, Drama, Romance)\t5.0\nIndochine (1992)\t1992\tWrappedArray(Drama, Romance)\t5.0\nPrick Up Your Ears (1987)\t1987\tWrappedArray(Drama)\t5.0\nCrash (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nWho\u0027s Afraid of Virginia Woolf? (1966)\t1966\tWrappedArray(Drama)\t5.0\nSimon Birch (1998)\t1998\tWrappedArray(Drama)\t5.0\nAngel on My Shoulder (1946)\t1946\tWrappedArray(Crime, Drama)\t5.0\nLand Girls, The (1998)\t1998\tWrappedArray(Drama, War)\t5.0\nDrunks (1997)\t1997\tWrappedArray(Drama)\t5.0\nTaxi Driver (1976)\t1976\tWrappedArray(Drama, Thriller)\t5.0\nAuntie Mame (1958)\t1958\tWrappedArray(Comedy, Drama)\t5.0\nPapillon (1973)\t1973\tWrappedArray(Drama)\t5.0\nMis�rables, Les (1998)\t1998\tWrappedArray(Drama)\t5.0\nLast Detail, The (1973)\t1973\tWrappedArray(Comedy, Drama)\t5.0\nTitanic (1953)\t1953\tWrappedArray(Action, Drama)\t5.0\nCry, the Beloved Country (1995)\t1995\tWrappedArray(Drama)\t5.0\nChamber, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nWidows\u0027 Peak (1994)\t1994\tWrappedArray(Drama)\t5.0\nOther Side of Sunday, The (S�ndagsengler) (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nBodyguard, The (1992)\t1992\tWrappedArray(Action, Drama, Romance, Thriller)\t5.0\nFrom Here to Eternity (1953)\t1953\tWrappedArray(Drama, Romance, War)\t5.0\nTo Die For (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nIndecent Proposal (1993)\t1993\tWrappedArray(Drama)\t5.0\nColor of Night (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nRight Stuff, The (1983)\t1983\tWrappedArray(Drama)\t5.0\nManhattan (1979)\t1979\tWrappedArray(Comedy, Drama, Romance)\t5.0\nReds (1981)\t1981\tWrappedArray(Drama)\t5.0\nFemale Perversions (1996)\t1996\tWrappedArray(Drama)\t5.0\nRadio Days (1987)\t1987\tWrappedArray(Comedy, Drama)\t5.0\nJack Frost (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nJudy Berlin (1999)\t1999\tWrappedArray(Drama)\t5.0\nClan of the Cave Bear, The (1986)\t1986\tWrappedArray(Drama)\t5.0\nAmerican Beauty (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nJuror, The (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nCorrina, Corrina (1994)\t1994\tWrappedArray(Comedy, Drama, Romance)\t5.0\nAmerican Gigolo (1980)\t1980\tWrappedArray(Drama)\t5.0\nWaking the Dead (1999)\t1999\tWrappedArray(Drama)\t5.0\nUp Close and Personal (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nNeedful Things (1993)\t1993\tWrappedArray(Drama, Horror)\t5.0\nDingo (1992)\t1992\tWrappedArray(Drama)\t5.0\nPompatus of Love, The (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nAny Given Sunday (1999)\t1999\tWrappedArray(Drama)\t5.0\nG.I. Jane (1997)\t1997\tWrappedArray(Action, Drama, War)\t5.0\nOpposite of Sex, The (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nScarlet Letter, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nChushingura (1962)\t1962\tWrappedArray(Drama)\t5.0\nSavior (1998)\t1998\tWrappedArray(Drama)\t5.0\nIn the Heat of the Night (1967)\t1967\tWrappedArray(Drama, Mystery)\t5.0\nOrdinary People (1980)\t1980\tWrappedArray(Drama)\t5.0\n\u0027Night Mother (1986)\t1986\tWrappedArray(Drama)\t5.0\nCourage Under Fire (1996)\t1996\tWrappedArray(Drama, War)\t5.0\nSugarland Express, The (1974)\t1974\tWrappedArray(Drama)\t5.0\nReturn to Paradise (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nBallad of Narayama, The (Narayama Bushiko) (1958)\t1958\tWrappedArray(Drama)\t5.0\nChinese Box (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nPonette (1996)\t1996\tWrappedArray(Drama)\t5.0\nElephant Man, The (1980)\t1980\tWrappedArray(Drama)\t5.0\nWomen on the Verge of a Nervous Breakdown (1988)\t1988\tWrappedArray(Comedy, Drama)\t5.0\nSimple Twist of Fate, A (1994)\t1994\tWrappedArray(Drama)\t5.0\nBeautiful Girls (1996)\t1996\tWrappedArray(Drama)\t5.0\nBandits (1997)\t1997\tWrappedArray(Drama)\t5.0\nDead Presidents (1995)\t1995\tWrappedArray(Action, Crime, Drama)\t5.0\nAbove the Rim (1994)\t1994\tWrappedArray(Drama)\t5.0\nLosing Isaiah (1995)\t1995\tWrappedArray(Drama)\t5.0\nBig Night (1996)\t1996\tWrappedArray(Drama)\t5.0\nSpanking the Monkey (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nAlien Nation (1988)\t1988\tWrappedArray(Crime, Drama, Sci-Fi)\t5.0\nHome for the Holidays (1995)\t1995\tWrappedArray(Drama)\t5.0\nSingles (1992)\t1992\tWrappedArray(Comedy, Drama, Romance)\t5.0\nOnce Upon a Time... When We Were Colored (1995)\t1995\tWrappedArray(Drama)\t5.0\nSomewhere in Time (1980)\t1980\tWrappedArray(Drama, Romance)\t5.0\nOthello (1952)\t1952\tWrappedArray(Drama)\t5.0\nAmong Giants (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nNadja (1994)\t1994\tWrappedArray(Drama)\t5.0\nFargo (1996)\t1996\tWrappedArray(Crime, Drama, Thriller)\t5.0\nBig Chill, The (1983)\t1983\tWrappedArray(Comedy, Drama)\t5.0\nHow Green Was My Valley (1941)\t1941\tWrappedArray(Drama)\t5.0\nDangerous Beauty (1998)\t1998\tWrappedArray(Drama)\t5.0\nBarry Lyndon (1975)\t1975\tWrappedArray(Drama)\t5.0\nEmpire Records (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nWilde (1997)\t1997\tWrappedArray(Drama)\t5.0\nMen With Guns (1997)\t1997\tWrappedArray(Action, Drama)\t5.0\nBootmen (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nDoctor Zhivago (1965)\t1965\tWrappedArray(Drama, Romance, War)\t5.0\nElizabeth (1998)\t1998\tWrappedArray(Drama)\t5.0\nWhole Wide World, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nRounders (1998)\t1998\tWrappedArray(Crime, Drama)\t5.0\nBackdraft (1991)\t1991\tWrappedArray(Action, Drama)\t5.0\nDon Juan DeMarco (1995)\t1995\tWrappedArray(Comedy, Drama, Romance)\t5.0\nWhite Man\u0027s Burden (1995)\t1995\tWrappedArray(Drama)\t5.0\nGrace of My Heart (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nBest Man, The (Il Testimone dello sposo) (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nDeath Wish V: The Face of Death (1994)\t1994\tWrappedArray(Action, Drama)\t5.0\nMy Left Foot (1989)\t1989\tWrappedArray(Drama)\t5.0\nPillow Book, The (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nTime Code (2000)\t2000\tWrappedArray(Drama)\t5.0\nSoul Food (1997)\t1997\tWrappedArray(Drama)\t5.0\nNaked (1993)\t1993\tWrappedArray(Drama)\t5.0\nDoom Generation, The (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nChungking Express (1994)\t1994\tWrappedArray(Drama, Mystery, Romance)\t5.0\nMy Name Is Joe (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nOf Mice and Men (1992)\t1992\tWrappedArray(Drama)\t5.0\nJude (1996)\t1996\tWrappedArray(Drama)\t5.0\nSophie\u0027s Choice (1982)\t1982\tWrappedArray(Drama)\t5.0\nBrief Encounter (1946)\t1946\tWrappedArray(Drama, Romance)\t5.0\nBlue Collar (1978)\t1978\tWrappedArray(Crime, Drama)\t5.0\nRules of Engagement (2000)\t2000\tWrappedArray(Drama, Thriller)\t5.0\nEndurance (1998)\t1998\tWrappedArray(Documentary, Drama)\t5.0\nPrivate Parts (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nPiano, The (1993)\t1993\tWrappedArray(Drama, Romance)\t5.0\nSuddenly, Last Summer (1959)\t1959\tWrappedArray(Drama)\t5.0\nWhere the Heart Is (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nJason\u0027s Lyric (1994)\t1994\tWrappedArray(Crime, Drama)\t5.0\nSome Mother\u0027s Son (1996)\t1996\tWrappedArray(Drama)\t5.0\nPreacher\u0027s Wife, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nPlenty (1985)\t1985\tWrappedArray(Drama)\t5.0\nInstitute Benjamenta, or This Dream People Call Human Life (1995)\t1995\tWrappedArray(Drama)\t5.0\nTopsy-Turvy (1999)\t1999\tWrappedArray(Drama)\t5.0\nGladiator (2000)\t2000\tWrappedArray(Action, Drama)\t5.0\nStraight Story, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nAnna and the King (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nJefferson in Paris (1995)\t1995\tWrappedArray(Drama)\t5.0\nGandhi (1982)\t1982\tWrappedArray(Drama)\t5.0\nField of Dreams (1989)\t1989\tWrappedArray(Drama)\t5.0\nPostino, Il (The Postman) (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nBlowup (1966)\t1966\tWrappedArray(Drama, Mystery)\t5.0\nInsider, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nHouse of Yes, The (1997)\t1997\tWrappedArray(Comedy, Drama, Thriller)\t5.0\nNext Best Thing, The (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nPublic Access (1993)\t1993\tWrappedArray(Drama, Thriller)\t5.0\nSling Blade (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nTrees Lounge (1996)\t1996\tWrappedArray(Drama)\t5.0\nMan in the Iron Mask, The (1998)\t1998\tWrappedArray(Action, Drama, Romance)\t5.0\nThis Is My Father (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nBed of Roses (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nMolly (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nLethal Weapon 4 (1998)\t1998\tWrappedArray(Action, Comedy, Crime, Drama)\t5.0\nGhosts of Mississippi (1996)\t1996\tWrappedArray(Drama)\t5.0\nXiu Xiu: The Sent-Down Girl (Tian yu) (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nOf Human Bondage (1934)\t1934\tWrappedArray(Drama)\t5.0\nDeconstructing Harry (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nStanley \u0026 Iris (1990)\t1990\tWrappedArray(Drama, Romance)\t5.0\nWaiting to Exhale (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nWrong Man, The (1956)\t1956\tWrappedArray(Drama, Film-Noir, Thriller)\t5.0\nPostman, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nSomething to Talk About (1995)\t1995\tWrappedArray(Comedy, Drama, Romance)\t5.0\nCruel Intentions (1999)\t1999\tWrappedArray(Drama)\t5.0\nSid and Nancy (1986)\t1986\tWrappedArray(Drama)\t5.0\nBroken English (1996)\t1996\tWrappedArray(Drama)\t5.0\nSix Degrees of Separation (1993)\t1993\tWrappedArray(Drama)\t5.0\nOutsiders, The (1983)\t1983\tWrappedArray(Drama)\t5.0\nAll Things Fair (1996)\t1996\tWrappedArray(Drama)\t5.0\nPhantom of the Opera, The (1943)\t1943\tWrappedArray(Drama, Thriller)\t5.0\nTraveller (1997)\t1997\tWrappedArray(Drama)\t5.0\nBeyond Rangoon (1995)\t1995\tWrappedArray(Drama, War)\t5.0\nCommitted (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nParadine Case, The (1947)\t1947\tWrappedArray(Drama)\t5.0\nConceiving Ada (1997)\t1997\tWrappedArray(Drama, Sci-Fi)\t5.0\nTruman Show, The (1998)\t1998\tWrappedArray(Drama)\t5.0\nRob Roy (1995)\t1995\tWrappedArray(Drama, Romance, War)\t5.0\nLegend of 1900, The (Leggenda del pianista sull\u0027oceano) (1998)\t1998\tWrappedArray(Drama)\t5.0\nNo Looking Back (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nFried Green Tomatoes (1991)\t1991\tWrappedArray(Drama)\t5.0\nNobody\u0027s Fool (1994)\t1994\tWrappedArray(Drama)\t5.0\nFuneral, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nHorse Whisperer, The (1998)\t1998\tWrappedArray(Drama)\t5.0\nAnd God Created Woman (1988)\t1988\tWrappedArray(Comedy, Drama, Romance)\t5.0\nStardust Memories (1980)\t1980\tWrappedArray(Comedy, Drama)\t5.0\nBadlands (1973)\t1973\tWrappedArray(Crime, Drama)\t5.0\nChariots of Fire (1981)\t1981\tWrappedArray(Drama)\t5.0\nPurple Rose of Cairo, The (1985)\t1985\tWrappedArray(Comedy, Drama, Romance)\t5.0\nSwept Away (Travolti da un insolito destino nell\u0027azzurro mare d\u0027Agosto) (1975)\t1975\tWrappedArray(Comedy, Drama)\t5.0\nLittle Odessa (1994)\t1994\tWrappedArray(Drama)\t5.0\nPecker (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nFabulous Baker Boys, The (1989)\t1989\tWrappedArray(Drama, Romance)\t5.0\nCop Land (1997)\t1997\tWrappedArray(Crime, Drama, Mystery)\t5.0\nOthello (1995)\t1995\tWrappedArray(Drama)\t5.0\nVoyage of the Damned (1976)\t1976\tWrappedArray(Drama)\t5.0\nDeep End of the Ocean, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nKing Creole (1958)\t1958\tWrappedArray(Drama, Musical)\t5.0\nDiabolique (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nGood Will Hunting (1997)\t1997\tWrappedArray(Drama)\t5.0\nCasino (1995)\t1995\tWrappedArray(Drama, Thriller)\t5.0\nBastard Out of Carolina (1996)\t1996\tWrappedArray(Drama)\t5.0\nCraft, The (1996)\t1996\tWrappedArray(Drama, Horror)\t5.0\nRosetta (1999)\t1999\tWrappedArray(Drama)\t5.0\nTrain of Life (Train De Vie) (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nGodfather: Part II, The (1974)\t1974\tWrappedArray(Action, Crime, Drama)\t5.0\nIt\u0027s a Wonderful Life (1946)\t1946\tWrappedArray(Drama)\t5.0\nBelle de jour (1967)\t1967\tWrappedArray(Drama)\t5.0\nStory of Us, The (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nCitizen Ruth (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nFalling Down (1993)\t1993\tWrappedArray(Action, Drama)\t5.0\nTrust (1990)\t1990\tWrappedArray(Comedy, Drama)\t5.0\nCool as Ice (1991)\t1991\tWrappedArray(Drama)\t5.0\nOnegin (1999)\t1999\tWrappedArray(Drama)\t5.0\n187 (1997)\t1997\tWrappedArray(Drama)\t5.0\nThat\u0027s Life! (1986)\t1986\tWrappedArray(Drama)\t5.0\nDays of Heaven (1978)\t1978\tWrappedArray(Drama)\t5.0\nBeloved (1998)\t1998\tWrappedArray(Drama)\t5.0\nGirls Town (1996)\t1996\tWrappedArray(Drama)\t5.0\nMorning After, The (1986)\t1986\tWrappedArray(Drama, Mystery)\t5.0\nInherit the Wind (1960)\t1960\tWrappedArray(Drama)\t5.0\nFive Easy Pieces (1970)\t1970\tWrappedArray(Drama)\t5.0\nLittle Women (1994)\t1994\tWrappedArray(Drama)\t5.0\nFisher King, The (1991)\t1991\tWrappedArray(Comedy, Drama, Romance)\t5.0\nTumbleweeds (1999)\t1999\tWrappedArray(Drama)\t5.0\nNative Son (1986)\t1986\tWrappedArray(Drama)\t5.0\n\u0027Til There Was You (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nGoodFellas (1990)\t1990\tWrappedArray(Crime, Drama)\t5.0\nApostle, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nRazor\u0027s Edge, The (1984)\t1984\tWrappedArray(Drama)\t5.0\nSpitfire Grill, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nSlingshot, The (K�disbellan ) (1993)\t1993\tWrappedArray(Comedy, Drama)\t5.0\nThird Miracle, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nVagabond (Sans toit ni loi) (1985)\t1985\tWrappedArray(Drama)\t5.0\nSingle Girl, A (La Fille Seule) (1995)\t1995\tWrappedArray(Drama)\t5.0\nWhen Night Is Falling (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nJesus\u0027 Son (1999)\t1999\tWrappedArray(Drama)\t5.0\nGet Shorty (1995)\t1995\tWrappedArray(Action, Comedy, Drama)\t5.0\nSteal This Movie! (2000)\t2000\tWrappedArray(Drama)\t5.0\nStealing Beauty (1996)\t1996\tWrappedArray(Drama)\t5.0\nProgram, The (1993)\t1993\tWrappedArray(Action, Drama)\t5.0\nTic Code, The (1998)\t1998\tWrappedArray(Drama)\t5.0\nGlory (1989)\t1989\tWrappedArray(Action, Drama, War)\t5.0\nCook the Thief His Wife \u0026 Her Lover, The (1989)\t1989\tWrappedArray(Drama)\t5.0\nLethal Weapon 3 (1992)\t1992\tWrappedArray(Action, Comedy, Crime, Drama)\t5.0\nBallad of Narayama, The (Narayama Bushiko) (1982)\t1982\tWrappedArray(Drama)\t5.0\nEmperor and the Assassin, The (Jing ke ci qin wang) (1999)\t1999\tWrappedArray(Drama)\t5.0\nGabbeh (1996)\t1996\tWrappedArray(Drama)\t5.0\nPandora and the Flying Dutchman (1951)\t1951\tWrappedArray(Drama)\t5.0\nMr. Smith Goes to Washington (1939)\t1939\tWrappedArray(Drama)\t5.0\nLife Is Beautiful (La Vita � bella) (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nTwilight (1998)\t1998\tWrappedArray(Crime, Drama)\t5.0\nErin Brockovich (2000)\t2000\tWrappedArray(Drama)\t5.0\nMalcolm X (1992)\t1992\tWrappedArray(Drama)\t5.0\nSteel Magnolias (1989)\t1989\tWrappedArray(Drama)\t5.0\nIndian Summer (a.k.a. Alive \u0026 Kicking) (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nCountry (1984)\t1984\tWrappedArray(Drama)\t5.0\nLate August, Early September (Fin ao�t, d�but septembre) (1998)\t1998\tWrappedArray(Drama)\t5.0\nCity, The (1998)\t1998\tWrappedArray(Drama)\t5.0\nCity Lights (1931)\t1931\tWrappedArray(Comedy, Drama, Romance)\t5.0\nHamlet (1948)\t1948\tWrappedArray(Drama)\t5.0\nMinus Man, The (1999)\t1999\tWrappedArray(Drama, Mystery)\t5.0\nRebel Without a Cause (1955)\t1955\tWrappedArray(Drama)\t5.0\nFlirt (1995)\t1995\tWrappedArray(Drama)\t5.0\nApple, The (Sib) (1998)\t1998\tWrappedArray(Drama)\t5.0\nFriend of the Deceased, A (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nGothic (1986)\t1986\tWrappedArray(Drama, Horror)\t5.0\nSuicide Kings (1997)\t1997\tWrappedArray(Crime, Drama)\t5.0\nNever Cry Wolf (1983)\t1983\tWrappedArray(Drama)\t5.0\nGattaca (1997)\t1997\tWrappedArray(Drama, Sci-Fi, Thriller)\t5.0\nIn the Name of the Father (1993)\t1993\tWrappedArray(Drama)\t5.0\nRoom at the Top (1959)\t1959\tWrappedArray(Drama)\t5.0\nGung Ho (1986)\t1986\tWrappedArray(Comedy, Drama)\t5.0\nAnywhere But Here (1999)\t1999\tWrappedArray(Drama)\t5.0\nBefore and After (1996)\t1996\tWrappedArray(Drama, Mystery)\t5.0\nDream for an Insomniac (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nSaragossa Manuscript, The (Rekopis znaleziony w Saragossie) (1965)\t1965\tWrappedArray(Drama)\t5.0\nBlood In, Blood Out (a.k.a. Bound by Honor) (1993)\t1993\tWrappedArray(Crime, Drama)\t5.0\nHi-Lo Country, The (1998)\t1998\tWrappedArray(Drama, Western)\t5.0\nLost Horizon (1937)\t1937\tWrappedArray(Drama)\t5.0\nRain Man (1988)\t1988\tWrappedArray(Drama)\t5.0\nGodfather: Part III, The (1990)\t1990\tWrappedArray(Action, Crime, Drama)\t5.0\n200 Cigarettes (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nSmiling Fish and Goat on Fire (1999)\t1999\tWrappedArray(Drama)\t5.0\nBronx Tale, A (1993)\t1993\tWrappedArray(Drama)\t5.0\nRosie (1998)\t1998\tWrappedArray(Drama)\t5.0\nProfessional, The (a.k.a. Leon: The Professional) (1994)\t1994\tWrappedArray(Crime, Drama, Romance, Thriller)\t5.0\nLongest Day, The (1962)\t1962\tWrappedArray(Action, Drama, War)\t5.0\nPhenomenon (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nStand and Deliver (1987)\t1987\tWrappedArray(Drama)\t5.0\nFace in the Crowd, A (1957)\t1957\tWrappedArray(Drama)\t5.0\nBad Seed, The (1956)\t1956\tWrappedArray(Drama, Thriller)\t5.0\nTommy (1975)\t1975\tWrappedArray(Drama, Musical)\t5.0\nAmerican Buffalo (1996)\t1996\tWrappedArray(Drama)\t5.0\nPalookaville (1996)\t1996\tWrappedArray(Action, Drama)\t5.0\nUp at the Villa (2000)\t2000\tWrappedArray(Drama)\t5.0\nStar Maps (1997)\t1997\tWrappedArray(Drama)\t5.0\nLittle Big Man (1970)\t1970\tWrappedArray(Comedy, Drama, Western)\t5.0\nRan (1985)\t1985\tWrappedArray(Drama, War)\t5.0\nYear of Living Dangerously (1982)\t1982\tWrappedArray(Drama, Romance)\t5.0\nTin Drum, The (Blechtrommel, Die) (1979)\t1979\tWrappedArray(Drama)\t5.0\nChuck \u0026 Buck (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nOne Magic Christmas (1985)\t1985\tWrappedArray(Drama, Fantasy)\t5.0\nSeventh Heaven (Le Septi�me ciel) (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nAngela (1995)\t1995\tWrappedArray(Drama)\t5.0\nBound (1996)\t1996\tWrappedArray(Crime, Drama, Romance, Thriller)\t5.0\nFlying Tigers (1942)\t1942\tWrappedArray(Action, Drama, War)\t5.0\nSaint of Fort Washington, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nWilliam Shakespeare\u0027s Romeo and Juliet (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nPicnic (1955)\t1955\tWrappedArray(Drama)\t5.0\nGuilty as Sin (1993)\t1993\tWrappedArray(Crime, Drama, Thriller)\t5.0\nBody Shots (1999)\t1999\tWrappedArray(Drama)\t5.0\nEast of Eden (1955)\t1955\tWrappedArray(Drama)\t5.0\nPink Floyd - The Wall (1982)\t1982\tWrappedArray(Drama, Musical, War)\t5.0\nManon of the Spring (Manon des sources) (1986)\t1986\tWrappedArray(Drama)\t5.0\nBen-Hur (1959)\t1959\tWrappedArray(Action, Adventure, Drama)\t5.0\nHamlet (1964)\t1964\tWrappedArray(Drama)\t5.0\nBlow-Out (La Grande Bouffe) (1973)\t1973\tWrappedArray(Drama)\t5.0\nTo Be or Not to Be (1942)\t1942\tWrappedArray(Comedy, Drama, War)\t5.0\nThree Seasons (1999)\t1999\tWrappedArray(Drama)\t5.0\nI Love You, Don\u0027t Touch Me! (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nMy Life as a Dog (Mitt liv som hund) (1985)\t1985\tWrappedArray(Drama)\t5.0\nBoys of St. Vincent, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nRemains of the Day, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nComing Home (1978)\t1978\tWrappedArray(Drama, War)\t5.0\nMoonlight and Valentino (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nWay We Were, The (1973)\t1973\tWrappedArray(Drama)\t5.0\nRestoration (1995)\t1995\tWrappedArray(Drama)\t5.0\nWar Zone, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nFirelight (1997)\t1997\tWrappedArray(Drama)\t5.0\nDuets (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nTo Sir with Love (1967)\t1967\tWrappedArray(Drama)\t5.0\nTwin Peaks: Fire Walk with Me (1992)\t1992\tWrappedArray(Drama, Mystery)\t5.0\nScout, The (1994)\t1994\tWrappedArray(Drama)\t5.0\nNowhere (1997)\t1997\tWrappedArray(Drama)\t5.0\nDancer, Texas Pop. 81 (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nGrapes of Wrath, The (1940)\t1940\tWrappedArray(Drama)\t5.0\nOne Flew Over the Cuckoo\u0027s Nest (1975)\t1975\tWrappedArray(Drama)\t5.0\nMagnolia (1999)\t1999\tWrappedArray(Drama)\t5.0\nAll About My Mother (Todo Sobre Mi Madre) (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nCoyote Ugly (2000)\t2000\tWrappedArray(Drama)\t5.0\nMary Shelley\u0027s Frankenstein (1994)\t1994\tWrappedArray(Drama, Horror)\t5.0\nMildred Pierce (1945)\t1945\tWrappedArray(Drama)\t5.0\nWitness (1985)\t1985\tWrappedArray(Drama, Romance, Thriller)\t5.0\nLeaving Las Vegas (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nAgnes of God (1985)\t1985\tWrappedArray(Drama, Mystery)\t5.0\nPlunkett \u0026 MaCleane (1999)\t1999\tWrappedArray(Action, Drama)\t5.0\nGeorgia (1995)\t1995\tWrappedArray(Drama)\t5.0\nInfinity (1996)\t1996\tWrappedArray(Drama)\t5.0\nHigher Learning (1995)\t1995\tWrappedArray(Drama)\t5.0\nI Stand Alone (Seul contre tous) (1998)\t1998\tWrappedArray(Drama)\t5.0\nHollow Reed (1996)\t1996\tWrappedArray(Drama)\t5.0\nCitizen Kane (1941)\t1941\tWrappedArray(Drama)\t5.0\nSneakers (1992)\t1992\tWrappedArray(Crime, Drama, Sci-Fi)\t5.0\nShadowlands (1993)\t1993\tWrappedArray(Drama, Romance)\t5.0\nEyes Wide Shut (1999)\t1999\tWrappedArray(Drama)\t5.0\nSwimming with Sharks (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nTo Gillian on Her 37th Birthday (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nMap of the World, A (1999)\t1999\tWrappedArray(Drama)\t5.0\nEnglish Patient, The (1996)\t1996\tWrappedArray(Drama, Romance, War)\t5.0\nLolita (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nLove and Basketball (2000)\t2000\tWrappedArray(Drama, Romance)\t5.0\nTotal Eclipse (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nEducation of Little Tree, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nEmerald Forest, The (1985)\t1985\tWrappedArray(Action, Adventure, Drama)\t5.0\nPaper Chase, The (1973)\t1973\tWrappedArray(Drama)\t5.0\nRocky IV (1985)\t1985\tWrappedArray(Action, Drama)\t5.0\nLimelight (1952)\t1952\tWrappedArray(Drama)\t5.0\nTwo Jakes, The (1990)\t1990\tWrappedArray(Drama)\t5.0\nStalag 17 (1953)\t1953\tWrappedArray(Drama, War)\t5.0\nSummer of Sam (1999)\t1999\tWrappedArray(Drama)\t5.0\nPlace in the Sun, A (1951)\t1951\tWrappedArray(Drama, Romance)\t5.0\nAntonia\u0027s Line (Antonia) (1995)\t1995\tWrappedArray(Drama)\t5.0\nCutting Edge, The (1992)\t1992\tWrappedArray(Drama)\t5.0\nLive Flesh (1997)\t1997\tWrappedArray(Drama)\t5.0\nLadybird Ladybird (1994)\t1994\tWrappedArray(Drama)\t5.0\nQuiet Room, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nEye for an Eye (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nPlatoon (1986)\t1986\tWrappedArray(Drama, War)\t5.0\nFrances (1982)\t1982\tWrappedArray(Drama)\t5.0\nJane Eyre (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nContempt (Le M�pris) (1963)\t1963\tWrappedArray(Drama)\t5.0\nIn God\u0027s Hands (1998)\t1998\tWrappedArray(Action, Drama)\t5.0\nMiller\u0027s Crossing (1990)\t1990\tWrappedArray(Drama)\t5.0\nMrs. Brown (Her Majesty, Mrs. Brown) (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nMan Facing Southeast (Hombre Mirando al Sudeste) (1986)\t1986\tWrappedArray(Drama)\t5.0\nBeat the Devil (1954)\t1954\tWrappedArray(Comedy, Drama)\t5.0\nActor\u0027s Revenge, An (Yukinojo Henge) (1963)\t1963\tWrappedArray(Drama)\t5.0\nBatman (1989)\t1989\tWrappedArray(Action, Adventure, Crime, Drama)\t5.0\nLovers on the Bridge, The (Les Amants du Pont-Neuf) (1991)\t1991\tWrappedArray(Drama, Romance)\t5.0\nKiller: A Journal of Murder (1995)\t1995\tWrappedArray(Crime, Drama)\t5.0\nMercury Rising (1998)\t1998\tWrappedArray(Action, Drama, Thriller)\t5.0\nCry in the Dark, A (1988)\t1988\tWrappedArray(Drama)\t5.0\nFanny and Alexander (1982)\t1982\tWrappedArray(Drama)\t5.0\nDeath and the Maiden (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nHeavy (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nBelizaire the Cajun (1986)\t1986\tWrappedArray(Drama)\t5.0\nBreathless (1983)\t1983\tWrappedArray(Action, Drama, Romance, Thriller)\t5.0\nBabysitter, The (1995)\t1995\tWrappedArray(Drama, Thriller)\t5.0\nBoys Life (1995)\t1995\tWrappedArray(Drama)\t5.0\nMy Family (1995)\t1995\tWrappedArray(Drama)\t5.0\nDouble Happiness (1994)\t1994\tWrappedArray(Drama)\t5.0\nUnstrung Heroes (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nMy Favorite Season (1993)\t1993\tWrappedArray(Drama)\t5.0\nGirl on the Bridge, The (La Fille sur le Pont) (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nFaraway, So Close (In Weiter Ferne, So Nah!) (1993)\t1993\tWrappedArray(Drama, Fantasy)\t5.0\nAnd the Band Played On (1993)\t1993\tWrappedArray(Drama)\t5.0\nPlaying by Heart (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nKagemusha (1980)\t1980\tWrappedArray(Drama, War)\t5.0\nFrench Connection, The (1971)\t1971\tWrappedArray(Action, Crime, Drama, Thriller)\t5.0\nHowards End (1992)\t1992\tWrappedArray(Drama)\t5.0\nQuiz Show (1994)\t1994\tWrappedArray(Drama)\t5.0\nGods and Monsters (1998)\t1998\tWrappedArray(Drama)\t5.0\nDiner (1982)\t1982\tWrappedArray(Comedy, Drama)\t5.0\nBoiler Room (2000)\t2000\tWrappedArray(Drama)\t5.0\nBig Carnival, The (1951)\t1951\tWrappedArray(Drama)\t5.0\nHour of the Pig, The (1993)\t1993\tWrappedArray(Drama, Mystery)\t5.0\nAll About Eve (1950)\t1950\tWrappedArray(Drama)\t5.0\nSmoke Signals (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nBest Years of Our Lives, The (1946)\t1946\tWrappedArray(Drama, War)\t5.0\nDrugstore Cowboy (1989)\t1989\tWrappedArray(Crime, Drama)\t5.0\nLast Man Standing (1996)\t1996\tWrappedArray(Action, Drama, Western)\t5.0\nPrice Above Rubies, A (1998)\t1998\tWrappedArray(Drama)\t5.0\nWag the Dog (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nAirport \u002777 (1977)\t1977\tWrappedArray(Drama)\t5.0\nDancing at Lughnasa (1998)\t1998\tWrappedArray(Drama)\t5.0\nDeath Wish 4: The Crackdown (1987)\t1987\tWrappedArray(Action, Drama)\t5.0\nReluctant Debutante, The (1958)\t1958\tWrappedArray(Comedy, Drama)\t5.0\nTender Mercies (1983)\t1983\tWrappedArray(Drama)\t5.0\nScent of a Woman (1992)\t1992\tWrappedArray(Drama)\t5.0\nOn Golden Pond (1981)\t1981\tWrappedArray(Drama)\t5.0\nSay Anything... (1989)\t1989\tWrappedArray(Comedy, Drama, Romance)\t5.0\nDonnie Brasco (1997)\t1997\tWrappedArray(Crime, Drama)\t5.0\nNext Stop, Wonderland (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nSurf Nazis Must Die (1987)\t1987\tWrappedArray(Drama)\t5.0\nAgnes Browne (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nNew Rose Hotel (1998)\t1998\tWrappedArray(Action, Drama)\t5.0\nPriest (1994)\t1994\tWrappedArray(Drama)\t5.0\nThree Colors: White (1994)\t1994\tWrappedArray(Drama)\t5.0\nEdge of Seventeen (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nLosing Chase (1996)\t1996\tWrappedArray(Drama)\t5.0\nNil By Mouth (1997)\t1997\tWrappedArray(Drama)\t5.0\nExotica (1994)\t1994\tWrappedArray(Drama)\t5.0\nBound for Glory (1976)\t1976\tWrappedArray(Drama)\t5.0\nDance with Me (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nHow Stella Got Her Groove Back (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nPretty in Pink (1986)\t1986\tWrappedArray(Comedy, Drama, Romance)\t5.0\nAll the King\u0027s Men (1949)\t1949\tWrappedArray(Drama)\t5.0\nChildren of Heaven, The (Bacheha-Ye Aseman) (1997)\t1997\tWrappedArray(Drama)\t5.0\nJoe Gould\u0027s Secret (2000)\t2000\tWrappedArray(Drama)\t5.0\nDry Cleaning (Nettoyage � sec) (1997)\t1997\tWrappedArray(Drama)\t5.0\nSkipped Parts (2000)\t2000\tWrappedArray(Drama, Romance)\t5.0\n12 Angry Men (1957)\t1957\tWrappedArray(Drama)\t5.0\nContender, The (2000)\t2000\tWrappedArray(Drama, Thriller)\t5.0\nLast Picture Show, The (1971)\t1971\tWrappedArray(Drama)\t5.0\nMrs. Miniver (1942)\t1942\tWrappedArray(Drama, War)\t5.0\nTalented Mr. Ripley, The (1999)\t1999\tWrappedArray(Drama, Mystery, Thriller)\t5.0\nCelebration, The (Festen) (1998)\t1998\tWrappedArray(Drama)\t5.0\nNineteen Eighty-Four (1984)\t1984\tWrappedArray(Drama, Sci-Fi)\t5.0\nAirport (1970)\t1970\tWrappedArray(Drama)\t5.0\nCutter\u0027s Way (1981)\t1981\tWrappedArray(Drama, Thriller)\t5.0\nBad Lieutenant (1992)\t1992\tWrappedArray(Crime, Drama)\t5.0\nLight of Day (1987)\t1987\tWrappedArray(Drama)\t5.0\nManny \u0026 Lo (1996)\t1996\tWrappedArray(Drama)\t5.0\nI Can\u0027t Sleep (J\u0027ai pas sommeil) (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nSearching for Bobby Fischer (1993)\t1993\tWrappedArray(Drama)\t5.0\nNights of Cabiria (Le Notti di Cabiria) (1957)\t1957\tWrappedArray(Drama)\t5.0\nDesert Bloom (1986)\t1986\tWrappedArray(Drama)\t5.0\nMan and a Woman, A (Un Homme et une Femme) (1966)\t1966\tWrappedArray(Drama, Romance)\t5.0\nCandidate, The (1972)\t1972\tWrappedArray(Drama)\t5.0\nRising Sun (1993)\t1993\tWrappedArray(Action, Drama, Mystery)\t5.0\nVan, The (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nDream With the Fishes (1997)\t1997\tWrappedArray(Drama)\t5.0\nAll the Rage (a.k.a. It\u0027s the Rage) (1999)\t1999\tWrappedArray(Drama)\t5.0\nShort Cuts (1993)\t1993\tWrappedArray(Drama)\t5.0\nCommitments, The (1991)\t1991\tWrappedArray(Comedy, Drama)\t5.0\nDouble Life of Veronique, The (La Double Vie de V�ronique) (1991)\t1991\tWrappedArray(Drama)\t5.0\nClockers (1995)\t1995\tWrappedArray(Drama)\t5.0\nMelvin and Howard (1980)\t1980\tWrappedArray(Drama)\t5.0\nIn the Realm of the Senses (Ai no corrida) (1976)\t1976\tWrappedArray(Drama)\t5.0\nBamba, La (1987)\t1987\tWrappedArray(Drama)\t5.0\nDangerous Minds (1995)\t1995\tWrappedArray(Drama)\t5.0\nLeague of Their Own, A (1992)\t1992\tWrappedArray(Comedy, Drama)\t5.0\nOn the Beach (1959)\t1959\tWrappedArray(Drama)\t5.0\nJungle Fever (1991)\t1991\tWrappedArray(Drama, Romance)\t5.0\nRough Magic (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nLike Water for Chocolate (Como agua para chocolate) (1992)\t1992\tWrappedArray(Drama, Romance)\t5.0\nBelly (1998)\t1998\tWrappedArray(Crime, Drama)\t5.0\nTango (1998)\t1998\tWrappedArray(Drama)\t5.0\nLost Weekend, The (1945)\t1945\tWrappedArray(Drama)\t5.0\nCrossing Guard, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nStonewall (1995)\t1995\tWrappedArray(Drama)\t5.0\nCity Hall (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nLawn Dogs (1997)\t1997\tWrappedArray(Drama)\t5.0\nHot Spot, The (1990)\t1990\tWrappedArray(Drama, Romance)\t5.0\nSilent Fall (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nGone with the Wind (1939)\t1939\tWrappedArray(Drama, Romance, War)\t5.0\nBreaking the Waves (1996)\t1996\tWrappedArray(Drama)\t5.0\n24 7: Twenty Four Seven (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nSoldier\u0027s Story, A (1984)\t1984\tWrappedArray(Drama)\t5.0\nVie est belle, La (Life is Rosey) (1987)\t1987\tWrappedArray(Comedy, Drama)\t5.0\nRoom with a View, A (1986)\t1986\tWrappedArray(Drama, Romance)\t5.0\nTitanic (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nGood Earth, The (1937)\t1937\tWrappedArray(Drama)\t5.0\nFoxfire (1996)\t1996\tWrappedArray(Drama)\t5.0\nAt First Sight (1999)\t1999\tWrappedArray(Drama)\t5.0\nIt\u0027s My Party (1995)\t1995\tWrappedArray(Drama)\t5.0\nZed \u0026 Two Noughts, A (1985)\t1985\tWrappedArray(Drama)\t5.0\nGraduate, The (1967)\t1967\tWrappedArray(Drama, Romance)\t5.0\nDeep Impact (1998)\t1998\tWrappedArray(Action, Drama, Sci-Fi, Thriller)\t5.0\nBlood Simple (1984)\t1984\tWrappedArray(Drama, Film-Noir)\t5.0\nDeer Hunter, The (1978)\t1978\tWrappedArray(Drama, War)\t5.0\nFinal Destination (2000)\t2000\tWrappedArray(Drama, Thriller)\t5.0\nMother Night (1996)\t1996\tWrappedArray(Drama)\t5.0\nMis�rables, Les (1995)\t1995\tWrappedArray(Drama, Musical)\t5.0\nButterfly (La Lengua de las Mariposas) (2000)\t2000\tWrappedArray(Drama, War)\t5.0\nColor of Paradise, The (Rang-e Khoda) (1999)\t1999\tWrappedArray(Drama)\t5.0\nLast Summer in the Hamptons (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nCountry Life (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nBrokedown Palace (1999)\t1999\tWrappedArray(Drama)\t5.0\nCold Fever (� k�ldum klaka) (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nMy Tutor (1983)\t1983\tWrappedArray(Drama)\t5.0\nPatton (1970)\t1970\tWrappedArray(Drama, War)\t5.0\nSleepers (1996)\t1996\tWrappedArray(Crime, Drama)\t5.0\nFour Days in September (1997)\t1997\tWrappedArray(Drama)\t5.0\nJack (1996)\t1996\tWrappedArray(Comedy, Drama)\t5.0\nBuddy Holly Story, The (1978)\t1978\tWrappedArray(Drama)\t5.0\nCider House Rules, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nEnd of the Affair, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nWar, The (1994)\t1994\tWrappedArray(Adventure, Drama)\t5.0\nHell in the Pacific (1968)\t1968\tWrappedArray(Drama, War)\t5.0\nBandit Queen (1994)\t1994\tWrappedArray(Drama)\t5.0\nWood, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nTerrorist, The (Malli) (1998)\t1998\tWrappedArray(Drama)\t5.0\nJoy Luck Club, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nMad Love (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nBefore the Rain (Pred dozhdot) (1994)\t1994\tWrappedArray(Drama)\t5.0\nAutumn in New York (2000)\t2000\tWrappedArray(Drama, Romance)\t5.0\nPrizzi\u0027s Honor (1985)\t1985\tWrappedArray(Comedy, Drama, Romance)\t5.0\nCat on a Hot Tin Roof (1958)\t1958\tWrappedArray(Drama)\t5.0\nKicking and Screaming (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nCobb (1994)\t1994\tWrappedArray(Drama)\t5.0\nBetrayed (1988)\t1988\tWrappedArray(Drama, Thriller)\t5.0\n54 (1998)\t1998\tWrappedArray(Drama)\t5.0\nWashington Square (1997)\t1997\tWrappedArray(Drama)\t5.0\nNixon (1995)\t1995\tWrappedArray(Drama)\t5.0\nFeast of July (1995)\t1995\tWrappedArray(Drama)\t5.0\nCatfish in Black Bean Sauce (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nBattleship Potemkin, The (Bronenosets Potyomkin) (1925)\t1925\tWrappedArray(Drama, War)\t5.0\nIce Storm, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nBasquiat (1996)\t1996\tWrappedArray(Drama)\t5.0\nAparajito (1956)\t1956\tWrappedArray(Drama)\t5.0\nLove and Death on Long Island (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nMetroland (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nFive Senses, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nNine 1/2 Weeks (1986)\t1986\tWrappedArray(Drama)\t5.0\nFear and Loathing in Las Vegas (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nKing of Masks, The (Bian Lian) (1996)\t1996\tWrappedArray(Drama)\t5.0\nGrand Hotel (1932)\t1932\tWrappedArray(Drama)\t5.0\nMessenger: The Story of Joan of Arc, The (1999)\t1999\tWrappedArray(Drama, War)\t5.0\nAnother Day in Paradise (1998)\t1998\tWrappedArray(Drama)\t5.0\nJerry Springer: Ringmaster (1998)\t1998\tWrappedArray(Drama)\t5.0\nBeing Human (1993)\t1993\tWrappedArray(Drama)\t5.0\nTelling Lies in America (1997)\t1997\tWrappedArray(Drama)\t5.0\nDangerous Liaisons (1988)\t1988\tWrappedArray(Drama, Romance)\t5.0\nLooking for Richard (1996)\t1996\tWrappedArray(Documentary, Drama)\t5.0\nRed Sorghum (Hong Gao Liang) (1987)\t1987\tWrappedArray(Drama, War)\t5.0\nWhite Balloon, The (Badkonake Sefid ) (1995)\t1995\tWrappedArray(Drama)\t5.0\nHarmonists, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nAim�e \u0026 Jaguar (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nDangerous Game (1993)\t1993\tWrappedArray(Drama)\t5.0\nBoat, The (Das Boot) (1981)\t1981\tWrappedArray(Action, Drama, War)\t5.0\nRaging Bull (1980)\t1980\tWrappedArray(Drama)\t5.0\nUntouchables, The (1987)\t1987\tWrappedArray(Action, Crime, Drama)\t5.0\nButcher Boy, The (1998)\t1998\tWrappedArray(Drama)\t5.0\nHurlyburly (1998)\t1998\tWrappedArray(Drama)\t5.0\nM. Butterfly (1993)\t1993\tWrappedArray(Drama)\t5.0\nWalk in the Clouds, A (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nCome See the Paradise (1990)\t1990\tWrappedArray(Drama, Romance)\t5.0\nHamlet (1996)\t1996\tWrappedArray(Drama)\t5.0\nFollowing (1998)\t1998\tWrappedArray(Drama)\t5.0\nTwin Falls Idaho (1999)\t1999\tWrappedArray(Drama)\t5.0\nDreamlife of Angels, The (La Vie r�v�e des anges) (1998)\t1998\tWrappedArray(Drama)\t5.0\nLove! Valour! Compassion! (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nRocky V (1990)\t1990\tWrappedArray(Action, Drama)\t5.0\nGet Carter (2000)\t2000\tWrappedArray(Action, Drama, Thriller)\t5.0\nSubstance of Fire, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nFew Good Men, A (1992)\t1992\tWrappedArray(Crime, Drama)\t5.0\nRomper Stomper (1992)\t1992\tWrappedArray(Action, Drama)\t5.0\nRoadside Prophets (1992)\t1992\tWrappedArray(Comedy, Drama)\t5.0\nStealing Home (1988)\t1988\tWrappedArray(Drama)\t5.0\nGoverness, The (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nPlayer\u0027s Club, The (1998)\t1998\tWrappedArray(Action, Drama)\t5.0\nSurviving Picasso (1996)\t1996\tWrappedArray(Drama)\t5.0\nGreaser\u0027s Palace (1972)\t1972\tWrappedArray(Drama)\t5.0\nHustler, The (1961)\t1961\tWrappedArray(Drama)\t5.0\nAtlantic City (1980)\t1980\tWrappedArray(Crime, Drama, Romance)\t5.0\nAdventures of Priscilla, Queen of the Desert, The (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nConversation, The (1974)\t1974\tWrappedArray(Drama, Mystery)\t5.0\nCan\u0027t Hardly Wait (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nDown by Law (1986)\t1986\tWrappedArray(Comedy, Drama)\t5.0\nNorth Dallas Forty (1979)\t1979\tWrappedArray(Comedy, Drama)\t5.0\nWedding Gift, The (1994)\t1994\tWrappedArray(Drama)\t5.0\nOutbreak (1995)\t1995\tWrappedArray(Action, Drama, Thriller)\t5.0\nFire Within, The (Le Feu Follet) (1963)\t1963\tWrappedArray(Drama)\t5.0\nNobody Loves Me (Keiner liebt mich) (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nCorruptor, The (1999)\t1999\tWrappedArray(Action, Crime, Drama, Thriller)\t5.0\nAwfully Big Adventure, An (1995)\t1995\tWrappedArray(Drama)\t5.0\nPhiladelphia (1993)\t1993\tWrappedArray(Drama)\t5.0\nSLC Punk! (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nWorld of Apu, The (Apur Sansar) (1959)\t1959\tWrappedArray(Drama)\t5.0\nAlice and Martin (Alice et Martin) (1998)\t1998\tWrappedArray(Drama)\t5.0\nBlood on the Sun (1945)\t1945\tWrappedArray(Drama, War)\t5.0\nCure, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nEasy Rider (1969)\t1969\tWrappedArray(Adventure, Drama)\t5.0\nGarden of Finzi-Contini, The (Giardino dei Finzi-Contini, Il) (1970)\t1970\tWrappedArray(Drama)\t5.0\nOther Sister, The (1999)\t1999\tWrappedArray(Comedy, Drama, Romance)\t5.0\nHilary and Jackie (1998)\t1998\tWrappedArray(Drama)\t5.0\nSolaris (Solyaris) (1972)\t1972\tWrappedArray(Drama, Sci-Fi)\t5.0\nPaths of Glory (1957)\t1957\tWrappedArray(Drama, War)\t5.0\nAmerican President, The (1995)\t1995\tWrappedArray(Comedy, Drama, Romance)\t5.0\nKids (1995)\t1995\tWrappedArray(Drama)\t5.0\nMan with the Golden Arm, The (1955)\t1955\tWrappedArray(Drama)\t5.0\nFight Club (1999)\t1999\tWrappedArray(Drama)\t5.0\nKramer Vs. Kramer (1979)\t1979\tWrappedArray(Drama)\t5.0\nWalkabout (1971)\t1971\tWrappedArray(Drama)\t5.0\nMy Life (1993)\t1993\tWrappedArray(Drama)\t5.0\nWild Reeds (1994)\t1994\tWrappedArray(Drama)\t5.0\nCareer Girls (1997)\t1997\tWrappedArray(Drama)\t5.0\nShawshank Redemption, The (1994)\t1994\tWrappedArray(Drama)\t5.0\nBicycle Thief, The (Ladri di biciclette) (1948)\t1948\tWrappedArray(Drama)\t5.0\nWhat Dreams May Come (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nWoman in the Dunes (Suna no onna) (1964)\t1964\tWrappedArray(Drama)\t5.0\nHenry V (1989)\t1989\tWrappedArray(Drama, War)\t5.0\nHenry Fool (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nQueens Logic (1991)\t1991\tWrappedArray(Comedy, Drama)\t5.0\nLittle Buddha (1993)\t1993\tWrappedArray(Drama)\t5.0\nKiss of Death (1995)\t1995\tWrappedArray(Crime, Drama, Thriller)\t5.0\nSeventh Seal, The (Sjunde inseglet, Det) (1957)\t1957\tWrappedArray(Drama)\t5.0\nAmerican Graffiti (1973)\t1973\tWrappedArray(Comedy, Drama)\t5.0\nAfter Life (1998)\t1998\tWrappedArray(Drama)\t5.0\nThirteenth Floor, The (1999)\t1999\tWrappedArray(Drama, Sci-Fi, Thriller)\t5.0\nFalcon and the Snowman, The (1984)\t1984\tWrappedArray(Drama)\t5.0\nRavenous (1999)\t1999\tWrappedArray(Drama, Horror)\t5.0\nReality Bites (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nWalking Dead, The (1995)\t1995\tWrappedArray(Drama, War)\t5.0\nWild Things (1998)\t1998\tWrappedArray(Crime, Drama, Mystery, Thriller)\t5.0\nTwo Women (La Ciociara) (1961)\t1961\tWrappedArray(Drama, War)\t5.0\nTom \u0026 Viv (1994)\t1994\tWrappedArray(Drama)\t5.0\nWalk in the Sun, A (1945)\t1945\tWrappedArray(Drama)\t5.0\nLone Star (1996)\t1996\tWrappedArray(Drama, Mystery)\t5.0\nBicentennial Man (1999)\t1999\tWrappedArray(Comedy, Drama, Sci-Fi)\t5.0\nOtello (1986)\t1986\tWrappedArray(Drama)\t5.0\nOpen Your Eyes (Abre los ojos) (1997)\t1997\tWrappedArray(Drama, Romance, Sci-Fi)\t5.0\nFlamingo Kid, The (1984)\t1984\tWrappedArray(Comedy, Drama)\t5.0\nPerfect World, A (1993)\t1993\tWrappedArray(Action, Drama)\t5.0\nLast Time I Committed Suicide, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nWife, The (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nJourney of August King, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nCool Hand Luke (1967)\t1967\tWrappedArray(Comedy, Drama)\t5.0\nStarman (1984)\t1984\tWrappedArray(Adventure, Drama, Romance, Sci-Fi)\t5.0\nFull Metal Jacket (1987)\t1987\tWrappedArray(Action, Drama, War)\t5.0\nChildren of Paradise (Les enfants du paradis) (1945)\t1945\tWrappedArray(Drama, Romance)\t5.0\nBackbeat (1993)\t1993\tWrappedArray(Drama, Musical)\t5.0\nCharacter (Karakter) (1997)\t1997\tWrappedArray(Drama)\t5.0\nExtremities (1986)\t1986\tWrappedArray(Drama, Thriller)\t5.0\nMiracle on 34th Street (1994)\t1994\tWrappedArray(Drama)\t5.0\nI Dreamed of Africa (2000)\t2000\tWrappedArray(Drama)\t5.0\nWalk on the Moon, A (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nAmistad (1997)\t1997\tWrappedArray(Drama)\t5.0\nPeter\u0027s Friends (1992)\t1992\tWrappedArray(Comedy, Drama)\t5.0\nJules and Jim (Jules et Jim) (1961)\t1961\tWrappedArray(Drama)\t5.0\nLove Affair (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nRenaissance Man (1994)\t1994\tWrappedArray(Comedy, Drama, War)\t5.0\nDances with Wolves (1990)\t1990\tWrappedArray(Adventure, Drama, Western)\t5.0\nSome Folks Call It a Sling Blade (1993)\t1993\tWrappedArray(Drama, Thriller)\t5.0\nReturn to Me (2000)\t2000\tWrappedArray(Drama, Romance)\t5.0\n...And Justice for All (1979)\t1979\tWrappedArray(Drama, Thriller)\t5.0\nMidnight in the Garden of Good and Evil (1997)\t1997\tWrappedArray(Comedy, Crime, Drama, Mystery)\t5.0\nFor Love of the Game (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nApt Pupil (1998)\t1998\tWrappedArray(Drama, Thriller)\t5.0\nBrowning Version, The (1994)\t1994\tWrappedArray(Drama)\t5.0\nRemember the Titans (2000)\t2000\tWrappedArray(Drama)\t5.0\nSplendor in the Grass (1961)\t1961\tWrappedArray(Drama)\t5.0\nOne True Thing (1998)\t1998\tWrappedArray(Drama)\t5.0\nRaise the Titanic (1980)\t1980\tWrappedArray(Drama, Thriller)\t5.0\nWonder Boys (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nPatch Adams (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nPather Panchali (1955)\t1955\tWrappedArray(Drama)\t5.0\nGuess Who\u0027s Coming to Dinner (1967)\t1967\tWrappedArray(Comedy, Drama)\t5.0\nMadame Sousatzka (1988)\t1988\tWrappedArray(Drama)\t5.0\nShanghai Triad (Yao a yao yao dao waipo qiao) (1995)\t1995\tWrappedArray(Drama)\t5.0\nLifeboat (1944)\t1944\tWrappedArray(Drama, Thriller, War)\t5.0\nDolores Claiborne (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nDisclosure (1994)\t1994\tWrappedArray(Drama, Thriller)\t5.0\nGirlfight (2000)\t2000\tWrappedArray(Drama)\t5.0\nArtemisia (1997)\t1997\tWrappedArray(Drama)\t5.0\nWelcome To Sarajevo (1997)\t1997\tWrappedArray(Drama, War)\t5.0\nDead Man Walking (1995)\t1995\tWrappedArray(Drama)\t5.0\nDraughtsman\u0027s Contract, The (1982)\t1982\tWrappedArray(Drama)\t5.0\nPrince of the City (1981)\t1981\tWrappedArray(Drama)\t5.0\nLast Emperor, The (1987)\t1987\tWrappedArray(Drama, War)\t5.0\nTwo Family House (2000)\t2000\tWrappedArray(Drama)\t5.0\nFootloose (1984)\t1984\tWrappedArray(Drama)\t5.0\nEternity and a Day (Mia eoniotita ke mia mera ) (1998)\t1998\tWrappedArray(Drama)\t5.0\nLight It Up (1999)\t1999\tWrappedArray(Drama)\t5.0\nPeople vs. Larry Flynt, The (1996)\t1996\tWrappedArray(Drama)\t5.0\nHamlet (1990)\t1990\tWrappedArray(Drama)\t5.0\nFrankie Starlight (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nSaving Private Ryan (1998)\t1998\tWrappedArray(Action, Drama, War)\t5.0\nNell (1994)\t1994\tWrappedArray(Drama)\t5.0\nCopycat (1995)\t1995\tWrappedArray(Crime, Drama, Thriller)\t5.0\nShe\u0027s So Lovely (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nSacco and Vanzetti (Sacco e Vanzetti) (1971)\t1971\tWrappedArray(Drama)\t5.0\nCroupier (1998)\t1998\tWrappedArray(Crime, Drama)\t5.0\nSnow Falling on Cedars (1999)\t1999\tWrappedArray(Drama)\t5.0\nDersu Uzala (1974)\t1974\tWrappedArray(Adventure, Drama)\t5.0\nMighty, The (1998)\t1998\tWrappedArray(Drama)\t5.0\n8 Seconds (1994)\t1994\tWrappedArray(Drama)\t5.0\nGingerbread Man, The (1998)\t1998\tWrappedArray(Drama, Thriller)\t5.0\nKing of Marvin Gardens, The (1972)\t1972\tWrappedArray(Crime, Drama)\t5.0\nNorth by Northwest (1959)\t1959\tWrappedArray(Drama, Thriller)\t5.0\nEdward Scissorhands (1990)\t1990\tWrappedArray(Drama, Romance)\t5.0\nRomeo and Juliet (1968)\t1968\tWrappedArray(Drama, Romance)\t5.0\nYour Friends and Neighbors (1998)\t1998\tWrappedArray(Drama)\t5.0\nBroken Hearts Club, The (2000)\t2000\tWrappedArray(Drama)\t5.0\nPrefontaine (1997)\t1997\tWrappedArray(Drama)\t5.0\nParenthood (1989)\t1989\tWrappedArray(Comedy, Drama)\t5.0\nLimey, The (1999)\t1999\tWrappedArray(Action, Crime, Drama)\t5.0\nFirm, The (1993)\t1993\tWrappedArray(Drama, Thriller)\t5.0\nUntil the End of the World (Bis ans Ende der Welt) (1991)\t1991\tWrappedArray(Drama, Sci-Fi)\t5.0\nTwo Girls and a Guy (1997)\t1997\tWrappedArray(Comedy, Drama)\t5.0\nLegends of the Fall (1994)\t1994\tWrappedArray(Drama, Romance, War, Western)\t5.0\nMister Roberts (1955)\t1955\tWrappedArray(Comedy, Drama, War)\t5.0\nEver After: A Cinderella Story (1998)\t1998\tWrappedArray(Drama, Romance)\t5.0\nOctober Sky (1999)\t1999\tWrappedArray(Drama)\t5.0\nSex, Lies, and Videotape (1989)\t1989\tWrappedArray(Drama)\t5.0\nHow to Make an American Quilt (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nHouse of the Spirits, The (1993)\t1993\tWrappedArray(Drama, Romance)\t5.0\nBent (1997)\t1997\tWrappedArray(Drama, War)\t5.0\nDesperate Measures (1998)\t1998\tWrappedArray(Crime, Drama, Thriller)\t5.0\nSpanish Prisoner, The (1997)\t1997\tWrappedArray(Drama, Thriller)\t5.0\nLong Walk Home, The (1990)\t1990\tWrappedArray(Drama)\t5.0\nDiva (1981)\t1981\tWrappedArray(Romance, Mystery, Drama, Action, Thriller)\t5.0\nLord of the Flies (1963)\t1963\tWrappedArray(Adventure, Drama, Thriller)\t5.0\n400 Blows, The (Les Quatre cents coups) (1959)\t1959\tWrappedArray(Drama)\t5.0\nNot One Less (Yi ge dou bu neng shao) (1999)\t1999\tWrappedArray(Drama)\t5.0\nWithout Limits (1998)\t1998\tWrappedArray(Drama)\t5.0\nMo\u0027 Better Blues (1990)\t1990\tWrappedArray(Drama)\t5.0\nI Shot Andy Warhol (1996)\t1996\tWrappedArray(Drama)\t5.0\nJoe the King (1999)\t1999\tWrappedArray(Crime, Drama)\t5.0\nDoors, The (1991)\t1991\tWrappedArray(Drama, Musical)\t5.0\nCrimes of the Heart (1986)\t1986\tWrappedArray(Comedy, Drama)\t5.0\nGuinevere (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nRobin Hood: Prince of Thieves (1991)\t1991\tWrappedArray(Drama)\t5.0\nCrying Game, The (1992)\t1992\tWrappedArray(Drama, Romance, War)\t5.0\nGlengarry Glen Ross (1992)\t1992\tWrappedArray(Drama)\t5.0\nEnchanted April (1991)\t1991\tWrappedArray(Drama)\t5.0\nJohns (1996)\t1996\tWrappedArray(Drama)\t5.0\nAffair of Love, An (Une Liaison Pornographique) (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nWolf (1994)\t1994\tWrappedArray(Drama, Horror)\t5.0\nFearless (1993)\t1993\tWrappedArray(Drama)\t5.0\nBridges of Madison County, The (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nIdentification of a Woman (Identificazione di una donna) (1982)\t1982\tWrappedArray(Drama)\t5.0\nTheory of Flight, The (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nAll the Vermeers in New York (1990)\t1990\tWrappedArray(Comedy, Drama, Romance)\t5.0\nSpartacus (1960)\t1960\tWrappedArray(Drama)\t5.0\nHideous Kinky (1998)\t1998\tWrappedArray(Drama)\t5.0\nSilence of the Lambs, The (1991)\t1991\tWrappedArray(Drama, Thriller)\t5.0\nDay the Earth Stood Still, The (1951)\t1951\tWrappedArray(Drama, Sci-Fi)\t5.0\nRidicule (1996)\t1996\tWrappedArray(Drama)\t5.0\nUlee\u0027s Gold (1997)\t1997\tWrappedArray(Drama)\t5.0\nThings to Do in Denver when You\u0027re Dead (1995)\t1995\tWrappedArray(Crime, Drama, Romance)\t5.0\nBest Laid Plans (1999)\t1999\tWrappedArray(Crime, Drama)\t5.0\nBlue Chips (1994)\t1994\tWrappedArray(Drama)\t5.0\nClient, The (1994)\t1994\tWrappedArray(Drama, Mystery, Thriller)\t5.0\nNight on Earth (1991)\t1991\tWrappedArray(Comedy, Drama)\t5.0\nKiss the Girls (1997)\t1997\tWrappedArray(Crime, Drama, Thriller)\t5.0\nOnce Were Warriors (1994)\t1994\tWrappedArray(Crime, Drama)\t5.0\nHamlet (2000)\t2000\tWrappedArray(Drama)\t5.0\nKarate Kid, The (1984)\t1984\tWrappedArray(Drama)\t5.0\nChamp, The (1979)\t1979\tWrappedArray(Drama)\t5.0\nPicture Bride (1995)\t1995\tWrappedArray(Drama, Romance)\t5.0\nWhat Ever Happened to Baby Jane? (1962)\t1962\tWrappedArray(Drama, Thriller)\t5.0\nDead Ringers (1988)\t1988\tWrappedArray(Drama, Thriller)\t5.0\nOrlando (1993)\t1993\tWrappedArray(Drama)\t5.0\nMy Son the Fanatic (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nGloria (1999)\t1999\tWrappedArray(Drama, Thriller)\t5.0\nTwo or Three Things I Know About Her (1966)\t1966\tWrappedArray(Drama)\t5.0\nNelly \u0026 Monsieur Arnaud (1995)\t1995\tWrappedArray(Drama)\t5.0\nAnatomy of a Murder (1959)\t1959\tWrappedArray(Drama, Mystery)\t5.0\nBreakfast at Tiffany\u0027s (1961)\t1961\tWrappedArray(Drama, Romance)\t5.0\nCradle Will Rock, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nMan Without a Face, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nBest Man, The (1999)\t1999\tWrappedArray(Drama)\t5.0\nSanta Fe Trail (1940)\t1940\tWrappedArray(Drama, Romance, Western)\t5.0\nDog Day Afternoon (1975)\t1975\tWrappedArray(Comedy, Crime, Drama)\t5.0\nBreaking Away (1979)\t1979\tWrappedArray(Drama)\t5.0\nRichard III (1995)\t1995\tWrappedArray(Drama, War)\t5.0\nAnd God Created Woman (Et Dieu\u0026#8230;Cr�a la Femme) (1956)\t1956\tWrappedArray(Drama)\t5.0\nExperience Preferred... But Not Essential (1982)\t1982\tWrappedArray(Drama)\t5.0\nRocky (1976)\t1976\tWrappedArray(Action, Drama)\t5.0\nWhat\u0027s Love Got to Do with It? (1993)\t1993\tWrappedArray(Drama)\t5.0\nIt Could Happen to You (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nPlaces in the Heart (1984)\t1984\tWrappedArray(Drama)\t5.0\nMosquito Coast, The (1986)\t1986\tWrappedArray(Drama)\t5.0\nOn Our Merry Way (1948)\t1948\tWrappedArray(Comedy, Drama)\t5.0\nBoogie Nights (1997)\t1997\tWrappedArray(Drama)\t5.0\nWhen a Man Loves a Woman (1994)\t1994\tWrappedArray(Drama)\t5.0\nTrainspotting (1996)\t1996\tWrappedArray(Drama)\t5.0\nHate (Haine, La) (1995)\t1995\tWrappedArray(Drama)\t5.0\nFlesh and Bone (1993)\t1993\tWrappedArray(Drama, Mystery, Romance)\t5.0\nUnbearable Lightness of Being, The (1988)\t1988\tWrappedArray(Drama)\t5.0\nBringing Out the Dead (1999)\t1999\tWrappedArray(Drama, Horror)\t5.0\nBeach, The (2000)\t2000\tWrappedArray(Adventure, Drama)\t5.0\nGlen or Glenda (1953)\t1953\tWrappedArray(Drama)\t5.0\nWinter Guest, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nKarate Kid III, The (1989)\t1989\tWrappedArray(Action, Adventure, Drama)\t5.0\nSee the Sea (Regarde la mer) (1997)\t1997\tWrappedArray(Drama)\t5.0\nRandom Hearts (1999)\t1999\tWrappedArray(Drama, Romance)\t5.0\nOne Tough Cop (1998)\t1998\tWrappedArray(Action, Drama)\t5.0\nBridge on the River Kwai, The (1957)\t1957\tWrappedArray(Drama, War)\t5.0\nRapture, The (1991)\t1991\tWrappedArray(Drama, Mystery)\t5.0\nChasing Amy (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nSweet and Lowdown (1999)\t1999\tWrappedArray(Comedy, Drama)\t5.0\nWelcome to the Dollhouse (1995)\t1995\tWrappedArray(Comedy, Drama)\t5.0\nAll Over Me (1997)\t1997\tWrappedArray(Drama)\t5.0\nOne Little Indian (1973)\t1973\tWrappedArray(Comedy, Drama, Western)\t5.0\nTwo Moon Juction (1988)\t1988\tWrappedArray(Drama)\t5.0\nDesignated Mourner, The (1997)\t1997\tWrappedArray(Drama)\t5.0\nContact (1997)\t1997\tWrappedArray(Drama, Sci-Fi)\t5.0\nMy Own Private Idaho (1991)\t1991\tWrappedArray(Drama)\t5.0\nGrand Canyon (1991)\t1991\tWrappedArray(Crime, Drama)\t5.0\nAmateur (1994)\t1994\tWrappedArray(Crime, Drama, Thriller)\t5.0\nBesieged (L\u0027 Assedio) (1998)\t1998\tWrappedArray(Drama)\t5.0\nFresh (1994)\t1994\tWrappedArray(Drama)\t5.0\nHope Floats (1998)\t1998\tWrappedArray(Comedy, Drama, Romance)\t5.0\nHero (1992)\t1992\tWrappedArray(Comedy, Drama)\t5.0\nScarlet Letter, The (1926)\t1926\tWrappedArray(Drama)\t5.0\nEraserhead (1977)\t1977\tWrappedArray(Drama, Horror)\t5.0\nThieves (Voleurs, Les) (1996)\t1996\tWrappedArray(Crime, Drama, Romance)\t5.0\nHana-bi (1997)\t1997\tWrappedArray(Comedy, Crime, Drama)\t5.0\nHoodlum (1997)\t1997\tWrappedArray(Crime, Drama, Film-Noir)\t5.0\nDog of Flanders, A (1999)\t1999\tWrappedArray(Drama)\t5.0\nGrass Harp, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nSerpico (1973)\t1973\tWrappedArray(Crime, Drama)\t5.0\nMy Life and Times With Antonin Artaud (En compagnie d\u0027Antonin Artaud) (1993)\t1993\tWrappedArray(Drama)\t5.0\n8 1/2 (1963)\t1963\tWrappedArray(Drama)\t5.0\nBasketball Diaries, The (1995)\t1995\tWrappedArray(Drama)\t5.0\nAwakenings (1990)\t1990\tWrappedArray(Drama)\t5.0\nRiver, The (1984)\t1984\tWrappedArray(Drama)\t5.0\nBlood \u0026 Wine (1997)\t1997\tWrappedArray(Drama)\t5.0\nPenny Serenade (1941)\t1941\tWrappedArray(Drama, Romance)\t5.0\nFaster Pussycat! Kill! Kill! (1965)\t1965\tWrappedArray(Action, Comedy, Drama)\t5.0\nColonel Chabert, Le (1994)\t1994\tWrappedArray(Drama, Romance, War)\t5.0\nGood Morning, Vietnam (1987)\t1987\tWrappedArray(Comedy, Drama, War)\t5.0\nAirport 1975 (1974)\t1974\tWrappedArray(Drama)\t5.0\nThose Who Love Me Can Take the Train (Ceux qui m\u0027aiment prendront le train) (1998)\t1998\tWrappedArray(Drama)\t5.0\nStar Wars: Episode V - The Empire Strikes Back (1980)\t1980\tWrappedArray(Adventure, War, Drama, Action, Sci-Fi)\t5.0\nGossip (2000)\t2000\tWrappedArray(Drama, Thriller)\t5.0\nMina Tannenbaum (1994)\t1994\tWrappedArray(Drama)\t5.0\nGoya in Bordeaux (Goya en Bodeos) (1999)\t1999\tWrappedArray(Drama)\t5.0\nHearts and Minds (1996)\t1996\tWrappedArray(Drama)\t5.0\nNiagara, Niagara (1997)\t1997\tWrappedArray(Drama)\t5.0\nN�nette et Boni (1996)\t1996\tWrappedArray(Drama)\t5.0\nBoiling Point (1993)\t1993\tWrappedArray(Action, Drama)\t5.0\nAlmost Famous (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nDead Poets Society (1989)\t1989\tWrappedArray(Drama)\t5.0\nCinema Paradiso (1988)\t1988\tWrappedArray(Comedy, Drama, Romance)\t5.0\nCarnal Knowledge (1971)\t1971\tWrappedArray(Drama)\t5.0\nBlue Velvet (1986)\t1986\tWrappedArray(Drama, Mystery)\t5.0\nBirdy (1984)\t1984\tWrappedArray(Drama, War)\t5.0\nBlue Angel, The (Blaue Engel, Der) (1930)\t1930\tWrappedArray(Drama)\t5.0\nFlawless (1999)\t1999\tWrappedArray(Drama)\t5.0\nSquanto: A Warrior\u0027s Tale (1994)\t1994\tWrappedArray(Adventure, Drama)\t5.0\nDo the Right Thing (1989)\t1989\tWrappedArray(Comedy, Drama)\t5.0\nOut of Africa (1985)\t1985\tWrappedArray(Drama, Romance)\t5.0\nEighth Day, The (Le Huiti�me jour ) (1996)\t1996\tWrappedArray(Drama)\t5.0\nWorking Girl (1988)\t1988\tWrappedArray(Comedy, Drama)\t5.0\nIdolmaker, The (1980)\t1980\tWrappedArray(Drama)\t5.0\nFriends \u0026 Lovers (1999)\t1999\tWrappedArray(Comedy, Drama, Romance)\t5.0\nMamma Roma (1962)\t1962\tWrappedArray(Drama)\t5.0\nPassion in the Desert (1998)\t1998\tWrappedArray(Adventure, Drama)\t5.0\nFirst Love, Last Rites (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nMidnight Express (1978)\t1978\tWrappedArray(Drama)\t5.0\nRansom (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nPrimary Colors (1998)\t1998\tWrappedArray(Drama)\t5.0\nBig Kahuna, The (2000)\t2000\tWrappedArray(Comedy, Drama)\t5.0\nIn the Company of Men (1997)\t1997\tWrappedArray(Drama)\t5.0\nPermanent Midnight (1998)\t1998\tWrappedArray(Drama)\t5.0\nStory of Xinghua, The (1993)\t1993\tWrappedArray(Drama)\t5.0\nEve\u0027s Bayou (1997)\t1997\tWrappedArray(Drama)\t5.0\nSeven Years in Tibet (1997)\t1997\tWrappedArray(Drama, War)\t5.0\nMusic of the Heart (1999)\t1999\tWrappedArray(Drama)\t5.0\nNight Falls on Manhattan (1997)\t1997\tWrappedArray(Crime, Drama)\t5.0\nHoly Smoke (1999)\t1999\tWrappedArray(Drama)\t5.0\nNight Porter, The (Il Portiere di notte) (1974)\t1974\tWrappedArray(Drama)\t5.0\nRiver Runs Through It, A (1992)\t1992\tWrappedArray(Drama)\t5.0\nIdiots, The (Idioterne) (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nKarate Kid, Part II, The (1986)\t1986\tWrappedArray(Action, Adventure, Drama)\t5.0\nTaste of Cherry (1997)\t1997\tWrappedArray(Drama)\t5.0\nMidaq Alley (Callej�n de los milagros, El) (1995)\t1995\tWrappedArray(Drama)\t5.0\nNormal Life (1996)\t1996\tWrappedArray(Crime, Drama)\t5.0\nWhite Sands (1992)\t1992\tWrappedArray(Drama, Thriller)\t5.0\nWoman of Paris, A (1923)\t1923\tWrappedArray(Drama)\t5.0\nWings of Desire (Der Himmel �ber Berlin) (1987)\t1987\tWrappedArray(Comedy, Drama, Romance)\t5.0\nThey Shoot Horses, Don\u0027t They? (1969)\t1969\tWrappedArray(Drama)\t5.0\nKilling of Sister George, The (1968)\t1968\tWrappedArray(Drama)\t5.0\nNatural, The (1984)\t1984\tWrappedArray(Drama)\t5.0\nPrince of Tides, The (1991)\t1991\tWrappedArray(Drama, Romance)\t5.0\nRocky II (1979)\t1979\tWrappedArray(Action, Drama)\t5.0\nHorseman on the Roof, The (Hussard sur le toit, Le) (1995)\t1995\tWrappedArray(Drama)\t5.0\nJulien Donkey-Boy (1999)\t1999\tWrappedArray(Drama)\t5.0\nApollo 13 (1995)\t1995\tWrappedArray(Drama)\t5.0\nWings (1927)\t1927\tWrappedArray(Drama, Romance, War)\t5.0\nPrimal Fear (1996)\t1996\tWrappedArray(Drama, Thriller)\t5.0\nMarked for Death (1990)\t1990\tWrappedArray(Action, Drama)\t5.0\nBonheur, Le (1965)\t1965\tWrappedArray(Drama)\t5.0\nTigrero: A Film That Was Never Made (1994)\t1994\tWrappedArray(Documentary, Drama)\t5.0\nAcid House, The (1998)\t1998\tWrappedArray(Comedy, Drama)\t5.0\nConfessional, The (Le Confessionnal) (1995)\t1995\tWrappedArray(Drama, Mystery)\t5.0\nI Like It Like That (1994)\t1994\tWrappedArray(Comedy, Drama, Romance)\t5.0\nGood Mother, The (1988)\t1988\tWrappedArray(Drama)\t5.0\nGrandfather, The (El Abuelo) (1998)\t1998\tWrappedArray(Drama)\t5.0\nStand by Me (1986)\t1986\tWrappedArray(Adventure, Comedy, Drama)\t5.0\nGhost and Mrs. Muir, The (1947)\t1947\tWrappedArray(Drama, Romance)\t5.0\nAngel Baby (1995)\t1995\tWrappedArray(Drama)\t5.0\nFarinelli: il castrato (1994)\t1994\tWrappedArray(Drama, Musical)\t5.0\nLife of �mile Zola, The (1937)\t1937\tWrappedArray(Drama)\t5.0\nSpiders, The (Die Spinnen, 1. Teil: Der Goldene See) (1919)\t1919\tWrappedArray(Action, Drama)\t5.0\nGodfather, The (1972)\t1972\tWrappedArray(Action, Crime, Drama)\t5.0\nBlue Sky (1994)\t1994\tWrappedArray(Drama, Romance)\t5.0\nD�j� Vu (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\nOne Fine Day (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nMy Life So Far (1999)\t1999\tWrappedArray(Drama)\t5.0\nSlam (1998)\t1998\tWrappedArray(Drama)\t5.0\nNetwork (1976)\t1976\tWrappedArray(Comedy, Drama)\t5.0\nGhost Dog: The Way of the Samurai (1999)\t1999\tWrappedArray(Crime, Drama)\t5.0\nMenace II Society (1993)\t1993\tWrappedArray(Action, Crime, Drama)\t5.0\nSirens (1994)\t1994\tWrappedArray(Comedy, Drama)\t5.0\nOnly Angels Have Wings (1939)\t1939\tWrappedArray(Drama)\t5.0\nAlive (1993)\t1993\tWrappedArray(Drama)\t5.0\nOfficial Story, The (La Historia Oficial) (1985)\t1985\tWrappedArray(Drama)\t5.0\nTrip to Bountiful, The (1985)\t1985\tWrappedArray(Drama)\t5.0\nTime of the Gypsies (Dom za vesanje) (1989)\t1989\tWrappedArray(Drama)\t5.0\nBitter Moon (1992)\t1992\tWrappedArray(Drama)\t5.0\nForeign Student (1994)\t1994\tWrappedArray(Drama)\t5.0\nGet on the Bus (1996)\t1996\tWrappedArray(Drama)\t5.0\nBeautiful Thing (1996)\t1996\tWrappedArray(Drama, Romance)\t5.0\nSelena (1997)\t1997\tWrappedArray(Drama, Musical)\t5.0\nFirst Knight (1995)\t1995\tWrappedArray(Action, Adventure, Drama, Romance)\t5.0\nMichael Collins (1996)\t1996\tWrappedArray(Drama, War)\t5.0\nWe\u0027re No Angels (1989)\t1989\tWrappedArray(Drama)\t5.0\nMargaret\u0027s Museum (1995)\t1995\tWrappedArray(Drama)\t5.0\nDangerous Ground (1997)\t1997\tWrappedArray(Drama)\t5.0\nTrial, The (Le Proc�s) (1963)\t1963\tWrappedArray(Drama)\t5.0\nOscar and Lucinda (a.k.a. Oscar \u0026 Lucinda) (1997)\t1997\tWrappedArray(Drama, Romance)\t5.0\n\u003c!--TABLE_COMMENT--\u003e\n\u003cfont color\u003dred\u003eResults are limited by 1000.\u003c/font\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922554680_-235806559",
+      "id": "20170307-213554_1982158723",
+      "dateCreated": "Mar 7, 2017 9:35:54 PM",
+      "dateStarted": "Mar 8, 2017 9:37:16 AM",
+      "dateFinished": "Mar 8, 2017 9:37:18 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect count(*) from \n    (select distinct title,year,genres as gnr from ratings)\nwhere array_contains(gnr,\"Adventure\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 8, 2017 9:37:38 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\n281\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922598274_1834973318",
+      "id": "20170307-213638_699464812",
+      "dateCreated": "Mar 7, 2017 9:36:38 PM",
+      "dateStarted": "Mar 8, 2017 9:37:38 AM",
+      "dateFinished": "Mar 8, 2017 9:37:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val ss2  \u003d spark.read.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"rating_by_movie\", \"keyspace\" -\u003e \"test\"))\n.load()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 10:38:23 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nss2: org.apache.spark.sql.DataFrame \u003d [mid: int, rating: double ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488922760867_-1256085666",
+      "id": "20170307-213920_1619276865",
+      "dateCreated": "Mar 7, 2017 9:39:20 PM",
+      "dateStarted": "Mar 9, 2017 10:38:23 AM",
+      "dateFinished": "Mar 9, 2017 10:38:23 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "ss2.createOrReplaceTempView(\"rating_by_movie\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 10:39:09 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1489055860176_863837362",
+      "id": "20170309-103740_1998508759",
+      "dateCreated": "Mar 9, 2017 10:37:40 AM",
+      "dateStarted": "Mar 9, 2017 10:39:09 AM",
+      "dateFinished": "Mar 9, 2017 10:39:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val ss3 \u003d spark.read.format(\"org.apache.spark.sql.cassandra\")\n.options(Map( \"table\" -\u003e \"movies\", \"keyspace\" -\u003e \"test\"))\n.load()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 10:47:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nss3: org.apache.spark.sql.DataFrame \u003d [movieid: int, year: int ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489056448318_1436187195",
+      "id": "20170309-104728_481374220",
+      "dateCreated": "Mar 9, 2017 10:47:28 AM",
+      "dateStarted": "Mar 9, 2017 10:47:47 AM",
+      "dateFinished": "Mar 9, 2017 10:47:47 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "ss3.createOrReplaceTempView(\"movies\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 10:48:09 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1489056471937_1023382273",
+      "id": "20170309-104751_517481826",
+      "dateCreated": "Mar 9, 2017 10:47:51 AM",
+      "dateStarted": "Mar 9, 2017 10:48:09 AM",
+      "dateFinished": "Mar 9, 2017 10:48:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "movies.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 10:48:30 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- mid: string (nullable \u003d true)\n |-- title: string (nullable \u003d true)\n |-- genres: string (nullable \u003d true)\n |-- year: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489055949436_-524397966",
+      "id": "20170309-103909_837232503",
+      "dateCreated": "Mar 9, 2017 10:39:09 AM",
+      "dateStarted": "Mar 9, 2017 10:48:30 AM",
+      "dateFinished": "Mar 9, 2017 10:48:31 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 11:59:27 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1489060756289_682808856",
+      "id": "20170309-115916_1901117806",
+      "dateCreated": "Mar 9, 2017 11:59:16 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nSELECT title, avg(rating)\nFROM rating_by_movie \nJOIN movies ON rating_by_movie.mid \u003d movies.movieid\nGROUP BY title \n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 11:58:59 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tavg(rating)\nElizabeth (1998)\t4.029850746268656\nIf Lucy Fell (1996)\t3.073529411764706\nSaltmen of Tibet, The (1997)\t3.75\nProblem Child (1990)\t1.925\nPsycho (1960)\t4.218527315914489\nAnnie Hall (1977)\t4.14167916041979\nNight of the Living Dead (1968)\t3.6713286713286712\nIn the Heat of the Night (1967)\t4.129310344827586\nGulliver\u0027s Travels (1939)\t3.547008547008547\nParis, France (1993)\t3.0\nCry in the Dark, A (1988)\t3.515151515151515\nSnow White and the Seven Dwarfs (1937)\t3.8453473132372213\nThree Wishes (1995)\t2.6363636363636362\nSeven Beauties (Pasqualino Settebellezze) (1976)\t3.831168831168831\nWhen We Were Kings (1996)\t4.32129963898917\nOdd Couple II, The (1998)\t2.6875\nCosi (1996)\t3.8333333333333335\n7th Voyage of Sinbad, The (1958)\t3.616279069767442\nHeavenly Creatures (1994)\t3.8658280922431865\nFair Game (1995)\t2.1041666666666665\n400 Blows, The (Les Quatre cents coups) (1959)\t4.320855614973262\nFrom Russia with Love (1963)\t3.8897535667963683\nFlawless (1999)\t3.1636363636363636\nBuck and the Preacher (1972)\t2.6666666666666665\nBuena Vista Social Club (1999)\t4.056521739130435\nSpanking the Monkey (1994)\t3.4457142857142857\nDick Tracy (1990)\t2.6826923076923075\nVerdict, The (1982)\t3.865435356200528\nTough Guys (1986)\t2.978494623655914\nMystery, Alaska (1999)\t3.4355400696864113\nHook (1991)\t3.018005540166205\nBlackbeard\u0027s Ghost (1968)\t3.1052631578947367\nI\u0027ll Do Anything (1994)\t2.7045454545454546\nLost \u0026 Found (1999)\t2.609375\nCommunion (1989)\t2.7583333333333333\nLast Action Hero (1993)\t2.508\nShaft in Africa (1973)\t2.586206896551724\nScorta, La (1993)\t2.0\nColonel Chabert, Le (1994)\t3.7\nReality Bites (1994)\t3.1542056074766354\nThreesome (1994)\t3.0168539325842696\nSpiral Staircase, The (1946)\t4.046511627906977\nA Chef in Love (1996)\t3.5833333333333335\nDeuce Bigalow: Male Gigolo (1999)\t2.762987012987013\nTerms of Endearment (1983)\t3.607547169811321\nNico Icon (1995)\t3.764705882352941\nTrois (2000)\t2.0\nChildren of the Corn II: The Final Sacrifice (1993)\t1.7884615384615385\nSoapdish (1991)\t3.23013698630137\nBlue Chips (1994)\t2.6\nJerry \u0026 Tom (1998)\t2.0\nPalm Beach Story, The (1942)\t4.288461538461538\nMusic of the Heart (1999)\t3.4285714285714284\nFast Times at Ridgemont High (1982)\t3.8374717832957113\nMighty Peking Man (Hsing hsing wang) (1977)\t2.8333333333333335\nJaws 3-D (1983)\t1.8523809523809525\nRebecca (1940)\t4.204663212435233\nEuropean Vacation (1985)\t2.9220779220779223\nPicture Bride (1995)\t3.302325581395349\nHome Alone 3 (1997)\t1.8766233766233766\nInventing the Abbotts (1997)\t3.1374045801526718\nEnglish Patient, The (1996)\t3.609706774519717\nSix Days Seven Nights (1998)\t2.910828025477707\nNaked Gun 2 1/2: The Smell of Fear, The (1991)\t3.0881670533642693\nDeath Wish II (1982)\t2.6705882352941175\nMarvin\u0027s Room (1996)\t3.201923076923077\nCity Slickers II: The Legend of Curly\u0027s Gold (1994)\t2.579081632653061\n101 Dalmatians (1996)\t3.0467032967032965\nBattlefield Earth (2000)\t1.6111111111111112\nSerpico (1973)\t3.981818181818182\nHe Got Game (1998)\t3.38125\nPhantasm III: Lord of the Dead (1994)\t2.619047619047619\nAbove the Rim (1994)\t3.020408163265306\nStuart Saves His Family (1995)\t2.4375\nSavage Nights (Nuits fauves, Les) (1992)\t2.5\nSleeper (1973)\t3.9798387096774195\nAffair of Love, An (Une Liaison Pornographique) (1999)\t3.6666666666666665\nWild Man Blues (1998)\t3.5555555555555554\nCountry (1984)\t3.393939393939394\nNaked in New York (1994)\t2.923076923076923\nNew Jersey Drive (1995)\t3.0\nGrifters, The (1990)\t3.7887005649717516\nAutumn Sonata (H�stsonaten ) (1978)\t3.7333333333333334\nQuest for Fire (1981)\t3.2298850574712645\nTrial and Error (1997)\t2.704225352112676\nAnatomy (Anatomie) (2000)\t2.7\nNever Talk to Strangers (1995)\t2.5517241379310347\nNorth by Northwest (1959)\t4.38403041825095\nRescuers, The (1977)\t3.4738955823293174\nGhost (1990)\t3.49644128113879\nDiva (1981)\t4.054474708171206\nPopeye (1980)\t2.59447983014862\nNotorious (1946)\t4.29438202247191\nMr. Mom (1983)\t3.4076433121019107\nMr. Jones (1993)\t2.74468085106383\nIndiana Jones and the Temple of Doom (1984)\t3.676131322094055\nIn the Line of Fire (1993)\t3.825102880658436\nTarget (1995)\t4.0\nPorky\u0027s (1981)\t2.734513274336283\nMask of Zorro, The (1998)\t3.5615462868769074\nJumanji (1995)\t3.20114122681883\nMother Night (1996)\t3.6956521739130435\nBridge on the River Kwai, The (1957)\t4.386993603411514\nMonth by the Lake, A (1995)\t3.15625\nUnstrung Heroes (1995)\t3.611764705882353\nBASEketball (1998)\t2.9945355191256833\nDreamscape (1984)\t3.470414201183432\nTampopo (1986)\t4.024489795918368\nSwan Princess, The (1994)\t2.888888888888889\nQuiet Room, The (1996)\t3.142857142857143\nPale Rider (1985)\t3.769230769230769\nTwelve Monkeys (1995)\t3.945731303772336\nNot One Less (Yi ge dou bu neng shao) (1999)\t3.769230769230769\nCurdled (1996)\t3.05\nLast September, The (1999)\t3.9\nVelocity of Gary, The (1998)\t2.227272727272727\nTo Live (Huozhe) (1994)\t4.344262295081967\nHalloween (1978)\t3.7134387351778657\nWhere\u0027s Marlowe? (1999)\t4.0\nDog Day Afternoon (1975)\t3.969934640522876\nWolf (1994)\t2.9338235294117645\nFrank and Ollie (1995)\t4.0\nRaven, The (1963)\t3.182926829268293\nAddiction, The (1995)\t3.0\nSteam: The Turkish Bath (Hamam) (1997)\t3.466666666666667\nAwfully Big Adventure, An (1995)\t2.782608695652174\nTake the Money and Run (1969)\t4.051587301587301\nQuick and the Dead, The (1995)\t2.9760765550239237\nVie est belle, La (Life is Rosey) (1987)\t3.7777777777777777\nOutbreak (1995)\t3.2687585266030013\nTarzan and the Lost City (1998)\t2.4210526315789473\nFlesh and Bone (1993)\t3.150943396226415\nBeetlejuice (1988)\t3.5678929765886287\nLast of the Mohicans, The (1992)\t3.8133333333333335\nFinal Conflict, The (a.k.a. Omen III: The Final Conflict) (1981)\t2.6557377049180326\nDesert Bloom (1986)\t3.372093023255814\nNever Cry Wolf (1983)\t3.981132075471698\nDuck Soup (1933)\t4.21043771043771\nRock, The (1996)\t3.723134328358209\nGhost Dog: The Way of the Samurai (1999)\t3.843949044585987\nDeadly Friend (1986)\t2.0238095238095237\nCat from Outer Space, The (1978)\t2.904040404040404\nMan of the Century (1999)\t4.0\nJLG/JLG - autoportrait de d�cembre (1994)\t3.5\nGone with the Wind (1939)\t3.9974048442906573\nDangerous Minds (1995)\t3.1134751773049647\nEd\u0027s Next Move (1996)\t4.25\nCool Runnings (1993)\t3.239795918367347\nMummy, The (1999)\t3.3217477656405165\nReturn of the Fly (1959)\t2.576923076923077\nEast-West (Est-ouest) (1999)\t3.766990291262136\nMeet John Doe (1941)\t3.9146341463414633\nTarantula (1955)\t2.774193548387097\nSlaves to the Underground (1997)\t3.5\n\u0027Til There Was You (1997)\t2.6923076923076925\nCandyman: Farewell to the Flesh (1995)\t2.225806451612903\nJames and the Giant Peach (1996)\t3.4647619047619047\nLady and the Tramp (1955)\t3.8043981481481484\nSlaughterhouse (1987)\t1.5\nGuilty as Sin (1993)\t2.74468085106383\nSecret Agent (1936)\t3.526315789473684\nFantastic Planet, The (La Plan�te sauvage) (1973)\t3.6020408163265305\nOutsiders, The (1983)\t3.6875\nRomeo and Juliet (1968)\t3.9157303370786516\nMr. Wonderful (1993)\t2.7551020408163267\nBaby-Sitters Club, The (1995)\t2.4285714285714284\nWhatever Happened to Aunt Alice? (1969)\t2.923076923076923\nCatfish in Black Bean Sauce (2000)\t2.7333333333333334\nRemember the Titans (2000)\t3.9244851258581237\nChild\u0027s Play (1988)\t2.702928870292887\nIt Happened Here (1961)\t3.0\nMidsummer Night\u0027s Dream, A (1999)\t3.3493975903614457\nIf.... (1968)\t3.888888888888889\nHav Plenty (1997)\t3.3333333333333335\nAbyss, The (1989)\t3.6839650145772596\nHideous Kinky (1998)\t3.0416666666666665\nTwice Upon a Yesterday (1998)\t3.4\nBlack Cat, White Cat (Crna macka, beli macor) (1998)\t3.869565217391304\nThumbelina (1994)\t2.6511627906976742\nHeavyweights (1994)\t2.6\nGrease (1978)\t3.5777233782129745\nTerrorist, The (Malli) (1998)\t4.083333333333333\nHidden, The (1987)\t3.683098591549296\nAmerican Graffiti (1973)\t4.026262626262627\nFairyTale: A True Story (1997)\t3.310344827586207\nRudy (1993)\t3.615546218487395\nMan in the Iron Mask, The (1998)\t3.0434782608695654\nTom Jones (1963)\t3.8585858585858586\nMarathon Man (1976)\t3.93\nLulu on the Bridge (1998)\t2.6818181818181817\nBoys Life 2 (1997)\t3.4\nSaboteur (1942)\t3.8202247191011236\nJude (1996)\t3.54\nWaking the Dead (1999)\t2.99290780141844\nAirheads (1994)\t2.5306122448979593\nCrow: City of Angels, The (1996)\t2.214814814814815\nWhat About Bob? (1991)\t3.397796817625459\nDeconstructing Harry (1997)\t3.415492957746479\nCandleshoe (1977)\t3.537037037037037\nSeven Samurai (The Magnificent Seven) (Shichinin no samurai) (1954)\t4.560509554140127\nUnder Capricorn (1949)\t2.5\nHoly Man (1998)\t2.488888888888889\nOne Man\u0027s Hero (1999)\t2.0\nPandora and the Flying Dutchman (1951)\t3.6666666666666665\nS.F.W. (1994)\t2.6\nAfterglow (1997)\t3.1097560975609757\n2001: A Space Odyssey (1968)\t4.068764568764569\nSuddenly, Last Summer (1959)\t3.8333333333333335\nPrivate Parts (1997)\t3.4869739478957915\nTommy Boy (1995)\t3.502439024390244\nHighlander (1986)\t3.8461538461538463\nNext Best Thing, The (2000)\t2.33125\nFly II, The (1989)\t2.313380281690141\nHustler, The (1961)\t4.24\nContact (1997)\t3.768451519536903\nPrince of the City (1981)\t3.491228070175439\nFemale Perversions (1996)\t3.2413793103448274\nYoung Frankenstein (1974)\t4.250628667225482\nSweet and Lowdown (1999)\t3.701388888888889\nBad Taste (1987)\t3.4074074074074074\nPurple Rose of Cairo, The (1985)\t3.5991649269311066\nFled (1996)\t2.5714285714285716\nDog\u0027s Life, A (1920)\t3.6666666666666665\nSelena (1997)\t3.067901234567901\nHearts and Minds (1996)\t4.357142857142857\nFree Enterprise (1998)\t3.604651162790698\nUgly, The (1997)\t1.8888888888888888\nBhaji on the Beach (1993)\t3.857142857142857\nBreakfast of Champions (1999)\t2.9814814814814814\nAmerican Pimp (1999)\t3.3114754098360657\nHideaway (1995)\t2.7111111111111112\nSanta Claus: The Movie (1985)\t2.6681614349775784\nHamlet (1948)\t3.8053097345132745\nBachelor Party (1984)\t3.138888888888889\nIt Takes Two (1995)\t2.8214285714285716\nBeverly Hills Ninja (1997)\t2.5474137931034484\nSpeed (1994)\t3.5654545454545454\n39 Steps, The (1935)\t4.075098814229249\nSunset Strip (2000)\t3.1666666666666665\nWoman in the Dunes (Suna no onna) (1964)\t4.0519480519480515\nModern Affair, A (1995)\t3.0\nFriday the 13th Part 3: 3D (1982)\t1.979899497487437\nNosferatu a Venezia (1986)\t3.0714285714285716\nFather of the Bride Part II (1995)\t3.0067567567567566\nMap of the World, A (1999)\t3.450980392156863\nCharlotte\u0027s Web (1973)\t3.8229376257545273\nRoad Trip (2000)\t3.2673031026252985\nClient, The (1994)\t3.392233009708738\nSomething for Everyone (1970)\t3.1538461538461537\nUmbrellas of Cherbourg, The (Parapluies de Cherbourg, Les) (1964)\t3.8119658119658117\nMonty Python\u0027s Life of Brian (1979)\t4.018358531317495\nGet on the Bus (1996)\t3.308641975308642\nSee the Sea (Regarde la mer) (1997)\t3.2857142857142856\nEasy Rider (1969)\t3.7711340206185566\nFriday the 13th Part VIII: Jason Takes Manhattan (1989)\t1.8383838383838385\nFreaky Friday (1977)\t3.1777777777777776\nRobocop 2 (1990)\t2.3813387423935093\nGodzilla 2000 (Gojira ni-sen mireniamu) (1999)\t2.6923076923076925\nWestworld (1973)\t3.4213836477987423\nGordy (1995)\t2.1\nFlight of the Navigator (1986)\t3.466417910447761\nSudden Manhattan (1996)\t1.5\nEven Cowgirls Get the Blues (1993)\t2.2962962962962963\nFeeling Minnesota (1996)\t2.552941176470588\nVertigo (1958)\t4.27292817679558\nNegotiator, The (1998)\t3.6082603254067585\nMr. Holland\u0027s Opus (1995)\t3.6968576709796674\nSweet Hereafter, The (1997)\t4.044619422572178\nMarie Baie Des Anges (1997)\t1.5\nTin Drum, The (Blechtrommel, Die) (1979)\t3.9468085106382977\nAdventures in Babysitting (1987)\t3.2754158964879854\nDevil Girl From Mars (1954)\t3.1\nSay Anything... (1989)\t4.017505470459518\nDetroit 9000 (1973)\t2.0\nBeautiful Thing (1996)\t4.066666666666666\nDeceiver (1997)\t3.1818181818181817\nBig Green, The (1995)\t2.5609756097560976\nRansom (1996)\t3.478723404255319\nGreat Mouse Detective, The (1986)\t3.49618320610687\nBeauty and the Beast (1991)\t3.8858490566037736\nBorn to Win (1971)\t2.5\nTexas Chainsaw Massacre, The (1974)\t3.222672064777328\nHeidi Fleiss: Hollywood Madam (1995)\t3.46\nBlast from the Past (1999)\t3.363888888888889\nLittle City (1998)\t2.5\nSuperman (1978)\t3.536824877250409\nIt Happened One Night (1934)\t4.280748663101604\nThing, The (1982)\t3.785425101214575\nMurder at 1600 (1997)\t3.0249110320284696\nDisturbing Behavior (1998)\t2.68944099378882\nFear, The (1995)\t2.4166666666666665\nTomorrow Never Dies (1997)\t3.4419953596287702\nWaiting Game, The (2000)\t2.0\nMuppets Take Manhattan, The (1984)\t3.504398826979472\nMurder! (1930)\t3.4\nReturn of Martin Guerre, The (Retour de Martin Guerre, Le) (1982)\t3.930379746835443\nGo Fish (1994)\t3.2790697674418605\nWes Craven\u0027s New Nightmare (1994)\t2.8207171314741037\nGrandview, U.S.A. (1984)\t2.5\nLove in the Afternoon (1957)\t3.75\nGood Man in Africa, A (1994)\t2.642857142857143\nSoft Toilet Seats (1999)\t3.0\nMina Tannenbaum (1994)\t2.9473684210526314\nWood, The (1999)\t3.2528735632183907\nRocky IV (1985)\t2.6453333333333333\nMy Giant (1998)\t2.260869565217391\nNever Been Kissed (1999)\t3.168269230769231\nShampoo (1975)\t3.238095238095238\nFrankenstein Meets the Wolf Man (1943)\t3.1463414634146343\nMad Dog Time (1996)\t2.1538461538461537\nBallad of Ramblin\u0027 Jack, The (2000)\t3.5\nDoctor Dolittle (1998)\t2.9297912713472485\nBattle for the Planet of the Apes (1973)\t2.8333333333333335\nSingin\u0027 in the Rain (1952)\t4.2836218375499335\nWoman on Top (2000)\t2.681159420289855\nSlumber Party Massacre, The (1982)\t1.9259259259259258\nFree Willy 3: The Rescue (1997)\t1.7384615384615385\nHot Lead and Cold Feet (1978)\t2.8333333333333335\nSecond Jungle Book: Mowgli \u0026 Baloo, The (1997)\t1.6666666666666667\nSimpatico (1999)\t2.4761904761904763\nShaft (1971)\t3.4144144144144146\nBrazil (1985)\t4.097480832420591\nHotel de Love (1996)\t2.772727272727273\nExtreme Measures (1996)\t2.9421487603305785\nStonewall (1995)\t3.85\nDance with Me (1998)\t3.0759493670886076\nPolice Academy 3: Back in Training (1986)\t2.0306122448979593\nAnatomy of a Murder (1959)\t4.231155778894473\nMeatballs (1979)\t3.311111111111111\nCopycat (1995)\t3.3492063492063493\nIt Came from Hollywood (1982)\t3.1739130434782608\nFatal Beauty (1987)\t2.373134328358209\nStriking Distance (1993)\t2.643410852713178\n24 7: Twenty Four Seven (1997)\t4.0\nReds (1981)\t3.474418604651163\nI Love Trouble (1994)\t2.4960629921259843\nBlues Brothers, The (1980)\t3.9395973154362416\nCell, The (2000)\t3.2613981762917934\nShane (1953)\t3.839344262295082\nAnd the Band Played On (1993)\t3.9298245614035086\nMeet Joe Black (1998)\t3.252906976744186\nDiabolique (1996)\t2.676056338028169\nContender, The (2000)\t3.7809278350515463\nIn the Army Now (1994)\t2.225165562913907\nPit and the Pendulum (1961)\t3.5046728971962615\nBridges of Madison County, The (1995)\t3.2325581395348837\nFright Night (1985)\t3.434640522875817\nDog of Flanders, A (1999)\t3.25\nOur Town (1940)\t3.857142857142857\nWaiting to Exhale (1995)\t2.7294117647058824\nCarnival of Souls (1962)\t3.4766355140186915\nInspector Gadget (1999)\t2.1662198391420913\nKing Creole (1958)\t3.0980392156862746\nRomancing the Stone (1984)\t3.6892193308550185\nGang Related (1997)\t2.65\nUntouchables, The (1987)\t4.007985803016859\nSearching for Bobby Fischer (1993)\t3.977777777777778\nM. Butterfly (1993)\t3.3846153846153846\nBlind Date (1987)\t2.6714285714285713\nDiner (1982)\t3.9225268176400476\nBroadway Damage (1997)\t3.5\nTwo Family House (2000)\t3.9\nCivil Action, A (1998)\t3.3594771241830066\n...And Justice for All (1979)\t3.71356783919598\nDeep Blue Sea (1999)\t2.8729096989966556\nIn Dreams (1999)\t2.5396825396825395\nNosferatu (Nosferatu, eine Symphonie des Grauens) (1922)\t3.991596638655462\nMute Witness (1994)\t3.4827586206896552\nBarcelona (1994)\t3.485576923076923\nI Still Know What You Did Last Summer (1998)\t2.2033898305084745\nBelle de jour (1967)\t3.7261904761904763\nColor Me Blood Red (1965)\t2.8\nGuantanamera (1994)\t3.375\nAlice in Wonderland (1951)\t3.697142857142857\nSnow Day (2000)\t2.2131147540983607\nEDtv (1999)\t3.2019867549668874\nCandidate, The (1972)\t3.7012987012987013\nGate, The (1987)\t2.646017699115044\nAngel Baby (1995)\t3.25\nTrainspotting (1996)\t3.9600532623169107\nSimple Wish, A (1997)\t2.7777777777777777\nTime of the Gypsies (Dom za vesanje) (1989)\t4.3\nSabotage (1936)\t3.7037037037037037\nGay Deceivers, The (1969)\t3.3333333333333335\nDown Periscope (1996)\t2.81203007518797\nCops and Robbersons (1994)\t2.046875\nShe-Devil (1989)\t1.9363057324840764\nBetter Living Through Circuitry (1999)\t3.8125\nOut to Sea (1997)\t2.847457627118644\nDestination Moon (1950)\t3.3384615384615386\nNightmare on Elm Street, A (1984)\t3.4855875831485585\nFly, The (1958)\t3.3583333333333334\nSea Wolves, The (1980)\t3.8125\nThree Kings (1999)\t3.8070519098922624\nCitizen Kane (1941)\t4.388888888888889\nUniversal Soldier (1992)\t2.512\nRunning Free (2000)\t4.0\nDragonheart (1996)\t3.2254901960784315\nRescuers Down Under, The (1990)\t3.196652719665272\nMan for All Seasons, A (1966)\t4.232876712328767\nAirport (1970)\t3.1452513966480447\nMansfield Park (1999)\t3.882758620689655\nHerbie Goes Bananas (1980)\t2.5384615384615383\nSommersby (1993)\t3.2577319587628866\nStory of Us, The (1999)\t2.817857142857143\nBitter Sugar (Azucar Amargo) (1996)\t3.272727272727273\nMeteor (1979)\t2.366412213740458\n8 Heads in a Duffel Bag (1997)\t2.317241379310345\nBreakdown (1997)\t3.42090395480226\nTrixie (1999)\t2.5833333333333335\nShe\u0027s All That (1999)\t3.051219512195122\nCarriers Are Waiting, The (Les Convoyeurs Attendent) (1999)\t1.6666666666666667\nBeyond the Mat (2000)\t3.529850746268657\nYoung Guns II (1990)\t2.907859078590786\nI Am Cuba (Soy Cuba/Ya Kuba) (1964)\t4.8\nAiqing wansui (1994)\t3.0\nDifferent for Girls (1996)\t3.7\nBlack Tar Heroin: The Dark End of the Street (1999)\t3.5\nSingle Girl, A (La Fille Seule) (1995)\t3.411764705882353\nSmall Time Crooks (2000)\t3.3712737127371275\nGirl on the Bridge, The (La Fille sur le Pont) (1999)\t3.757142857142857\nPredator (1987)\t3.653816499614495\nVirus (1999)\t2.3492063492063493\nDangerous Ground (1997)\t2.75\nMy Cousin Vinny (1992)\t3.7845303867403315\nMalcolm X (1992)\t3.903157894736842\nDrop Dead Fred (1991)\t2.3722397476340693\nBlue Streak (1999)\t3.2578125\nThree Ages, The (1923)\t3.4444444444444446\nBig Squeeze, The (1996)\t1.8571428571428572\nWalking Dead, The (1995)\t2.6842105263157894\nNick of Time (1995)\t3.074235807860262\nCarmen (1984)\t4.166666666666667\nStriptease (1996)\t2.184563758389262\nMad Max (1979)\t3.6641651031894935\nReindeer Games (2000)\t2.7681660899653977\nCrumb (1994)\t4.063136456211812\n13th Warrior, The (1999)\t3.1586666666666665\nLady Eve, The (1941)\t4.1931034482758625\nTwo Thousand Maniacs! (1964)\t3.2666666666666666\nSuburbans, The (1999)\t1.6666666666666667\nTaming of the Shrew, The (1967)\t3.762589928057554\nThat Old Feeling (1997)\t3.0294117647058822\nNet, The (1995)\t2.869947275922671\nRandom Hearts (1999)\t2.328\nSupernova (2000)\t2.1490683229813663\nSubstitute, The (1996)\t2.645390070921986\nMirror Has Two Faces, The (1996)\t3.0851063829787235\nLove Is the Devil (1998)\t3.5714285714285716\nIndochine (1992)\t3.78125\nMod Squad, The (1999)\t2.107476635514019\nBad Company (1995)\t2.9\nVolunteers (1985)\t2.5531914893617023\nAmityville Curse, The (1990)\t1.84\nFools Rush In (1997)\t3.1090225563909772\nGlass Bottom Boat, The (1966)\t3.2653061224489797\nJust Cause (1995)\t3.2280701754385963\nBoomerang (1992)\t2.768041237113402\nDouble Happiness (1994)\t3.838709677419355\nIlluminata (1998)\t3.08\nTigger Movie, The (2000)\t2.7286821705426356\nSaving Private Ryan (1998)\t4.337353938937053\nFor Richer or Poorer (1997)\t2.935483870967742\nJesus\u0027 Son (1999)\t3.75\nFull Monty, The (1997)\t3.872393661384487\nForrest Gump (1994)\t4.087967183226983\nSix-String Samurai (1998)\t3.3661971830985915\nPersuasion (1995)\t4.055865921787709\nOffice Space (1999)\t3.8211009174311927\nStar Trek III: The Search for Spock (1984)\t3.353829557713053\nColdblooded (1995)\t3.6666666666666665\nAngus (1995)\t3.3241379310344827\nMy Life in Pink (Ma vie en rose) (1997)\t3.825870646766169\nNapoleon and Samantha (1972)\t3.0\nKing and I, The (1956)\t3.954301075268817\nToxic Avenger Part III: The Last Temptation of Toxie, The (1989)\t1.8113207547169812\nBeach, The (2000)\t2.702127659574468\nSeventh Seal, The (Sjunde inseglet, Det) (1957)\t4.230769230769231\nRoseanna\u0027s Grave (For Roseanna) (1997)\t3.8333333333333335\nViolets Are Blue... (1986)\t2.8\nSchool of Flesh, The (L\u0027 �cole de la chair) (1998)\t2.7777777777777777\nTigrero: A Film That Was Never Made (1994)\t3.5\nNelly \u0026 Monsieur Arnaud (1995)\t3.6\nPolish Wedding (1998)\t2.6769230769230767\nIn the Bleak Midwinter (1995)\t3.923076923076923\nDeliverance (1972)\t3.9410150891632374\nLethal Weapon 2 (1989)\t3.5450049455984174\nRounders (1998)\t3.608695652173913\nSimple Plan, A (1998)\t3.751677852348993\nKilling, The (1956)\t4.1692307692307695\nNutty Professor II: The Klumps (2000)\t2.6411290322580645\nDigging to China (1998)\t1.6\nAlien Nation (1988)\t3.2242063492063493\nWild Wild West (1999)\t2.158536585365854\nGreat Muppet Caper, The (1981)\t3.7374301675977653\nAdventures of Pinocchio, The (1996)\t2.9074074074074074\nGods Must Be Crazy, The (1980)\t3.726618705035971\nSwiss Family Robinson (1960)\t3.5869565217391304\nRambo: First Blood Part II (1985)\t2.825436408977556\nTowering Inferno, The (1974)\t3.018796992481203\nHunted, The (1995)\t3.2777777777777777\nSlam (1998)\t3.48\nPie in the Sky (1995)\t3.3076923076923075\nDouble Indemnity (1944)\t4.415607985480944\nPhantom, The (1996)\t2.7886178861788617\nGrumpy Old Men (1993)\t3.415327564894932\nLove and Death on Long Island (1997)\t3.4304635761589406\n8 Seconds (1994)\t3.3194444444444446\nLassie (1994)\t2.6551724137931036\nInvasion of the Body Snatchers (1956)\t3.912420382165605\nFunhouse, The (1981)\t2.861111111111111\nAnother Stakeout (1993)\t2.4804469273743015\nMarked for Death (1990)\t2.779527559055118\nTruman Show, The (1998)\t3.861691542288557\nI\u0027ll Never Forget What\u0027s \u0027is Name (1967)\t3.5\nDrop Zone (1994)\t2.6744186046511627\nWillow (1988)\t3.4962593516209477\nCrew, The (2000)\t2.375\nHouse Arrest (1996)\t2.56\nMe, Myself and Irene (2000)\t3.0\nMoney Train (1995)\t2.5375\nHippie Revolution, The (1996)\t2.0\nFive Senses, The (1999)\t3.409090909090909\nSchool Daze (1988)\t2.918918918918919\nKing Kong (1933)\t3.6560846560846563\nBowfinger (1999)\t3.2620320855614975\nSong of Freedom (1936)\t5.0\nDaens (1992)\t4.0\nSphere (1998)\t2.6635859519408505\nAffair to Remember, An (1957)\t3.9523809523809526\nGo Now (1995)\t3.2\nFriday the 13th Part VI: Jason Lives (1986)\t2.1785714285714284\nSeven Years in Tibet (1997)\t3.4281767955801103\nHorseman on the Roof, The (Hussard sur le toit, Le) (1995)\t3.6153846153846154\nApostle, The (1997)\t3.7261146496815285\nGeneral, The (1927)\t4.368932038834951\nTaste of Cherry (1997)\t3.53125\nRage: Carrie 2, The (1999)\t2.2285714285714286\nHenry V (1989)\t4.286384976525822\nHalloween: H20 (1998)\t2.6884422110552766\nIron Giant, The (1999)\t4.0474777448071215\nHard Core Logo (1996)\t3.727272727272727\nManhattan Murder Mystery (1993)\t3.719402985074627\nThat Thing You Do! (1996)\t3.481060606060606\nThey Shoot Horses, Don\u0027t They? (1969)\t3.610738255033557\nWhite Sands (1992)\t3.1325301204819276\nSoul Food (1997)\t3.2823529411764705\nBuffy the Vampire Slayer (1992)\t3.091796875\nAmerican Dream (1990)\t3.7222222222222223\nGabbeh (1996)\t3.142857142857143\nIt\u0027s My Party (1995)\t3.3\nPoseidon Adventure, The (1972)\t3.454983922829582\nLast Resort (1994)\t1.8\nFlatliners (1990)\t3.2542372881355934\nMolly (1999)\t2.1818181818181817\nBig Trouble in Little China (1986)\t3.414383561643836\nHorror Hotel (a.k.a. The City of the Dead) (1960)\t1.75\nBitter Moon (1992)\t3.1739130434782608\nFive Easy Pieces (1970)\t3.9526462395543174\nShadrach (1998)\t3.24\nKundun (1997)\t3.727272727272727\nSeventh Sign, The (1988)\t3.1028571428571428\nForever Young (1992)\t3.20335429769392\nFarmer\u0027s Wife, The (1928)\t3.3333333333333335\n2010 (1984)\t3.4170212765957446\nDaylight (1996)\t2.7058823529411766\nWonderland (1999)\t3.590909090909091\nEmperor and the Assassin, The (Jing ke ci qin wang) (1999)\t3.6363636363636362\nRosetta (1999)\t3.6\nBasketball Diaries, The (1995)\t3.541436464088398\nTwo Much (1996)\t2.111111111111111\nStepmom (1998)\t3.136986301369863\nPrincess Bride, The (1987)\t4.3037100949094045\nTime Code (2000)\t3.377952755905512\nJulien Donkey-Boy (1999)\t3.3333333333333335\nMaverick (1994)\t3.5236907730673317\nShowgirls (1995)\t2.0506912442396312\nHigh Fidelity (2000)\t3.928623452294246\nAnimal House (1978)\t4.053024026512014\nI Confess (1953)\t3.588235294117647\nSwitchblade Sisters (1975)\t2.6785714285714284\nCape Fear (1991)\t3.671033478893741\nMulholland Falls (1996)\t3.0872727272727274\nHello Mary Lou: Prom Night II (1987)\t2.0980392156862746\nWhat\u0027s Eating Gilbert Grape (1993)\t3.8412698412698414\nFog, The (1980)\t2.9235294117647057\nShall We Dance? (Shall We Dansu?) (1996)\t4.137142857142857\nCatwalk (1995)\t2.857142857142857\nDown in the Delta (1998)\t3.6333333333333333\nProphecy, The (1995)\t3.221052631578947\nMan Without a Face, The (1993)\t3.3160377358490565\nFollowing (1998)\t3.793103448275862\nCrimson Pirate, The (1952)\t3.589041095890411\nBats (1999)\t1.835820895522388\nBetter Off Dead... (1985)\t3.9216101694915255\nBilly Madison (1995)\t3.183098591549296\nObject of My Affection, The (1998)\t3.1943127962085307\nNo Small Affair (1984)\t2.9411764705882355\nHilary and Jackie (1998)\t3.825\nMy Blue Heaven (1990)\t3.192468619246862\nPushing Hands (1992)\t3.9130434782608696\nPacific Heights (1990)\t3.2550335570469797\nJoy Luck Club, The (1993)\t3.829113924050633\nManny \u0026 Lo (1996)\t3.6451612903225805\nOperation Condor 2 (Longxiong hudi) (1990)\t3.4583333333333335\nHistory of the World: Part I (1981)\t3.5902964959568733\nOgre, The (Der Unhold) (1996)\t3.25\nCrude Oasis, The (1995)\t2.0\nRe-Animator (1985)\t3.475806451612903\nScream 2 (1997)\t2.975824175824176\nHalloween 5: The Revenge of Michael Myers (1989)\t2.125984251968504\nStarship Troopers (1997)\t3.1332760103181427\nWyatt Earp (1994)\t3.2666666666666666\nZed \u0026 Two Noughts, A (1985)\t3.413793103448276\nBikini Beach (1964)\t2.58974358974359\nTomb of Ligeia, The (1965)\t2.6\nLamerica (1994)\t4.75\nFirst Wives Club, The (1996)\t2.952542372881356\nGlen or Glenda (1953)\t2.849056603773585\nTurbulence (1997)\t2.2941176470588234\nAmerican Pop (1981)\t3.0714285714285716\nG.I. Jane (1997)\t3.0520646319569122\nHour of the Pig, The (1993)\t4.5\nScream 3 (2000)\t2.733102253032929\nRollercoaster (1977)\t2.3095238095238093\nMarty (1955)\t3.975609756097561\nHappy Gilmore (1996)\t3.526392961876833\nWolf Man, The (1941)\t3.7611940298507465\nYou\u0027ve Got Mail (1998)\t3.380668257756563\nJack (1996)\t2.6315789473684212\nStreet Fighter (1994)\t1.8571428571428572\nOdessa File, The (1974)\t3.6666666666666665\nWallace \u0026 Gromit: The Best of Aardman Animation (1996)\t4.426940639269406\nWanted: Dead or Alive (1987)\t3.21875\nAmerican Psycho (2000)\t3.219047619047619\nHamlet (2000)\t3.458100558659218\nStage Fright (1950)\t3.576923076923077\nHerbie Rides Again (1974)\t2.725925925925926\nBrady Bunch Movie, The (1995)\t2.9066985645933014\nSoldier (1998)\t2.9310344827586206\nAbominable Snowman, The (1957)\t2.6666666666666665\nRuby in Paradise (1993)\t3.658119658119658\nThird Miracle, The (1999)\t3.6222222222222222\nRidicule (1996)\t3.8448275862068964\nHarold and Maude (1971)\t4.164992826398852\nAll About Eve (1950)\t4.255583126550868\nRaise the Red Lantern (1991)\t4.1732851985559565\nBlack Sabbath (Tre Volti Della Paura, I) (1963)\t3.2857142857142856\nCocoon (1985)\t3.5377733598409544\nRestoration (1995)\t3.4457831325301207\nBack to the Future Part III (1990)\t3.2421602787456445\nBlow-Out (La Grande Bouffe) (1973)\t3.78\nRetroactive (1997)\t3.1875\nBat Whispers, The (1930)\t2.0\nLife and Times of Hank Greenberg, The (1998)\t3.7037037037037037\nDeath Wish 4: The Crackdown (1987)\t2.1458333333333335\nShadowlands (1993)\t3.835664335664336\nLove! Valour! Compassion! (1997)\t3.4854368932038833\nWirey Spindell (1999)\t1.0\nPriest (1994)\t3.664335664335664\nIt Came from Beneath the Sea (1955)\t3.0754716981132075\nAnna Karenina (1997)\t3.16\nAnna (1996)\t4.0\nThin Man, The (1934)\t4.239726027397261\nSon of the Sheik, The (1926)\t3.5714285714285716\nPink Flamingos (1972)\t3.240506329113924\nMy Own Private Idaho (1991)\t3.3516949152542375\nHercules (1997)\t3.279317697228145\nChasing Amy (1997)\t3.7784679089026914\nPolice Academy 2: Their First Assignment (1985)\t2.3866666666666667\nE.T. the Extra-Terrestrial (1982)\t3.9651828999559275\nWisdom (1986)\t2.795918367346939\nTom \u0026 Viv (1994)\t3.0952380952380953\nFly Away Home (1996)\t3.603448275862069\nRent-A-Cop (1988)\t1.9142857142857144\nTaking of Pelham One Two Three, The (1974)\t3.800724637681159\nMessage to Love: The Isle of Wight Festival (1996)\t4.0\nShadow, The (1994)\t2.7339901477832513\nHoward the Duck (1986)\t2.0990783410138247\nSpy Hard (1996)\t2.5700934579439254\nBarefoot in the Park (1967)\t3.5906735751295336\nEvening Star, The (1996)\t2.8666666666666667\nProm Night IV: Deliver Us From Evil (1992)\t1.6875\nChill Factor (1999)\t2.5357142857142856\nLiving in Oblivion (1995)\t3.9170731707317072\nDangerous Beauty (1998)\t3.65\nWooden Man\u0027s Bride, The (Wu Kui) (1994)\t3.0\nTime to Kill, A (1996)\t3.5901162790697674\nPrick Up Your Ears (1987)\t3.792207792207792\nCasino (1995)\t3.7932551319648096\nFree Willy 2: The Adventure Home (1995)\t2.017699115044248\nI Don\u0027t Want to Talk About It (De eso no se habla) (1993)\t4.0\nWhat Ever Happened to Baby Jane? (1962)\t3.7219730941704037\nTheodore Rex (1995)\t1.6666666666666667\nChamber, The (1996)\t3.08974358974359\nNatural, The (1984)\t3.832116788321168\nReturn of the Pink Panther, The (1974)\t3.779220779220779\nNatural Born Killers (1994)\t3.144285714285714\nWar, The (1994)\t3.2738095238095237\nCarnosaur (1993)\t1.7272727272727273\nIncredible Journey, The (1963)\t3.340659340659341\nPinocchio (1940)\t3.751004016064257\nEyes Wide Shut (1999)\t3.201058201058201\nBatman \u0026 Robin (1997)\t2.257425742574257\nTwin Town (1997)\t2.8181818181818183\nFirm, The (1993)\t3.5473300970873787\nAristocats, The (1970)\t3.352517985611511\nRosemary\u0027s Baby (1968)\t3.818820224719101\nWe\u0027re Back! A Dinosaur\u0027s Story (1993)\t2.5172413793103448\nRed Sonja (1985)\t2.4814814814814814\nDeadtime Stories (1987)\t1.8333333333333333\nCutting Edge, The (1992)\t3.285\nEyes Without a Face (1959)\t3.4\nBlackmail (1929)\t3.090909090909091\nAmerican Tail, An (1986)\t3.4282178217821784\nEddie (1996)\t2.5641025641025643\nShow, The (1995)\t3.0\nThieves (Voleurs, Les) (1996)\t3.5555555555555554\neXistenZ (1999)\t3.2560975609756095\nPortrait of a Lady, The (1996)\t2.7674418604651163\nTales of Terror (1962)\t3.04\nBlack Mask (Hak hap) (1996)\t3.0757575757575757\nTales from the Hood (1995)\t2.7315436241610738\nPolice Academy (1984)\t2.997578692493947\nMan and a Woman, A (Un Homme et une Femme) (1966)\t3.912087912087912\nUlysses (Ulisse) (1954)\t5.0\nFan, The (1996)\t2.5517241379310347\nParty Girl (1995)\t3.238095238095238\nQueen Margot (La Reine Margot) (1994)\t3.813953488372093\nPerils of Pauline, The (1947)\t3.4\nCrocodile Dundee II (1988)\t2.6280193236714977\nHeavy (1995)\t3.27027027027027\nSomething to Sing About (1937)\t1.5\nLast Emperor, The (1987)\t3.9764150943396226\nChopping Mall (a.k.a. Killbots) (1986)\t1.9318181818181819\nWelcome to the Dollhouse (1995)\t3.799163179916318\nIn the Mouth of Madness (1995)\t2.911917098445596\nGiant Gila Monster, The (1959)\t2.037037037037037\nBeyond the Poseidon Adventure (1979)\t1.9411764705882353\nEden (1997)\t2.0\nSafe (1995)\t3.75\nIron Eagle (1986)\t2.5940959409594098\nFierce Creatures (1997)\t3.2916666666666665\nEndless Summer 2, The (1994)\t3.3870967741935485\nSuture (1993)\t3.40625\nSword in the Stone, The (1963)\t3.6109215017064846\nVillage of the Damned (1960)\t3.356164383561644\nHangmen Also Die (1943)\t3.5\nKids (1995)\t3.477272727272727\nSense and Sensibility (1995)\t4.027544910179641\nMidnight Run (1988)\t3.8562091503267975\nVarsity Blues (1999)\t3.0601503759398496\nTales from the Darkside: The Movie (1990)\t2.85\nHigher Learning (1995)\t3.1702127659574466\nNo Looking Back (1998)\t3.0\nRocky V (1990)\t2.102189781021898\n24-hour Woman (1998)\t1.7777777777777777\nProfessional, The (a.k.a. Leon: The Professional) (1994)\t4.106175514626218\nFarinelli: il castrato (1994)\t3.5\nAnd God Created Woman (1988)\t2.375\nWalk in the Clouds, A (1995)\t3.132420091324201\nGreat Expectations (1998)\t3.2015209125475286\nRepulsion (1965)\t3.9855072463768115\nTalented Mr. Ripley, The (1999)\t3.503380916604057\nCabaret Balkan (Bure Baruta) (1998)\t3.5454545454545454\nRapture, The (1991)\t3.3175675675675675\nGreatest Show on Earth, The (1952)\t3.278688524590164\nIn Old California (1942)\t3.076923076923077\nStargate (1994)\t3.490143369175627\nTrue Lies (1994)\t3.6342857142857143\nStreetcar Named Desire, A (1951)\t4.225672877846791\nBullets Over Broadway (1994)\t3.698901098901099\nPrivate School (1983)\t2.5714285714285716\nBicentennial Man (1999)\t2.906005221932115\nLast Days of Disco, The (1998)\t3.311111111111111\nGhostbusters (1984)\t3.9055479138010085\nHoneymoon in Vegas (1992)\t3.2195571955719555\nBest Years of Our Lives, The (1946)\t4.122881355932203\nDinosaur (2000)\t3.217391304347826\nBackdraft (1991)\t3.440736478711162\nMy Science Project (1985)\t3.0105820105820107\nStiff Upper Lips (1998)\t3.230769230769231\nBrother\u0027s Kiss, A (1997)\t2.5\nOutside Ozona (1998)\t4.0\nInstinct (1999)\t3.1353383458646618\nSaint of Fort Washington, The (1993)\t3.1904761904761907\nFootloose (1984)\t3.066666666666667\nBlack Cauldron, The (1985)\t3.165\nGreat Ziegfeld, The (1936)\t3.2777777777777777\nCat on a Hot Tin Roof (1958)\t4.047970479704797\nRushmore (1998)\t3.8409836065573773\nRawhead Rex (1986)\t2.4838709677419355\nGoofy Movie, A (1995)\t2.875\nReplacements, The (2000)\t3.103734439834025\nChildren of the Corn (1984)\t2.4463519313304722\nSmall Wonders (1996)\t3.75\nRed Violin, The (Le Violon rouge) (1998)\t3.9622641509433962\nJuror, The (1996)\t2.6052631578947367\nExit to Eden (1994)\t2.2244897959183674\nSmiling Fish and Goat on Fire (1999)\t3.269230769230769\nChildren of a Lesser God (1986)\t3.8277945619335347\nWhole Nine Yards, The (2000)\t3.3787375415282392\nGoldenEye (1995)\t3.5405405405405403\nBad Lieutenant (1992)\t3.2046783625730995\nIdiots, The (Idioterne) (1998)\t3.3513513513513513\nGlengarry Glen Ross (1992)\t3.8844133099824867\nTough and Deadly (1995)\t2.0\nOther Sister, The (1999)\t3.3435582822085887\nAmityville 1992: It\u0027s About Time (1992)\t1.71875\nGloria (1999)\t2.272727272727273\nSwept from the Sea (1997)\t3.2142857142857144\nTorso (Corpi Presentano Tracce di Violenza Carnale) (1973)\t1.0\nSling Blade (1996)\t4.208156329651657\nFoolish (1999)\t3.0\nFaster Pussycat! Kill! Kill! (1965)\t3.542372881355932\nBlood Beach (1981)\t1.7142857142857142\nApollo 13 (1995)\t4.073541167066347\nRunning Man, The (1987)\t3.1986301369863015\nBackbeat (1993)\t3.525\nGate of Heavenly Peace, The (1995)\t5.0\nTurn It Up (2000)\t1.7142857142857142\nConformist, The (Il Conformista) (1970)\t4.228070175438597\nTen Benny (1997)\t4.0\nHard 8 (a.k.a. Sydney, a.k.a. Hard Eight) (1996)\t3.747311827956989\nBlade (1998)\t3.477132262051916\nLosing Isaiah (1995)\t3.142857142857143\nDamien: Omen II (1978)\t2.993939393939394\nLove and Death (1975)\t4.0228310502283104\nGandhi (1982)\t4.141579731743666\nCountry Life (1994)\t3.0\nHead On (1998)\t3.2857142857142856\nBewegte Mann, Der (1994)\t3.888888888888889\nBedknobs and Broomsticks (1971)\t3.479623824451411\nIron Eagle IV (1995)\t1.603448275862069\nBig Lebowski, The (1998)\t3.7383773928896993\nHurricane Streets (1998)\t2.857142857142857\nMafia! (1998)\t2.449612403100775\nAlien� (1992)\t3.037837837837838\nShallow Grave (1994)\t3.8937728937728937\nTrick or Treat (1986)\t2.625\nLolita (1997)\t3.3438914027149322\nDeath in the Garden (Mort en ce jardin, La) (1956)\t3.25\nBeavis and Butt-head Do America (1996)\t3.04\nTrippin\u0027 (1999)\t2.75\nBean (1997)\t2.685\nLawnmower Man, The (1992)\t2.6601626016260163\nHouse Party 2 (1991)\t1.96875\nDay the Earth Stood Still, The (1951)\t4.141323792486583\n54 (1998)\t2.7644787644787643\nStalingrad (1993)\t3.515151515151515\nEndless Summer, The (1966)\t3.791946308724832\nSurviving the Game (1994)\t2.879032258064516\nStrangeland (1998)\t1.8666666666666667\nRun of the Country, The (1995)\t3.5\nPrivate Benjamin (1980)\t3.189189189189189\nMask, The (1994)\t3.279050042408821\nLong Goodbye, The (1973)\t3.8658536585365852\nVoyage to the Bottom of the Sea (1961)\t3.361111111111111\nUsual Suspects, The (1995)\t4.517106001121705\nX: The Unknown (1956)\t2.8333333333333335\nErin Brockovich (2000)\t3.863878326996198\nPlayer, The (1992)\t3.96319018404908\nStill Crazy (1998)\t3.3333333333333335\nCondorman (1981)\t2.668965517241379\nJack Frost (1998)\t2.234146341463415\nRomper Stomper (1992)\t3.566265060240964\nCaptives (1994)\t3.5\nFor Ever Mozart (1996)\t3.0\nJeremiah Johnson (1972)\t3.7882882882882885\nSecond Best (1994)\t3.5\nWith Byrd at the South Pole (1930)\t2.0\nOld Man and the Sea, The (1958)\t3.7786259541984735\nTruth About Cats \u0026 Dogs, The (1996)\t3.434462444771723\nPelican Brief, The (1993)\t3.2745664739884393\nExperience Preferred... But Not Essential (1982)\t3.5555555555555554\nOne False Move (1991)\t3.9594594594594597\nYoung and Innocent (1937)\t3.3\nClockers (1995)\t3.2844827586206895\nEntrapment (1999)\t3.168597168597169\nKing and I, The (1999)\t2.5925925925925926\nEyes of Laura Mars (1978)\t3.194244604316547\nCup, The (Ph�rpa) (1999)\t3.6666666666666665\nSirens (1994)\t3.077294685990338\nPumpkinhead (1988)\t2.544642857142857\nRobin Hood: Prince of Thieves (1991)\t3.1627906976744184\nGreat Escape, The (1963)\t4.376436781609195\nCharlie, the Lonesome Cougar (1967)\t3.130434782608696\nPompatus of Love, The (1996)\t2.6666666666666665\nStuart Little (1999)\t3.15\nGo West (1925)\t3.7142857142857144\nBatman Forever (1995)\t2.642213642213642\nHouse (1986)\t2.8855421686746987\nSandpiper, The (1965)\t3.242424242424242\nAnne Frank Remembered (1995)\t4.097560975609756\nCity of Industry (1997)\t3.25\nFirestarter (1984)\t2.9812734082397006\nVery Bad Things (1998)\t2.774193548387097\nDeep End of the Ocean, The (1999)\t2.940828402366864\nSuicide Kings (1997)\t3.4131455399061035\nSaragossa Manuscript, The (Rekopis znaleziony w Saragossie) (1965)\t3.272727272727273\nLost in Space (1998)\t2.5847076461769114\nEmerald Forest, The (1985)\t3.5140845070422535\nMurder, My Sweet (1944)\t3.9272727272727272\nPok�mon the Movie 2000 (2000)\t1.62\nCity, The (1998)\t3.5\nStrangers on a Train (1951)\t4.304979253112033\nPlay it to the Bone (1999)\t2.2\nJacob\u0027s Ladder (1990)\t3.578710644677661\nHouseguest (1994)\t2.9130434782608696\nSarafina! (1992)\t3.212121212121212\n8 1/2 (1963)\t4.105263157894737\nWitness (1985)\t3.9961759082217974\nMeet the Parents (2000)\t3.6357308584686776\nGarden of Finzi-Contini, The (Giardino dei Finzi-Contini, Il) (1970)\t4.03\nSanta Fe Trail (1940)\t3.3793103448275863\nHoney, I Shrunk the Kids (1989)\t2.9330143540669855\nBrassed Off (1996)\t3.542016806722689\nGrateful Dead (1995)\t3.0454545454545454\nSteel (1997)\t1.6417910447761195\nDevil\u0027s Own, The (1997)\t2.857638888888889\nSnowriders (1996)\t2.5\nMrs. Doubtfire (1993)\t3.420047732696897\nIlltown (1996)\t4.0\nAlligator (1980)\t2.235294117647059\nThis Is My Father (1998)\t3.6944444444444446\nAll Dogs Go to Heaven (1989)\t2.869767441860465\nTime Tracers (1995)\t1.2857142857142858\nHatchet For the Honeymoon (Rosso Segno Della Follia) (1969)\t1.6666666666666667\nClockwatchers (1997)\t3.402439024390244\nLast Detail, The (1973)\t3.8488372093023258\nShawshank Redemption, The (1994)\t4.554557700942973\nHoop Dreams (1994)\t4.18854748603352\nPrizzi\u0027s Honor (1985)\t3.5926605504587155\nLicence to Kill (1989)\t3.2\nGrand Canyon (1991)\t3.4884393063583814\nLay of the Land, The (1997)\t2.0\nBandits (1997)\t3.7777777777777777\nAlvarez Kelly (1966)\t3.3214285714285716\nMake Mine Music (1946)\t3.25\nKey Largo (1948)\t4.082429501084599\nMrs. Miniver (1942)\t3.8780487804878048\nBreakfast Club, The (1985)\t3.8797920727745288\nFor Love or Money (1993)\t3.2238805970149254\nAmityville 3-D (1983)\t1.372093023255814\nThomas Crown Affair, The (1968)\t3.6\nSoul Man (1986)\t2.4093264248704664\nPicnic (1955)\t3.6790123456790123\nMouth to Mouth (Boca a boca) (1995)\t4.0\nMeet Wally Sparks (1997)\t2.347826086956522\nGrease 2 (1982)\t1.9636963696369636\nCastle, The (1997)\t3.891304347826087\nEnglishman Who Went Up a Hill, But Came Down a Mountain, The (1995)\t3.2714285714285714\nCelluloid Closet, The (1995)\t4.049645390070922\nLittle Princess, The (1939)\t3.675324675324675\nFour Weddings and a Funeral (1994)\t3.7437145174371453\nSupercop (1992)\t3.5128205128205128\nDraughtsman\u0027s Contract, The (1982)\t3.413793103448276\nI.Q. (1994)\t3.2697547683923704\nLadybird Ladybird (1994)\t3.857142857142857\nReturn to Paradise (1998)\t3.5208333333333335\nGhost of Frankenstein, The (1942)\t2.757575757575758\nBedrooms \u0026 Hallways (1998)\t3.380952380952381\nPallbearer, The (1996)\t2.4050632911392404\nFabulous Baker Boys, The (1989)\t3.374301675977654\nGet Carter (2000)\t2.26\nOmega Man, The (1971)\t3.5401785714285716\nScarlet Letter, The (1995)\t2.466666666666667\n101 Dalmatians (1961)\t3.5964601769911506\nShower (Xizhao) (1999)\t3.857142857142857\nGrass Harp, The (1995)\t3.2083333333333335\nStarman (1984)\t3.461271676300578\nAlbino Alligator (1996)\t2.851063829787234\nFriend of the Deceased, A (1997)\t4.0\nMy Best Fiend (Mein liebster Feind) (1999)\t3.914285714285714\nYear of the Horse (1997)\t3.25\nNight Porter, The (Il Portiere di notte) (1974)\t3.5238095238095237\nKika (1993)\t3.5714285714285716\nPractical Magic (1998)\t2.983050847457627\nClay Pigeons (1998)\t3.432\nHome for the Holidays (1995)\t3.404040404040404\nStigmata (1999)\t2.899761336515513\nOperation Dumbo Drop (1995)\t2.276995305164319\nUnderworld (1997)\t1.0\nBless the Child (2000)\t2.6666666666666665\nLeatherface: Texas Chainsaw Massacre III (1990)\t2.096774193548387\nOdd Couple, The (1968)\t4.033419023136247\nTora! Tora! Tora! (1970)\t3.7010309278350517\nJury Duty (1995)\t2.308641975308642\nBeautician and the Beast, The (1997)\t2.4324324324324325\nSecret of NIMH, The (1982)\t3.850948509485095\nDr. No (1962)\t3.874613003095975\nFar Off Place, A (1993)\t3.4545454545454546\nU-571 (2000)\t3.539647577092511\nStrike! (a.k.a. All I Wanna Do, The Hairy Bird) (1998)\t3.25\nRoman Holiday (1953)\t4.216470588235294\nFew Good Men, A (1992)\t3.93119698397738\nMy Boyfriend\u0027s Back (1993)\t2.2162162162162162\nAstronaut\u0027s Wife, The (1999)\t2.442073170731707\nTea with Mussolini (1999)\t3.5901639344262297\nWaking Ned Devine (1998)\t3.879089615931721\n\u003c!--TABLE_COMMENT--\u003e\n\u003cfont color\u003dred\u003eResults are limited by 1000.\u003c/font\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489056577231_-962373554",
+      "id": "20170309-104937_984158880",
+      "dateCreated": "Mar 9, 2017 10:49:37 AM",
+      "dateStarted": "Mar 9, 2017 11:58:59 AM",
+      "dateFinished": "Mar 9, 2017 11:59:00 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect count(*) from(\nselect title,avg(rating) as ar,count(rating) as cr,year \nFROM rating_by_movie\nJOIN movies ON rating_by_movie.mid \u003d movies.movieid\nWHERE year \u003e 1995\nGROUP BY title,year\nHAVING ar \u003d 5\nORDER BY ar DESC)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 12:24:01 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\n2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489055960012_1560571648",
+      "id": "20170309-103920_472466822",
+      "dateCreated": "Mar 9, 2017 10:39:20 AM",
+      "dateStarted": "Mar 9, 2017 12:24:01 PM",
+      "dateFinished": "Mar 9, 2017 12:24:02 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect title,year, avg(rating) as ar,count(rating) as cr \nFROM rating_by_movie\nJOIN movies ON rating_by_movie.mid \u003d movies.movieid\nWHERE rating  \u003d 5\nGROUP BY title,year\nORDER BY ar DESC LIMIT 30",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 12:13:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tyear\tar\tcr\n...And Justice for All (1979)\t1979\t5.0\t38\nMad Max 2 (a.k.a. The Road Warrior) (1981)\t1981\t5.0\t225\nScream 3 (2000)\t2000\t5.0\t30\nFor Richer or Poorer (1997)\t1997\t5.0\t6\nMeatballs (1979)\t1979\t5.0\t37\nYear My Voice Broke, The (1987)\t1987\t5.0\t4\nBabe: Pig in the City (1998)\t1998\t5.0\t97\n8 1/2 Women (1999)\t1999\t5.0\t3\nTo Catch a Thief (1955)\t1955\t5.0\t154\nTigerland (2000)\t2000\t5.0\t12\nAntz (1998)\t1998\t5.0\t83\nLife Less Ordinary, A (1997)\t1997\t5.0\t9\nLittle Shop of Horrors (1986)\t1986\t5.0\t116\nKama Sutra: A Tale of Love (1996)\t1996\t5.0\t9\nPacific Heights (1990)\t1990\t5.0\t21\nGods and Monsters (1998)\t1998\t5.0\t139\nBronco Billy (1980)\t1980\t5.0\t4\nPajama Party (1964)\t1964\t5.0\t2\nSleepy Hollow (1999)\t1999\t5.0\t125\nForeign Student (1994)\t1994\t5.0\t1\nWest Side Story (1961)\t1961\t5.0\t305\nDoctor Zhivago (1965)\t1965\t5.0\t229\nStreet Fighter (1994)\t1994\t5.0\t2\nTerms of Endearment (1983)\t1983\t5.0\t127\nGeneral, The (1927)\t1927\t5.0\t118\nJoe Gould\u0027s Secret (2000)\t2000\t5.0\t4\nHappiness (1998)\t1998\t5.0\t117\nPretty Woman (1990)\t1990\t5.0\t224\nBroken English (1996)\t1996\t5.0\t1\nOutlaw Josey Wales, The (1976)\t1976\t5.0\t123\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489056266989_1260697368",
+      "id": "20170309-104426_48448258",
+      "dateCreated": "Mar 9, 2017 10:44:26 AM",
+      "dateStarted": "Mar 9, 2017 12:13:38 PM",
+      "dateFinished": "Mar 9, 2017 12:13:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nSELECT count(*) FROM (\nselect title,avg(rating) as ar,count(rating) as cr,year \nFROM rating_by_movie\nJOIN movies ON rating_by_movie.mid \u003d movies.movieid\nGROUP BY title,year\nHAVING ar \u003d 5\nORDER BY ar DESC LIMIT 30)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 12:26:30 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\n10\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489056311383_1452915287",
+      "id": "20170309-104511_624302857",
+      "dateCreated": "Mar 9, 2017 10:45:11 AM",
+      "dateStarted": "Mar 9, 2017 12:26:30 PM",
+      "dateFinished": "Mar 9, 2017 12:26:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect title,year,explode(genres) as genre,rank()\nOVER (PARTITION BY genre ORDER BY year DESC) as rank\nFROM movies\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 10, 2017 1:49:04 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "title\tyear\tgenre\trank\nSomething Wicked This Way Comes (1983)\t1983\tChildren\u0027s,Horror\t1\nWhole Nine Yards, The (2000)\t2000\tCrime\t1\nGone in 60 Seconds (2000)\t2000\tCrime\t1\nChain of Fools (2000)\t2000\tCrime\t1\nWatcher, The (2000)\t2000\tCrime\t1\nUnder Suspicion (2000)\t2000\tCrime\t1\nShaft (2000)\t2000\tCrime\t1\nTurn It Up (2000)\t2000\tCrime\t1\nWay of the Gun, The (2000)\t2000\tCrime\t1\nCorruptor, The (1999)\t1999\tCrime\t9\nGhost Dog: The Way of the Samurai (1999)\t1999\tCrime\t9\nTrue Crime (1999)\t1999\tCrime\t9\nBest Laid Plans (1999)\t1999\tCrime\t9\nJoe the King (1999)\t1999\tCrime\t9\nOpportunists, The (1999)\t1999\tCrime\t9\nMod Squad, The (1999)\t1999\tCrime\t9\nEntrapment (1999)\t1999\tCrime\t9\nLimey, The (1999)\t1999\tCrime\t9\nGo (1999)\t1999\tCrime\t9\nYards, The (1999)\t1999\tCrime\t9\nGoodbye, Lover (1999)\t1999\tCrime\t9\nNewton Boys, The (1998)\t1998\tCrime\t21\nSnake Eyes (1998)\t1998\tCrime\t21\nRonin (1998)\t1998\tCrime\t21\nPhoenix (1998)\t1998\tCrime\t21\nCaught Up (1998)\t1998\tCrime\t21\nVery Bad Things (1998)\t1998\tCrime\t21\nRounders (1998)\t1998\tCrime\t21\nSimple Plan, A (1998)\t1998\tCrime\t21\nCroupier (1998)\t1998\tCrime\t21\nGeneral, The (1998)\t1998\tCrime\t21\nLethal Weapon 4 (1998)\t1998\tCrime\t21\nRun Lola Run (Lola rennt) (1998)\t1998\tCrime\t21\nTwilight (1998)\t1998\tCrime\t21\nBig Lebowski, The (1998)\t1998\tCrime\t21\nPsycho (1998)\t1998\tCrime\t21\nMontana (1998)\t1998\tCrime\t21\nMonument Ave. (1998)\t1998\tCrime\t21\nOut of Sight (1998)\t1998\tCrime\t21\nBelly (1998)\t1998\tCrime\t21\nMafia! (1998)\t1998\tCrime\t21\nLetter From Death Row, A (1998)\t1998\tCrime\t21\nClay Pigeons (1998)\t1998\tCrime\t21\nWild Things (1998)\t1998\tCrime\t21\nDesperate Measures (1998)\t1998\tCrime\t21\nLock, Stock \u0026 Two Smoking Barrels (1998)\t1998\tCrime\t21\nGridlock\u0027d (1997)\t1997\tCrime\t46\nDeceiver (1997)\t1997\tCrime\t46\nHoodlum (1997)\t1997\tCrime\t46\nDonnie Brasco (1997)\t1997\tCrime\t46\nPlaying God (1997)\t1997\tCrime\t46\nCity of Industry (1997)\t1997\tCrime\t46\nI Went Down (1997)\t1997\tCrime\t46\nBest Men (1997)\t1997\tCrime\t46\nCop Land (1997)\t1997\tCrime\t46\nRed Corner (1997)\t1997\tCrime\t46\nGrosse Pointe Blank (1997)\t1997\tCrime\t46\nSuicide Kings (1997)\t1997\tCrime\t46\nU Turn (1997)\t1997\tCrime\t46\nKeys to Tulsa (1997)\t1997\tCrime\t46\nL.A. Confidential (1997)\t1997\tCrime\t46\nJackie Brown (1997)\t1997\tCrime\t46\nDevil\u0027s Advocate, The (1997)\t1997\tCrime\t46\nGang Related (1997)\t1997\tCrime\t46\nBatman \u0026 Robin (1997)\t1997\tCrime\t46\nIncognito (1997)\t1997\tCrime\t46\nMidnight in the Garden of Good and Evil (1997)\t1997\tCrime\t46\nKiss the Girls (1997)\t1997\tCrime\t46\nTwin Town (1997)\t1997\tCrime\t46\nNight Falls on Manhattan (1997)\t1997\tCrime\t46\nTruth or Consequences, N.M. (1997)\t1997\tCrime\t46\nHana-bi (1997)\t1997\tCrime\t46\nFargo (1996)\t1996\tCrime\t72\nHard 8 (a.k.a. Sydney, a.k.a. Hard Eight) (1996)\t1996\tCrime\t72\nFreeway (1996)\t1996\tCrime\t72\nMURDER and murder (1996)\t1996\tCrime\t72\nNew York Cop (1996)\t1996\tCrime\t72\nNormal Life (1996)\t1996\tCrime\t72\nMad Dog Time (1996)\t1996\tCrime\t72\n2 Days in the Valley (1996)\t1996\tCrime\t72\nHenry: Portrait of a Serial Killer, Part 2 (1996)\t1996\tCrime\t72\nStriptease (1996)\t1996\tCrime\t72\nThieves (Voleurs, Les) (1996)\t1996\tCrime\t72\nCurdled (1996)\t1996\tCrime\t72\nFrom Dusk Till Dawn (1996)\t1996\tCrime\t72\nCarpool (1996)\t1996\tCrime\t72\nThis World, Then the Fireworks (1996)\t1996\tCrime\t72\nMulholland Falls (1996)\t1996\tCrime\t72\nSleepers (1996)\t1996\tCrime\t72\nIlltown (1996)\t1996\tCrime\t72\nAlbino Alligator (1996)\t1996\tCrime\t72\nKansas City (1996)\t1996\tCrime\t72\nOriginal Gangstas (1996)\t1996\tCrime\t72\nBound (1996)\t1996\tCrime\t72\nSet It Off (1996)\t1996\tCrime\t72\nDead Presidents (1995)\t1995\tCrime\t95\nBatman Forever (1995)\t1995\tCrime\t95\nUsual Suspects, The (1995)\t1995\tCrime\t95\nKiss of Death (1995)\t1995\tCrime\t95\nCopycat (1995)\t1995\tCrime\t95\nRumble in the Bronx (1995)\t1995\tCrime\t95\nKiller: A Journal of Murder (1995)\t1995\tCrime\t95\nSeven (Se7en) (1995)\t1995\tCrime\t95\nTwo Crimes (1995)\t1995\tCrime\t95\nCyclo (1995)\t1995\tCrime\t95\nDevil in a Blue Dress (1995)\t1995\tCrime\t95\nThings to Do in Denver when You\u0027re Dead (1995)\t1995\tCrime\t95\nInnocent Sleep, The (1995)\t1995\tCrime\t95\nNew Jersey Drive (1995)\t1995\tCrime\t95\nYoung Poisoner\u0027s Handbook, The (1995)\t1995\tCrime\t95\nStrange Days (1995)\t1995\tCrime\t95\nHeat (1995)\t1995\tCrime\t95\nHackers (1995)\t1995\tCrime\t95\nGlass Shield, The (1994)\t1994\tCrime\t113\nAmateur (1994)\t1994\tCrime\t113\nOnce Were Warriors (1994)\t1994\tCrime\t113\nBig Bang Theory, The (1994)\t1994\tCrime\t113\nJason\u0027s Lyric (1994)\t1994\tCrime\t113\nProfessional, The (a.k.a. Leon: The Professional) (1994)\t1994\tCrime\t113\nPulp Fiction (1994)\t1994\tCrime\t113\nSerial Mom (1994)\t1994\tCrime\t113\nMask, The (1994)\t1994\tCrime\t113\nGuilty as Sin (1993)\t1993\tCrime\t122\nTrue Romance (1993)\t1993\tCrime\t122\nCliffhanger (1993)\t1993\tCrime\t122\nCarlito\u0027s Way (1993)\t1993\tCrime\t122\nBlood In, Blood Out (a.k.a. Bound by Honor) (1993)\t1993\tCrime\t122\nRomeo Is Bleeding (1993)\t1993\tCrime\t122\nHard Target (1993)\t1993\tCrime\t122\nMenace II Society (1993)\t1993\tCrime\t122\nBad Lieutenant (1992)\t1992\tCrime\t130\nHard-Boiled (Lashou shentan) (1992)\t1992\tCrime\t130\nReservoir Dogs (1992)\t1992\tCrime\t130\nLethal Weapon 3 (1992)\t1992\tCrime\t130\nBatman Returns (1992)\t1992\tCrime\t130\nSister Act (1992)\t1992\tCrime\t130\nSneakers (1992)\t1992\tCrime\t130\nF/X 2 (1992)\t1992\tCrime\t130\nMan Bites Dog (C\u0027est arriv� pr�s de chez vous) (1992)\t1992\tCrime\t130\nFew Good Men, A (1992)\t1992\tCrime\t130\nGrand Canyon (1991)\t1991\tCrime\t140\nGodfather: Part III, The (1990)\t1990\tCrime\t141\nRobocop 2 (1990)\t1990\tCrime\t141\nHenry: Portrait of a Serial Killer (1990)\t1990\tCrime\t141\nGoodFellas (1990)\t1990\tCrime\t141\nDick Tracy (1990)\t1990\tCrime\t141\nKing of New York (1990)\t1990\tCrime\t141\nGrifters, The (1990)\t1990\tCrime\t141\nLethal Weapon 2 (1989)\t1989\tCrime\t148\nBatman (1989)\t1989\tCrime\t148\nMystery Train (1989)\t1989\tCrime\t148\nDrugstore Cowboy (1989)\t1989\tCrime\t148\nMidnight Run (1988)\t1988\tCrime\t152\nAlien Nation (1988)\t1988\tCrime\t152\nFatal Beauty (1987)\t1987\tCrime\t154\nLethal Weapon (1987)\t1987\tCrime\t154\nRobocop (1987)\t1987\tCrime\t154\nSomeone to Watch Over Me (1987)\t1987\tCrime\t154\nUntouchables, The (1987)\t1987\tCrime\t154\nArmed and Dangerous (1986)\t1986\tCrime\t159\nF/X (1986)\t1986\tCrime\t159\nWisdom (1986)\t1986\tCrime\t159\nOnce Upon a Time in America (1984)\t1984\tCrime\t162\nDreamscape (1984)\t1984\tCrime\t162\nDead Men Don\u0027t Wear Plaid (1982)\t1982\tCrime\t164\nClean Slate (Coup de Torchon) (1981)\t1981\tCrime\t165\nPostman Always Rings Twice, The (1981)\t1981\tCrime\t165\nBody Heat (1981)\t1981\tCrime\t165\nAtlantic City (1980)\t1980\tCrime\t168\nBlue Collar (1978)\t1978\tCrime\t169\nDog Day Afternoon (1975)\t1975\tCrime\t170\nSwitchblade Sisters (1975)\t1975\tCrime\t170\nGodfather: Part II, The (1974)\t1974\tCrime\t172\nShaft in Africa (1973)\t1973\tCrime\t173\nBadlands (1973)\t1973\tCrime\t173\nSerpico (1973)\t1973\tCrime\t173\nSting, The (1973)\t1973\tCrime\t173\nDetroit 9000 (1973)\t1973\tCrime\t173\nLong Goodbye, The (1973)\t1973\tCrime\t173\nShaft\u0027s Big Score! (1972)\t1972\tCrime\t179\nKing of Marvin Gardens, The (1972)\t1972\tCrime\t179\nGodfather, The (1972)\t1972\tCrime\t179\nFrench Connection, The (1971)\t1971\tCrime\t182\nShaft (1971)\t1971\tCrime\t182\nNight Visitor, The (1970)\t1970\tCrime\t184\nSomething for Everyone (1970)\t1970\tCrime\t184\nWhatever Happened to Aunt Alice? (1969)\t1969\tCrime\t186\nThomas Crown Affair, The (1968)\t1968\tCrime\t187\nCoogan\u0027s Bluff (1968)\t1968\tCrime\t187\nBonnie and Clyde (1967)\t1967\tCrime\t189\nAny Number Can Win (M�lodie en sous-sol ) (1963)\t1963\tCrime\t190\nPurple Noon (1960)\t1960\tCrime\t191\nSome Like It Hot (1959)\t1959\tCrime\t192\nTouch of Evil (1958)\t1958\tCrime\t193\nKilling, The (1956)\t1956\tCrime\t194\nJail Bait (1954)\t1954\tCrime\t195\nOn the Waterfront (1954)\t1954\tCrime\t195\nAnother Man\u0027s Poison (1952)\t1952\tCrime\t197\nAsphalt Jungle, The (1950)\t1950\tCrime\t198\nImpact (1949)\t1949\tCrime\t199\nKey Largo (1948)\t1948\tCrime\t200\nHe Walked by Night (1948)\t1948\tCrime\t200\nLured (1947)\t1947\tCrime\t202\nCrossfire (1947)\t1947\tCrime\t202\nAngel on My Shoulder (1946)\t1946\tCrime\t204\nLaura (1944)\t1944\tCrime\t205\nDouble Indemnity (1944)\t1944\tCrime\t205\nThey Made Me a Criminal (1939)\t1939\tCrime\t207\nYoung and Innocent (1937)\t1937\tCrime\t208\nM (1931)\t1931\tCrime\t209\nBat Whispers, The (1930)\t1930\tCrime\t210\nBells, The (1926)\t1926\tCrime\t211\nWisdom of Crocodiles, The (a.k.a. Immortality) (2000)\t2000\tRomance\t1\nLove and Basketball (2000)\t2000\tRomance\t1\nWhatever It Takes (2000)\t2000\tRomance\t1\nLove\u0027s Labour\u0027s Lost (2000)\t2000\tRomance\t1\nSkipped Parts (2000)\t2000\tRomance\t1\nMad About Mambo (2000)\t2000\tRomance\t1\nReturn to Me (2000)\t2000\tRomance\t1\nBoys and Girls (2000)\t2000\tRomance\t1\nWoman on Top (2000)\t2000\tRomance\t1\nLoser (2000)\t2000\tRomance\t1\nCloser You Get, The (2000)\t2000\tRomance\t1\nDown to You (2000)\t2000\tRomance\t1\nKeeping the Faith (2000)\t2000\tRomance\t1\nLove \u0026 Sex (2000)\t2000\tRomance\t1\nAutumn in New York (2000)\t2000\tRomance\t1\nHere on Earth (2000)\t2000\tRomance\t1\nRomeo Must Die (2000)\t2000\tRomance\t1\nCriminal Lovers (Les Amants Criminels) (1999)\t1999\tRomance\t18\nMessage in a Bottle (1999)\t1999\tRomance\t18\nRide with the Devil (1999)\t1999\tRomance\t18\nShe\u0027s All That (1999)\t1999\tRomance\t18\nBachelor, The (1999)\t1999\tRomance\t18\nBetter Than Chocolate (1999)\t1999\tRomance\t18\nAim�e \u0026 Jaguar (1999)\t1999\tRomance\t18\nMatch, The (1999)\t1999\tRomance\t18\nTrick (1999)\t1999\tRomance\t18\nOffice Space (1999)\t1999\tRomance\t18\nNever Been Kissed (1999)\t1999\tRomance\t18\nRandom Hearts (1999)\t1999\tRomance\t18\nFriends \u0026 Lovers (1999)\t1999\tRomance\t18\nSimply Irresistible (1999)\t1999\tRomance\t18\nSleepy Hollow (1999)\t1999\tRomance\t18\nDrive Me Crazy (1999)\t1999\tRomance\t18\nOther Sister, The (1999)\t1999\tRomance\t18\nFinding North (1999)\t1999\tRomance\t18\nNotting Hill (1999)\t1999\tRomance\t18\nPassion of Mind (1999)\t1999\tRomance\t18\nThree to Tango (1999)\t1999\tRomance\t18\nJust the Ticket (1999)\t1999\tRomance\t18\nRunaway Bride (1999)\t1999\tRomance\t18\nGuinevere (1999)\t1999\tRomance\t18\nEast-West (Est-ouest) (1999)\t1999\tRomance\t18\nAnna and the King (1999)\t1999\tRomance\t18\nAffair of Love, An (Une Liaison Pornographique) (1999)\t1999\tRomance\t18\nLove Letter, The (1999)\t1999\tRomance\t18\nWalk on the Moon, A (1999)\t1999\tRomance\t18\nGirl on the Bridge, The (La Fille sur le Pont) (1999)\t1999\tRomance\t18\nMickey Blue Eyes (1999)\t1999\tRomance\t18\nMifune (Mifunes sidste sang) (1999)\t1999\tRomance\t18\nLost \u0026 Found (1999)\t1999\tRomance\t18\nRomance (1999)\t1999\tRomance\t18\nBlast from the Past (1999)\t1999\tRomance\t18\nForces of Nature (1999)\t1999\tRomance\t18\n10 Things I Hate About You (1999)\t1999\tRomance\t18\nDance with Me (1998)\t1998\tRomance\t55\nWoo (1998)\t1998\tRomance\t55\nTwice Upon a Yesterday (1998)\t1998\tRomance\t55\nBlack Cat, White Cat (Crna macka, beli macor) (1998)\t1998\tRomance\t55\nLiving Out Loud (1998)\t1998\tRomance\t55\nTheory of Flight, The (1998)\t1998\tRomance\t55\nMeet Joe Black (1998)\t1998\tRomance\t55\nMusic From Another Room (1998)\t1998\tRomance\t55\nPlaying by Heart (1998)\t1998\tRomance\t55\nShakespeare in Love (1998)\t1998\tRomance\t55\nEver After: A Cinderella Story (1998)\t1998\tRomance\t55\nTelling You (1998)\t1998\tRomance\t55\nHome Fries (1998)\t1998\tRomance\t55\nHow Stella Got Her Groove Back (1998)\t1998\tRomance\t55\nAutumn Tale, An (Conte d\u0027automne) (1998)\t1998\tRomance\t55\nLovers of the Arctic Circle, The (Los Amantes del C�rculo Polar) (1998)\t1998\tRomance\t55\nMy Name Is Joe (1998)\t1998\tRomance\t55\nStill Crazy (1998)\t1998\tRomance\t55\nFree Enterprise (1998)\t1998\tRomance\t55\nNo Looking Back (1998)\t1998\tRomance\t55\nHope Floats (1998)\t1998\tRomance\t55\nYou\u0027ve Got Mail (1998)\t1998\tRomance\t55\nI Love You, Don\u0027t Touch Me! (1998)\t1998\tRomance\t55\nCity of Angels (1998)\t1998\tRomance\t55\nDreaming of Joseph Lees (1998)\t1998\tRomance\t55\nAmong Giants (1998)\t1998\tRomance\t55\nVery Thought of You, The (1998)\t1998\tRomance\t55\nMan in the Iron Mask, The (1998)\t1998\tRomance\t55\nObject of My Affection, The (1998)\t1998\tRomance\t55\nRun Lola Run (Lola rennt) (1998)\t1998\tRomance\t55\nKissing a Fool (1998)\t1998\tRomance\t55\nChambermaid on the Titanic, The (1998)\t1998\tRomance\t55\nB. Monkey (1998)\t1998\tRomance\t55\nLulu on the Bridge (1998)\t1998\tRomance\t55\nCan\u0027t Hardly Wait (1998)\t1998\tRomance\t55\nWedding Singer, The (1998)\t1998\tRomance\t55\nI\u0027ll Be Home For Christmas (1998)\t1998\tRomance\t55\nSliding Doors (1998)\t1998\tRomance\t55\nEdge of Seventeen (1998)\t1998\tRomance\t55\nMy Son the Fanatic (1998)\t1998\tRomance\t55\nSix Days Seven Nights (1998)\t1998\tRomance\t55\nOut of Sight (1998)\t1998\tRomance\t55\nMask of Zorro, The (1998)\t1998\tRomance\t55\nGreat Expectations (1998)\t1998\tRomance\t55\nThis Is My Father (1998)\t1998\tRomance\t55\nGoverness, The (1998)\t1998\tRomance\t55\nReturn to Paradise (1998)\t1998\tRomance\t55\nXiu Xiu: The Sent-Down Girl (Tian yu) (1998)\t1998\tRomance\t55\nHigh Art (1998)\t1998\tRomance\t55\nJeanne and the Perfect Guy (Jeanne et le gar�on formidable) (1998)\t1998\tRomance\t55\nVelocity of Gary, The (1998)\t1998\tRomance\t55\nPractical Magic (1998)\t1998\tRomance\t55\nWhat Dreams May Come (1998)\t1998\tRomance\t55\nLittle City (1998)\t1998\tRomance\t55\nNext Stop, Wonderland (1998)\t1998\tRomance\t55\nDog Park (1998)\t1998\tRomance\t55\nEnnui, L\u0027 (1998)\t1998\tRomance\t55\nBedrooms \u0026 Hallways (1998)\t1998\tRomance\t55\nConspiracy Theory (1997)\t1997\tRomance\t113\nLolita (1997)\t1997\tRomance\t113\nSmile Like Yours, A (1997)\t1997\tRomance\t113\nAddicted to Love (1997)\t1997\tRomance\t113\nTrial and Error (1997)\t1997\tRomance\t113\nLove Jones (1997)\t1997\tRomance\t113\nLeather Jacket Love Story (1997)\t1997\tRomance\t113\nChinese Box (1997)\t1997\tRomance\t113\nPicture Perfect (1997)\t1997\tRomance\t113\nSeventh Heaven (Le Septi�me ciel) (1997)\t1997\tRomance\t113\nLove! Valour! Compassion! (1997)\t1997\tRomance\t113\nSteam: The Turkish Bath (Hamam) (1997)\t1997\tRomance\t113\nThat Old Feeling (1997)\t1997\tRomance\t113\nStill Breathing (1997)\t1997\tRomance\t113\nBeautician and the Beast, The (1997)\t1997\tRomance\t113\nTitanic (1997)\t1997\tRomance\t113\nCommandments (1997)\t1997\tRomance\t113\nMatchMaker, The (1997)\t1997\tRomance\t113\nMrs. Brown (Her Majesty, Mrs. Brown) (1997)\t1997\tRomance\t113\nD�j� Vu (1997)\t1997\tRomance\t113\nAfterglow (1997)\t1997\tRomance\t113\nExcess Baggage (1997)\t1997\tRomance\t113\nSwept from the Sea (1997)\t1997\tRomance\t113\nSpeed 2: Cruise Control (1997)\t1997\tRomance\t113\nOpen Your Eyes (Abre los ojos) (1997)\t1997\tRomance\t113\nMrs. Dalloway (1997)\t1997\tRomance\t113\nLife Less Ordinary, A (1997)\t1997\tRomance\t113\nShe\u0027s So Lovely (1997)\t1997\tRomance\t113\nFall (1997)\t1997\tRomance\t113\nAnna Karenina (1997)\t1997\tRomance\t113\nInventing the Abbotts (1997)\t1997\tRomance\t113\nBilly\u0027s Hollywood Screen Kiss (1997)\t1997\tRomance\t113\nBooty Call (1997)\t1997\tRomance\t113\nFever Pitch (1997)\t1997\tRomance\t113\nMy Best Friend\u0027s Wedding (1997)\t1997\tRomance\t113\nWings of the Dove, The (1997)\t1997\tRomance\t113\nTouch (1997)\t1997\tRomance\t113\nOscar and Lucinda (a.k.a. Oscar \u0026 Lucinda) (1997)\t1997\tRomance\t113\nChasing Amy (1997)\t1997\tRomance\t113\nFools Rush In (1997)\t1997\tRomance\t113\nHugo Pool (1997)\t1997\tRomance\t113\nFirst Love, Last Rites (1997)\t1997\tRomance\t113\nSaint, The (1997)\t1997\tRomance\t113\nRoseanna\u0027s Grave (For Roseanna) (1997)\t1997\tRomance\t113\nLucie Aubrac (1997)\t1997\tRomance\t113\nBliss (1997)\t1997\tRomance\t113\nTomorrow Never Dies (1997)\t1997\tRomance\t113\n\u0027Til There Was You (1997)\t1997\tRomance\t113\nMr. Jealousy (1997)\t1997\tRomance\t113\nTruth or Consequences, N.M. (1997)\t1997\tRomance\t113\nTango Lesson, The (1997)\t1997\tRomance\t113\nShooting Fish (1997)\t1997\tRomance\t113\nIf Lucy Fell (1996)\t1996\tRomance\t165\nBreathing Room (1996)\t1996\tRomance\t165\nCouch in New York, A (1996)\t1996\tRomance\t165\nBeautiful Thing (1996)\t1996\tRomance\t165\nBed of Roses (1996)\t1996\tRomance\t165\nTwelfth Night (1996)\t1996\tRomance\t165\nOne Fine Day (1996)\t1996\tRomance\t165\nEmma (1996)\t1996\tRomance\t165\nJerry Maguire (1996)\t1996\tRomance\t165\nNever Met Picasso (1996)\t1996\tRomance\t165\nEchte Kerle (1996)\t1996\tRomance\t165\nBrassed Off (1996)\t1996\tRomance\t165\nMichael (1996)\t1996\tRomance\t165\nHustler White (1996)\t1996\tRomance\t165\nFeeling Minnesota (1996)\t1996\tRomance\t165\nTwo Much (1996)\t1996\tRomance\t165\nWalking and Talking (1996)\t1996\tRomance\t165\nKissed (1996)\t1996\tRomance\t165\nShine (1996)\t1996\tRomance\t165\nMirror Has Two Faces, The (1996)\t1996\tRomance\t165\nThieves (Voleurs, Les) (1996)\t1996\tRomance\t165\nTwo if by Sea (1996)\t1996\tRomance\t165\nPhenomenon (1996)\t1996\tRomance\t165\nTwister (1996)\t1996\tRomance\t165\nTin Cup (1996)\t1996\tRomance\t165\nIn Love and War (1996)\t1996\tRomance\t165\nShe\u0027s the One (1996)\t1996\tRomance\t165\nKama Sutra: A Tale of Love (1996)\t1996\tRomance\t165\nMrs. Winterbourne (1996)\t1996\tRomance\t165\nWhen the Cats Away (Chacun cherche son chat) (1996)\t1996\tRomance\t165\nCarried Away (1996)\t1996\tRomance\t165\nUnd keiner weint mir nach (1996)\t1996\tRomance\t165\nEveryone Says I Love You (1996)\t1996\tRomance\t165\nJane Eyre (1996)\t1996\tRomance\t165\nEnglish Patient, The (1996)\t1996\tRomance\t165\nLeading Man, The (1996)\t1996\tRomance\t165\nNutty Professor, The (1996)\t1996\tRomance\t165\nTo Gillian on Her 37th Birthday (1996)\t1996\tRomance\t165\nBound (1996)\t1996\tRomance\t165\nLove and Other Catastrophes (1996)\t1996\tRomance\t165\nDream for an Insomniac (1996)\t1996\tRomance\t165\nUp Close and Personal (1996)\t1996\tRomance\t165\nHotel de Love (1996)\t1996\tRomance\t165\nOvernight Delivery (1996)\t1996\tRomance\t165\nWilliam Shakespeare\u0027s Romeo and Juliet (1996)\t1996\tRomance\t165\nTemptress Moon (Feng Yue) (1996)\t1996\tRomance\t165\nTruth About Cats \u0026 Dogs, The (1996)\t1996\tRomance\t165\nI Love You, I Love You Not (1996)\t1996\tRomance\t165\nMadagascar Skin (1995)\t1995\tRomance\t213\nWhen Night Is Falling (1995)\t1995\tRomance\t213\nRough Magic (1995)\t1995\tRomance\t213\nForget Paris (1995)\t1995\tRomance\t213\nFrench Kiss (1995)\t1995\tRomance\t213\nDon Juan DeMarco (1995)\t1995\tRomance\t213\nBefore Sunrise (1995)\t1995\tRomance\t213\nCutthroat Island (1995)\t1995\tRomance\t213\nModern Affair, A (1995)\t1995\tRomance\t213\nWings of Courage (1995)\t1995\tRomance\t213\nPersuasion (1995)\t1995\tRomance\t213\nBridges of Madison County, The (1995)\t1995\tRomance\t213\nIncredibly True Adventure of Two Girls in Love, The (1995)\t1995\tRomance\t213\nHeavy (1995)\t1995\tRomance\t213\nSense and Sensibility (1995)\t1995\tRomance\t213\nCarrington (1995)\t1995\tRomance\t213\nEnglishman Who Went Up a Hill, But Came Down a Mountain, The (1995)\t1995\tRomance\t213\nDesperado (1995)\t1995\tRomance\t213\nCrude Oasis, The (1995)\t1995\tRomance\t213\nRendezvous in Paris (Rendez-vous de Paris, Les) (1995)\t1995\tRomance\t213\nPicture Bride (1995)\t1995\tRomance\t213\nLeaving Las Vegas (1995)\t1995\tRomance\t213\nThings to Do in Denver when You\u0027re Dead (1995)\t1995\tRomance\t213\nMoonlight and Valentino (1995)\t1995\tRomance\t213\nParallel Sons (1995)\t1995\tRomance\t213\nTotal Eclipse (1995)\t1995\tRomance\t213\nPerez Family, The (1995)\t1995\tRomance\t213\nGrumpier Old Men (1995)\t1995\tRomance\t213\nCircle of Friends (1995)\t1995\tRomance\t213\nAmerican President, The (1995)\t1995\tRomance\t213\nSomething to Talk About (1995)\t1995\tRomance\t213\nSabrina (1995)\t1995\tRomance\t213\nPillow Book, The (1995)\t1995\tRomance\t213\nAngels and Insects (1995)\t1995\tRomance\t213\nWalk in the Clouds, A (1995)\t1995\tRomance\t213\nPyromaniac\u0027s Love Story, A (1995)\t1995\tRomance\t213\nRob Roy (1995)\t1995\tRomance\t213\nHow to Make an American Quilt (1995)\t1995\tRomance\t213\nPie in the Sky (1995)\t1995\tRomance\t213\nFrankie Starlight (1995)\t1995\tRomance\t213\nFrench Twist (Gazon maudit) (1995)\t1995\tRomance\t213\nMad Love (1995)\t1995\tRomance\t213\nClueless (1995)\t1995\tRomance\t213\nFirst Knight (1995)\t1995\tRomance\t213\nWhile You Were Sleeping (1995)\t1995\tRomance\t213\nJack and Sarah (1995)\t1995\tRomance\t213\nVampire in Brooklyn (1995)\t1995\tRomance\t213\nSpeed (1994)\t1994\tRomance\t260\nGo Fish (1994)\t1994\tRomance\t260\nIt Could Happen to You (1994)\t1994\tRomance\t260\nQueen Margot (La Reine Margot) (1994)\t1994\tRomance\t260\nColonel Chabert, Le (1994)\t1994\tRomance\t260\nNina Takes a Lover (1994)\t1994\tRomance\t260\nHudsucker Proxy, The (1994)\t1994\tRomance\t260\nI Like It Like That (1994)\t1994\tRomance\t260\nImmortal Beloved (1994)\t1994\tRomance\t260\nForrest Gump (1994)\t1994\tRomance\t260\nTrue Lies (1994)\t1994\tRomance\t260\nChungking Express (1994)\t1994\tRomance\t260\nPostino, Il (The Postman) (1994)\t1994\tRomance\t260\nThreesome (1994)\t1994\tRomance\t260\nMilk Money (1994)\t1994\tRomance\t260\nWhat Happened Was... (1994)\t1994\tRomance\t260\nCountry Life (1994)\t1994\tRomance\t260\nLegends of the Fall (1994)\t1994\tRomance\t260\nBarcelona (1994)\t1994\tRomance\t260\nFor the Moment (1994)\t1994\tRomance\t260\nCrow, The (1994)\t1994\tRomance\t260\nFour Weddings and a Funeral (1994)\t1994\tRomance\t260\nLove Affair (1994)\t1994\tRomance\t260\nBlue Sky (1994)\t1994\tRomance\t260\nCorrina, Corrina (1994)\t1994\tRomance\t260\n1-900 (1994)\t1994\tRomance\t260\nSpeechless (1994)\t1994\tRomance\t260\nProfessional, The (a.k.a. Leon: The Professional) (1994)\t1994\tRomance\t260\nFavor, The (1994)\t1994\tRomance\t260\nOnly You (1994)\t1994\tRomance\t260\nPromise, The (Versprechen, Das) (1994)\t1994\tRomance\t260\nNaked in New York (1994)\t1994\tRomance\t260\nI.Q. (1994)\t1994\tRomance\t260\nHeavenly Creatures (1994)\t1994\tRomance\t260\nMuriel\u0027s Wedding (1994)\t1994\tRomance\t260\nRadioland Murders (1994)\t1994\tRomance\t260\nFarewell My Concubine (1993)\t1993\tRomance\t296\nSleepless in Seattle (1993)\t1993\tRomance\t296\nShadowlands (1993)\t1993\tRomance\t296\nPiano, The (1993)\t1993\tRomance\t296\nTrue Romance (1993)\t1993\tRomance\t296\nMr. Wonderful (1993)\t1993\tRomance\t296\nGroundhog Day (1993)\t1993\tRomance\t296\nDave (1993)\t1993\tRomance\t296\nEven Cowgirls Get the Blues (1993)\t1993\tRomance\t296\nSo I Married an Axe Murderer (1993)\t1993\tRomance\t296\nFlesh and Bone (1993)\t1993\tRomance\t296\nHouse of the Spirits, The (1993)\t1993\tRomance\t296\nMr. Jones (1993)\t1993\tRomance\t296\nBenny \u0026 Joon (1993)\t1993\tRomance\t296\nMuch Ado About Nothing (1993)\t1993\tRomance\t296\nBoxing Helena (1993)\t1993\tRomance\t296\nSommersby (1993)\t1993\tRomance\t296\nForever Young (1992)\t1992\tRomance\t313\nStrictly Ballroom (1992)\t1992\tRomance\t313\nSingles (1992)\t1992\tRomance\t313\nFar and Away (1992)\t1992\tRomance\t313\nBram Stoker\u0027s Dracula (1992)\t1992\tRomance\t313\nMedicine Man (1992)\t1992\tRomance\t313\nLike Water for Chocolate (Como agua para chocolate) (1992)\t1992\tRomance\t313\nHoneymoon in Vegas (1992)\t1992\tRomance\t313\nIndochine (1992)\t1992\tRomance\t313\nCrying Game, The (1992)\t1992\tRomance\t313\nLast of the Mohicans, The (1992)\t1992\tRomance\t313\nBoomerang (1992)\t1992\tRomance\t313\nVermont Is For Lovers (1992)\t1992\tRomance\t313\nBodyguard, The (1992)\t1992\tRomance\t313\nPrince of Tides, The (1991)\t1991\tRomance\t327\nFisher King, The (1991)\t1991\tRomance\t327\nLovers on the Bridge, The (Les Amants du Pont-Neuf) (1991)\t1991\tRomance\t327\nL.A. Story (1991)\t1991\tRomance\t327\nDefending Your Life (1991)\t1991\tRomance\t327\nDead Again (1991)\t1991\tRomance\t327\nDying Young (1991)\t1991\tRomance\t327\nButcher\u0027s Wife, The (1991)\t1991\tRomance\t327\nJungle Fever (1991)\t1991\tRomance\t327\nBird on a Wire (1990)\t1990\tRomance\t336\nPretty Woman (1990)\t1990\tRomance\t336\nCome See the Paradise (1990)\t1990\tRomance\t336\nStanley \u0026 Iris (1990)\t1990\tRomance\t336\nGhost (1990)\t1990\tRomance\t336\nCyrano de Bergerac (1990)\t1990\tRomance\t336\nHot Spot, The (1990)\t1990\tRomance\t336\nEdward Scissorhands (1990)\t1990\tRomance\t336\nDays of Thunder (1990)\t1990\tRomance\t336\nAll the Vermeers in New York (1990)\t1990\tRomance\t336\nFabulous Baker Boys, The (1989)\t1989\tRomance\t346\nWhen Harry Met Sally... (1989)\t1989\tRomance\t346\nSay Anything... (1989)\t1989\tRomance\t346\nBlood and Sand (Sangre y Arena) (1989)\t1989\tRomance\t346\nCinema Paradiso (1988)\t1988\tRomance\t350\nBig Blue, The (Le Grand Bleu) (1988)\t1988\tRomance\t350\nTequila Sunrise (1988)\t1988\tRomance\t350\nDangerous Liaisons (1988)\t1988\tRomance\t350\nAnd God Created Woman (1988)\t1988\tRomance\t350\nAllnighter, The (1987)\t1987\tRomance\t355\nSome Kind of Wonderful (1987)\t1987\tRomance\t355\nPrincess Bride, The (1987)\t1987\tRomance\t355\nWings of Desire (Der Himmel �ber Berlin) (1987)\t1987\tRomance\t355\nDirty Dancing (1987)\t1987\tRomance\t355\nMaurice (1987)\t1987\tRomance\t355\nBlind Date (1987)\t1987\tRomance\t355\nBroadcast News (1987)\t1987\tRomance\t355\nPeggy Sue Got Married (1986)\t1986\tRomance\t363\nTop Gun (1986)\t1986\tRomance\t363\nShe\u0027s Gotta Have It (1986)\t1986\tRomance\t363\nAbout Last Night... (1986)\t1986\tRomance\t363\nPretty in Pink (1986)\t1986\tRomance\t363\nJumpin\u0027 Jack Flash (1986)\t1986\tRomance\t363\nRoom with a View, A (1986)\t1986\tRomance\t363\nViolets Are Blue... (1986)\t1986\tRomance\t363\nWitness (1985)\t1985\tRomance\t371\nLadyhawke (1985)\t1985\tRomance\t371\nPurple Rose of Cairo, The (1985)\t1985\tRomance\t371\nOut of Africa (1985)\t1985\tRomance\t371\nSt. Elmo\u0027s Fire (1985)\t1985\tRomance\t371\nMurphy\u0027s Romance (1985)\t1985\tRomance\t371\nLegend (1985)\t1985\tRomance\t371\nPrizzi\u0027s Honor (1985)\t1985\tRomance\t371\nJewel of the Nile, The (1985)\t1985\tRomance\t371\nDesperately Seeking Susan (1985)\t1985\tRomance\t371\nAgainst All Odds (1984)\t1984\tRomance\t381\nStarman (1984)\t1984\tRomance\t381\nBlame It on Rio (1984)\t1984\tRomance\t381\nRomancing the Stone (1984)\t1984\tRomance\t381\nNo Small Affair (1984)\t1984\tRomance\t381\nSplash (1984)\t1984\tRomance\t381\nStar Wars: Episode VI - Return of the Jedi (1983)\t1983\tRomance\t387\nFlashdance (1983)\t1983\tRomance\t387\nBreathless (1983)\t1983\tRomance\t387\nYear of Living Dangerously (1982)\t1982\tRomance\t390\nGrease 2 (1982)\t1982\tRomance\t390\nArthur (1981)\t1981\tRomance\t392\nExcalibur (1981)\t1981\tRomance\t392\nDiva (1981)\t1981\tRomance\t392\nBronco Billy (1980)\t1980\tRomance\t395\nSomewhere in Time (1980)\t1980\tRomance\t395\nAtlantic City (1980)\t1980\tRomance\t395\nBlue Lagoon, The (1980)\t1980\tRomance\t395\nManhattan (1979)\t1979\tRomance\t399\nMoonraker (1979)\t1979\tRomance\t399\nGrease (1978)\t1978\tRomance\t401\nAnnie Hall (1977)\t1977\tRomance\t402\nGoodbye Girl, The (1977)\t1977\tRomance\t402\nSlipper and the Rose, The (1976)\t1976\tRomance\t404\nShampoo (1975)\t1975\tRomance\t405\nThey Might Be Giants (1971)\t1971\tRomance\t406\nRomeo and Juliet (1968)\t1968\tRomance\t407\nGraduate, The (1967)\t1967\tRomance\t408\nGlass Bottom Boat, The (1966)\t1966\tRomance\t409\nMan and a Woman, A (Un Homme et une Femme) (1966)\t1966\tRomance\t409\nSandpiper, The (1965)\t1965\tRomance\t411\nDoctor Zhivago (1965)\t1965\tRomance\t411\nMy Fair Lady (1964)\t1964\tRomance\t413\nCharade (1963)\t1963\tRomance\t414\nWest Side Story (1961)\t1961\tRomance\t415\nBreakfast at Tiffany\u0027s (1961)\t1961\tRomance\t415\nBig Country, The (1958)\t1958\tRomance\t417\nSouth Pacific (1958)\t1958\tRomance\t417\nBell, Book and Candle (1958)\t1958\tRomance\t417\nLove in the Afternoon (1957)\t1957\tRomance\t420\nAffair to Remember, An (1957)\t1957\tRomance\t420\nPal Joey (1957)\t1957\tRomance\t420\nMarty (1955)\t1955\tRomance\t423\nTo Catch a Thief (1955)\t1955\tRomance\t423\nLove Is a Many-Splendored Thing (1955)\t1955\tRomance\t423\nSabrina (1954)\t1954\tRomance\t426\nFrom Here to Eternity (1953)\t1953\tRomance\t427\nRoman Holiday (1953)\t1953\tRomance\t427\nQuiet Man, The (1952)\t1952\tRomance\t429\nSingin\u0027 in the Rain (1952)\t1952\tRomance\t429\nAmerican in Paris, An (1951)\t1951\tRomance\t431\nAfrican Queen, The (1951)\t1951\tRomance\t431\nPlace in the Sun, A (1951)\t1951\tRomance\t431\nFantastic Night, The (La Nuit Fantastique) (1949)\t1949\tRomance\t434\nGolden Earrings (1947)\t1947\tRomance\t435\nGhost and Mrs. Muir, The (1947)\t1947\tRomance\t435\nNotorious (1946)\t1946\tRomance\t437\nBrief Encounter (1946)\t1946\tRomance\t437\nChildren of Paradise (Les enfants du paradis) (1945)\t1945\tRomance\t439\nSpellbound (1945)\t1945\tRomance\t439\nCasablanca (1942)\t1942\tRomance\t441\nLady Eve, The (1941)\t1941\tRomance\t442\nPenny Serenade (1941)\t1941\tRomance\t442\nShop Around the Corner, The (1940)\t1940\tRomance\t444\nSanta Fe Trail (1940)\t1940\tRomance\t444\nRebecca (1940)\t1940\tRomance\t444\nPhiladelphia Story, The (1940)\t1940\tRomance\t444\nGone with the Wind (1939)\t1939\tRomance\t448\nNinotchka (1939)\t1939\tRomance\t448\nAlgiers (1938)\t1938\tRomance\t450\nLady Vanishes, The (1938)\t1938\tRomance\t450\nDamsel in Distress, A (1937)\t1937\tRomance\t452\nShall We Dance? (1937)\t1937\tRomance\t452\nLove in Bloom (1935)\t1935\tRomance\t454\nTop Hat (1935)\t1935\tRomance\t454\nGay Divorcee, The (1934)\t1934\tRomance\t456\nLiebelei (1933)\t1933\tRomance\t457\nTrouble in Paradise (1932)\t1932\tRomance\t458\nMummy, The (1932)\t1932\tRomance\t458\nFarewell to Arms, A (1932)\t1932\tRomance\t458\nRich and Strange (1932)\t1932\tRomance\t458\nCity Lights (1931)\t1931\tRomance\t462\nWings (1927)\t1927\tRomance\t463\nMy Best Girl (1927)\t1927\tRomance\t463\nBless the Child (2000)\t2000\tThriller\t1\nPsycho Beach Party (2000)\t2000\tThriller\t1\nScream 3 (2000)\t2000\tThriller\t1\nNurse Betty (2000)\t2000\tThriller\t1\nContender, The (2000)\t2000\tThriller\t1\nGet Carter (2000)\t2000\tThriller\t1\nWisdom of Crocodiles, The (a.k.a. Immortality) (2000)\t2000\tThriller\t1\nWatcher, The (2000)\t2000\tThriller\t1\nSkulls, The (2000)\t2000\tThriller\t1\nIn Crowd, The (2000)\t2000\tThriller\t1\nRules of Engagement (2000)\t2000\tThriller\t1\nU-571 (2000)\t2000\tThriller\t1\nMission: Impossible 2 (2000)\t2000\tThriller\t1\nPerfect Storm, The (2000)\t2000\tThriller\t1\nGossip (2000)\t2000\tThriller\t1\nFinal Destination (2000)\t2000\tThriller\t1\nHollow Man (2000)\t2000\tThriller\t1\nNinth Gate, The (2000)\t2000\tThriller\t1\nReindeer Games (2000)\t2000\tThriller\t1\nTrois (2000)\t2000\tThriller\t1\nAmerican Psycho (2000)\t2000\tThriller\t1\nCell, The (2000)\t2000\tThriller\t1\nWay of the Gun, The (2000)\t2000\tThriller\t1\nFrequency (2000)\t2000\tThriller\t1\nWhat Lies Beneath (2000)\t2000\tThriller\t1\nOxygen (1999)\t1999\tThriller\t26\nCorruptor, The (1999)\t1999\tThriller\t26\nEnd of Days (1999)\t1999\tThriller\t26\nInstinct (1999)\t1999\tThriller\t26\nThomas Crown Affair, The (1999)\t1999\tThriller\t26\nDeep Blue Sea (1999)\t1999\tThriller\t26\n8MM (1999)\t1999\tThriller\t26\nIn Dreams (1999)\t1999\tThriller\t26\nGeneral\u0027s Daughter, The (1999)\t1999\tThriller\t26\nBats (1999)\t1999\tThriller\t26\nTrue Crime (1999)\t1999\tThriller\t26\nChill Factor (1999)\t1999\tThriller\t26\nStir of Echoes (1999)\t1999\tThriller\t26\nFelicia\u0027s Journey (1999)\t1999\tThriller\t26\nMatrix, The (1999)\t1999\tThriller\t26\nBone Collector, The (1999)\t1999\tThriller\t26\nTeaching Mrs. Tingle (1999)\t1999\tThriller\t26\nEye of the Beholder (1999)\t1999\tThriller\t26\nWorld Is Not Enough, The (1999)\t1999\tThriller\t26\nPassion of Mind (1999)\t1999\tThriller\t26\nHaunting, The (1999)\t1999\tThriller\t26\nSixth Sense, The (1999)\t1999\tThriller\t26\nGloria (1999)\t1999\tThriller\t26\nArlington Road (1999)\t1999\tThriller\t26\neXistenZ (1999)\t1999\tThriller\t26\nEntrapment (1999)\t1999\tThriller\t26\nMummy, The (1999)\t1999\tThriller\t26\nRetro Puppetmaster (1999)\t1999\tThriller\t26\nIn Too Deep (1999)\t1999\tThriller\t26\nBuddy Boy (1999)\t1999\tThriller\t26\n13th Warrior, The (1999)\t1999\tThriller\t26\nThirteenth Floor, The (1999)\t1999\tThriller\t26\nDouble Jeopardy (1999)\t1999\tThriller\t26\nLake Placid (1999)\t1999\tThriller\t26\nTalented Mr. Ripley, The (1999)\t1999\tThriller\t26\nGreen Mile, The (1999)\t1999\tThriller\t26\nStigmata (1999)\t1999\tThriller\t26\nAstronaut\u0027s Wife, The (1999)\t1999\tThriller\t26\nGoodbye, Lover (1999)\t1999\tThriller\t26\nPayback (1999)\t1999\tThriller\t26\nOutside Ozona (1998)\t1998\tThriller\t66\nHard Rain (1998)\t1998\tThriller\t66\nLast Night (1998)\t1998\tThriller\t66\nCurse of the Puppet Master (1998)\t1998\tThriller\t66\nSnake Eyes (1998)\t1998\tThriller\t66\nGingerbread Man, The (1998)\t1998\tThriller\t66\nRonin (1998)\t1998\tThriller\t66\nLove Walked In (1998)\t1998\tThriller\t66\nSphere (1998)\t1998\tThriller\t66\nShattered Image (1998)\t1998\tThriller\t66\nArmageddon (1998)\t1998\tThriller\t66\nDeep Impact (1998)\t1998\tThriller\t66\nReplacement Killers, The (1998)\t1998\tThriller\t66\nSimple Plan, A (1998)\t1998\tThriller\t66\nTainted (1998)\t1998\tThriller\t66\nNegotiator, The (1998)\t1998\tThriller\t66\nSiege, The (1998)\t1998\tThriller\t66\nI Still Know What You Did Last Summer (1998)\t1998\tThriller\t66\nUrban Legend (1998)\t1998\tThriller\t66\nLost in Space (1998)\t1998\tThriller\t66\nMercury Rising (1998)\t1998\tThriller\t66\nBride of Chucky (1998)\t1998\tThriller\t66\nResurrection Man (1998)\t1998\tThriller\t66\nHeaven (1998)\t1998\tThriller\t66\nFallen (1998)\t1998\tThriller\t66\nPalmetto (1998)\t1998\tThriller\t66\nDisturbing Behavior (1998)\t1998\tThriller\t66\nZero Effect (1998)\t1998\tThriller\t66\nDeterrence (1998)\t1998\tThriller\t66\nB. Monkey (1998)\t1998\tThriller\t66\nBig Lebowski, The (1998)\t1998\tThriller\t66\nFrogs for Snakes (1998)\t1998\tThriller\t66\nDark City (1998)\t1998\tThriller\t66\nPsycho (1998)\t1998\tThriller\t66\nU.S. Marshalls (1998)\t1998\tThriller\t66\nFirestorm (1998)\t1998\tThriller\t66\nPi (1998)\t1998\tThriller\t66\nApt Pupil (1998)\t1998\tThriller\t66\nHomegrown (1998)\t1998\tThriller\t66\nEnemy of the State (1998)\t1998\tThriller\t66\nHalloween: H20 (1998)\t1998\tThriller\t66\nX-Files: Fight the Future, The (1998)\t1998\tThriller\t66\nRush Hour (1998)\t1998\tThriller\t66\nStrangeland (1998)\t1998\tThriller\t66\nWild Things (1998)\t1998\tThriller\t66\nHush (1998)\t1998\tThriller\t66\nDesperate Measures (1998)\t1998\tThriller\t66\nPerfect Murder, A (1998)\t1998\tThriller\t66\nSoldier (1998)\t1998\tThriller\t66\nBlack Dog (1998)\t1998\tThriller\t66\nLock, Stock \u0026 Two Smoking Barrels (1998)\t1998\tThriller\t66\nConspiracy Theory (1997)\t1997\tThriller\t117\nTurbulence (1997)\t1997\tThriller\t117\nUnderworld (1997)\t1997\tThriller\t117\nCube (1997)\t1997\tThriller\t117\nDante\u0027s Peak (1997)\t1997\tThriller\t117\nBreakdown (1997)\t1997\tThriller\t117\nPlaying God (1997)\t1997\tThriller\t117\nJunk Mail (1997)\t1997\tThriller\t117\nAbsolute Power (1997)\t1997\tThriller\t117\nCity of Industry (1997)\t1997\tThriller\t117\nGattaca (1997)\t1997\tThriller\t117\nGame, The (1997)\t1997\tThriller\t117\nPeacemaker, The (1997)\t1997\tThriller\t117\nAir Force One (1997)\t1997\tThriller\t117\nSwitchback (1997)\t1997\tThriller\t117\nOffice Killer (1997)\t1997\tThriller\t117\nLost World: Jurassic Park, The (1997)\t1997\tThriller\t117\nAssignment, The (1997)\t1997\tThriller\t117\nRed Corner (1997)\t1997\tThriller\t117\nStranger in the House (1997)\t1997\tThriller\t117\nUgly, The (1997)\t1997\tThriller\t117\nMurder at 1600 (1997)\t1997\tThriller\t117\nLegal Deceit (1997)\t1997\tThriller\t117\nSpeed 2: Cruise Control (1997)\t1997\tThriller\t117\nFire Down Below (1997)\t1997\tThriller\t117\nL.A. Confidential (1997)\t1997\tThriller\t117\nDevil\u0027s Own, The (1997)\t1997\tThriller\t117\nScream 2 (1997)\t1997\tThriller\t117\nLife Less Ordinary, A (1997)\t1997\tThriller\t117\nFace/Off (1997)\t1997\tThriller\t117\nCon Air (1997)\t1997\tThriller\t117\nDevil\u0027s Advocate, The (1997)\t1997\tThriller\t117\nSpanish Prisoner, The (1997)\t1997\tThriller\t117\nStag (1997)\t1997\tThriller\t117\nWings of the Dove, The (1997)\t1997\tThriller\t117\nMimic (1997)\t1997\tThriller\t117\nHouse of Yes, The (1997)\t1997\tThriller\t117\nIncognito (1997)\t1997\tThriller\t117\nI Know What You Did Last Summer (1997)\t1997\tThriller\t117\nEdge, The (1997)\t1997\tThriller\t117\nEvent Horizon (1997)\t1997\tThriller\t117\nSaint, The (1997)\t1997\tThriller\t117\nKiss the Girls (1997)\t1997\tThriller\t117\nNightwatch (1997)\t1997\tThriller\t117\nVolcano (1997)\t1997\tThriller\t117\nAnaconda (1997)\t1997\tThriller\t117\nTomorrow Never Dies (1997)\t1997\tThriller\t117\nJackal, The (1997)\t1997\tThriller\t117\nRetroactive (1997)\t1997\tThriller\t117\nInsomnia (1997)\t1997\tThriller\t117\nShadow Conspiracy (1997)\t1997\tThriller\t117\nSmilla\u0027s Sense of Snow (1997)\t1997\tThriller\t117\nPoison Ivy: New Seduction (1997)\t1997\tThriller\t117\nEnd of Violence, The (1997)\t1997\tThriller\t117\nSpawn (1997)\t1997\tThriller\t117\nScream (1996)\t1996\tThriller\t172\nRock, The (1996)\t1996\tThriller\t172\nBroken Arrow (1996)\t1996\tThriller\t172\nFargo (1996)\t1996\tThriller\t172\nDiabolique (1996)\t1996\tThriller\t172\nHard 8 (a.k.a. Sydney, a.k.a. Hard Eight) (1996)\t1996\tThriller\t172\nIsland of Dr. Moreau, The (1996)\t1996\tThriller\t172\nDaylight (1996)\t1996\tThriller\t172\nChain Reaction (1996)\t1996\tThriller\t172\nRatchet (1996)\t1996\tThriller\t172\nTrigger Effect, The (1996)\t1996\tThriller\t172\nCaught (1996)\t1996\tThriller\t172\nGlimmer Man, The (1996)\t1996\tThriller\t172\nMary Reilly (1996)\t1996\tThriller\t172\nMaximum Risk (1996)\t1996\tThriller\t172\nLawnmower Man 2: Beyond Cyberspace (1996)\t1996\tThriller\t172\nRansom (1996)\t1996\tThriller\t172\nNot Love, Just Frenzy (M�s que amor, frenes�) (1996)\t1996\tThriller\t172\nExecutive Decision (1996)\t1996\tThriller\t172\nFrom Dusk Till Dawn (1996)\t1996\tThriller\t172\nPrimal Fear (1996)\t1996\tThriller\t172\nTwister (1996)\t1996\tThriller\t172\nSling Blade (1996)\t1996\tThriller\t172\nSolo (1996)\t1996\tThriller\t172\nEraser (1996)\t1996\tThriller\t172\nLong Kiss Goodnight, The (1996)\t1996\tThriller\t172\nMulholland Falls (1996)\t1996\tThriller\t172\nJuror, The (1996)\t1996\tThriller\t172\nCrash (1996)\t1996\tThriller\t172\nThinner (1996)\t1996\tThriller\t172\nArrival, The (1996)\t1996\tThriller\t172\nAlbino Alligator (1996)\t1996\tThriller\t172\nBloody Child, The (1996)\t1996\tThriller\t172\nCity Hall (1996)\t1996\tThriller\t172\nHeaven\u0027s Prisoners (1996)\t1996\tThriller\t172\nEye for an Eye (1996)\t1996\tThriller\t172\nRich Man\u0027s Wife, The (1996)\t1996\tThriller\t172\nBound (1996)\t1996\tThriller\t172\nEscape from L.A. (1996)\t1996\tThriller\t172\nFan, The (1996)\t1996\tThriller\t172\nFear (1996)\t1996\tThriller\t172\nHead Above Water (1996)\t1996\tThriller\t172\nCrow: City of Angels, The (1996)\t1996\tThriller\t172\nExtreme Measures (1996)\t1996\tThriller\t172\nUnforgettable (1996)\t1996\tThriller\t172\nUsual Suspects, The (1995)\t1995\tThriller\t217\nGoldenEye (1995)\t1995\tThriller\t217\nNemesis 2: Nebula (1995)\t1995\tThriller\t217\nBabysitter, The (1995)\t1995\tThriller\t217\nVirtuosity (1995)\t1995\tThriller\t217\nKiss of Death (1995)\t1995\tThriller\t217\nHalloween: The Curse of Michael Myers (1995)\t1995\tThriller\t217\nCopycat (1995)\t1995\tThriller\t217\nJade (1995)\t1995\tThriller\t217\nNet, The (1995)\t1995\tThriller\t217\nLast Supper, The (1995)\t1995\tThriller\t217\nNick of Time (1995)\t1995\tThriller\t217\nTough and Deadly (1995)\t1995\tThriller\t217\nNever Talk to Strangers (1995)\t1995\tThriller\t217\nClose Shave, A (1995)\t1995\tThriller\t217\nFour Rooms (1995)\t1995\tThriller\t217\nSeven (Se7en) (1995)\t1995\tThriller\t217\nMirage (1995)\t1995\tThriller\t217\nOutbreak (1995)\t1995\tThriller\t217\nDesperado (1995)\t1995\tThriller\t217\nDevil in a Blue Dress (1995)\t1995\tThriller\t217\nDie Hard: With a Vengeance (1995)\t1995\tThriller\t217\nIn the Mouth of Madness (1995)\t1995\tThriller\t217\nJohnny Mnemonic (1995)\t1995\tThriller\t217\nScreamers (1995)\t1995\tThriller\t217\nCrimson Tide (1995)\t1995\tThriller\t217\nCasino (1995)\t1995\tThriller\t217\nDay of the Beast, The (El D�a de la bestia) (1995)\t1995\tThriller\t217\nPower 98 (1995)\t1995\tThriller\t217\nTie That Binds, The (1995)\t1995\tThriller\t217\nHideaway (1995)\t1995\tThriller\t217\nSafe (1995)\t1995\tThriller\t217\nDream Man (1995)\t1995\tThriller\t217\nMurder in the First (1995)\t1995\tThriller\t217\nJust Cause (1995)\t1995\tThriller\t217\nCondition Red (1995)\t1995\tThriller\t217\nAssassins (1995)\t1995\tThriller\t217\nTrue Crime (1995)\t1995\tThriller\t217\nPoison Ivy II (1995)\t1995\tThriller\t217\nButterfly Kiss (1995)\t1995\tThriller\t217\nHeat (1995)\t1995\tThriller\t217\nUnderneath, The (1995)\t1995\tThriller\t217\nHackers (1995)\t1995\tThriller\t217\nSpeed (1994)\t1994\tThriller\t260\nDisclosure (1994)\t1994\tThriller\t260\nShopping (1994)\t1994\tThriller\t260\nNatural Born Killers (1994)\t1994\tThriller\t260\nFaust (1994)\t1994\tThriller\t260\nDeath and the Maiden (1994)\t1994\tThriller\t260\nBlown Away (1994)\t1994\tThriller\t260\nMute Witness (1994)\t1994\tThriller\t260\nAmateur (1994)\t1994\tThriller\t260\nPuppet Master 5: The Final Chapter (1994)\t1994\tThriller\t260\nHostile Intentions (1994)\t1994\tThriller\t260\nLove and a .45 (1994)\t1994\tThriller\t260\nKilling Zoe (1994)\t1994\tThriller\t260\nLoaded (1994)\t1994\tThriller\t260\nGuardian Angel (1994)\t1994\tThriller\t260\nKiller (Bulletproof Heart) (1994)\t1994\tThriller\t260\nCrow, The (1994)\t1994\tThriller\t260\nColor of Night (1994)\t1994\tThriller\t260\nI Can\u0027t Sleep (J\u0027ai pas sommeil) (1994)\t1994\tThriller\t260\nClient, The (1994)\t1994\tThriller\t260\nSilent Fall (1994)\t1994\tThriller\t260\nBlink (1994)\t1994\tThriller\t260\nProfessional, The (a.k.a. Leon: The Professional) (1994)\t1994\tThriller\t260\nRiver Wild, The (1994)\t1994\tThriller\t260\nTrial by Jury (1994)\t1994\tThriller\t260\nRelative Fear (1994)\t1994\tThriller\t260\nHeavenly Creatures (1994)\t1994\tThriller\t260\nSurviving the Game (1994)\t1994\tThriller\t260\nShallow Grave (1994)\t1994\tThriller\t260\nClear and Present Danger (1994)\t1994\tThriller\t260\nDolores Claiborne (1994)\t1994\tThriller\t260\nSuture (1993)\t1993\tThriller\t291\nPelican Brief, The (1993)\t1993\tThriller\t291\nGuilty as Sin (1993)\t1993\tThriller\t291\nScorta, La (1993)\t1993\tThriller\t291\nCrush, The (1993)\t1993\tThriller\t291\nSome Folks Call It a Sling Blade (1993)\t1993\tThriller\t291\nAnother Stakeout (1993)\t1993\tThriller\t291\nSo I Married an Axe Murderer (1993)\t1993\tThriller\t291\nKalifornia (1993)\t1993\tThriller\t291\nSliver (1993)\t1993\tThriller\t291\nPuppet Master 4 (1993)\t1993\tThriller\t291\nBody Snatchers (1993)\t1993\tThriller\t291\nSolar Crisis (1993)\t1993\tThriller\t291\nIn the Line of Fire (1993)\t1993\tThriller\t291\nMalice (1993)\t1993\tThriller\t291\nBoxing Helena (1993)\t1993\tThriller\t291\nRomeo Is Bleeding (1993)\t1993\tThriller\t291\nHard Target (1993)\t1993\tThriller\t291\nPublic Access (1993)\t1993\tThriller\t291\nFirm, The (1993)\t1993\tThriller\t291\nRobocop 3 (1993)\t1993\tThriller\t291\nFugitive, The (1993)\t1993\tThriller\t291\nReservoir Dogs (1992)\t1992\tThriller\t313\nRed Rock West (1992)\t1992\tThriller\t313\nWhite Sands (1992)\t1992\tThriller\t313\nMariachi, El (1992)\t1992\tThriller\t313\nLawnmower Man, The (1992)\t1992\tThriller\t313\nPatriot Games (1992)\t1992\tThriller\t313\nJennifer 8 (1992)\t1992\tThriller\t313\nPoison Ivy (1992)\t1992\tThriller\t313\nBasic Instinct (1992)\t1992\tThriller\t313\nSupercop (1992)\t1992\tThriller\t313\nF/X 2 (1992)\t1992\tThriller\t313\nAlien� (1992)\t1992\tThriller\t313\n\u003c!--TABLE_COMMENT--\u003e\n\u003cfont color\u003dred\u003eResults are limited by 1000.\u003c/font\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1489062340836_353603655",
+      "id": "20170309-122540_1885806066",
+      "dateCreated": "Mar 9, 2017 12:25:40 PM",
+      "dateStarted": "Mar 10, 2017 1:49:04 PM",
+      "dateFinished": "Mar 10, 2017 1:49:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 9, 2017 12:32:30 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1489062750496_-469944526",
+      "id": "20170309-123230_1205114351",
+      "dateCreated": "Mar 9, 2017 12:32:30 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "vali",
+  "id": "2CBDCM5YM",
+  "angularObjects": {
+    "2C9Z4C6EP:shared_process": [],
+    "2C9RSW5GV:shared_process": [],
+    "2C9MWXPBF:shared_process": [],
+    "2CBQYXR5S:shared_process": [],
+    "2CBA5SK1K:shared_process": [],
+    "2CCUHC6Z9:shared_process": [],
+    "2CD7GX1QJ:shared_process": [],
+    "2CAVV8M44:shared_process": [],
+    "2CCJDXZW2:shared_process": [],
+    "2CADSBHE6:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
